@@ -1,0 +1,13 @@
+python IMU_Display.py
+Traceback (most recent call last):
+  File "IMU_Display.py", line 10, in <module>
+    import PyQt4.Qwt5 as Qwt
+  File "/Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site-packages/PyQt4/Qwt5/__init__.py", line 32, in <module>
+    from Qwt import *
+ImportError: dlopen(/Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site-packages/PyQt4/Qwt5/Qwt.so, 2): Symbol not found: __ZN10QwtCompass16staticMetaObjectE
+  Referenced from: /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site-packages/PyQt4/Qwt5/Qwt.so
+  Expected in: flat namespace
+ in /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site-packages/PyQt4/Qwt5/Qwt.so
+[Tue Feb 08 20:21:57 kutenai@bondinorthpro:~/proj/BSU/MastersThesis/Software/scripts/IMU_Display ]:
+
+

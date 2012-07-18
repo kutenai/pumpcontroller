@@ -1,0 +1,49 @@
+# installing zipimport hook
+import zipimport # builtin
+# installed zipimport hook
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site.py
+import site # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/site.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/os.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/os.py
+import os # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/os.pyc
+import errno # builtin
+import posix # builtin
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/posixpath.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/posixpath.py
+import posixpath # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/posixpath.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/stat.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/stat.py
+import stat # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/stat.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/genericpath.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/genericpath.py
+import genericpath # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/genericpath.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/warnings.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/warnings.py
+import warnings # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/warnings.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/linecache.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/linecache.py
+import linecache # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/linecache.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/types.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/types.py
+import types # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/types.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/UserDict.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/UserDict.py
+import UserDict # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/UserDict.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/_abcoll.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/_abcoll.py
+import _abcoll # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/_abcoll.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/abc.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/abc.py
+import abc # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/abc.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/copy_reg.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/copy_reg.py
+import copy_reg # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/copy_reg.pyc
+import encodings # directory /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/__init__.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/__init__.py
+import encodings # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/__init__.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/codecs.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/codecs.py
+import codecs # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/codecs.pyc
+import _codecs # builtin
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/aliases.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/aliases.py
+import encodings.aliases # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/aliases.pyc
+# /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/utf_8.pyc matches /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/utf_8.py
+import encodings.utf_8 # precompiled from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/encodings/utf_8.pyc
+Enthought Python Distribution -- http://www.enthought.com
+Version: 6.3-2 (32-bit)
+
+Python 2.6.6 |EPD 6.3-2 (32-bit)| (r266:84292, Sep 23 2010, 11:52:53) 
+[GCC 4.0.1 (Apple Inc. build 5488)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+dlopen("/Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/lib-dynload/readline.so", 2);
+import readline # dynamically loaded from /Library/Frameworks/Python.framework/Versions/6.3/lib/python2.6/lib-dynload/readline.so
+>>> 
+
