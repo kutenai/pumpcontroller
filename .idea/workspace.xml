@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05caa682-40d8-4590-b43e-d3c8001cf1c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/DitchMonitor.py" afterPath="$PROJECT_DIR$/Scripts/DitchMonitor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/IrrigationAPI.py" afterPath="$PROJECT_DIR$/Scripts/IrrigationAPI.py" />
-    </list>
+    <list default="true" id="05caa682-40d8-4590-b43e-d3c8001cf1c3" name="Default" comment="" />
     <ignored path="pumpcontrol.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -106,7 +102,7 @@
           <file leaf-file-name="DitchMonitor.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchMonitor.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="63" column="0" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.4034034">
+                <state line="63" column="0" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.4844845">
                   <folding />
                 </state>
               </provider>
