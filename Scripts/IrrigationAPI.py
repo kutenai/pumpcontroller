@@ -79,27 +79,25 @@ class IrrigationAPI(object):
 
         self.ser.timeout = 0.1
 
-    def getSensorData(self):
+    def getSensorData(self,retries=10):
 
-        retval = self.sendPacket(b'7;\n')
-        if retval:
-            m = re.search("(\d+),(\d+),(\d+);",retval)
-            if m:
-                dt = m.group(1)
-                sensor1 = int(m.group(2))
-                sensor2 = int(m.group(3))
+        while retries:
+            retval = self.sendPacket(b'7;\n')
+            if retval:
+                m = re.search("(\d+),(\d+),(\d+);",retval)
+                if m:
+                    dt = m.group(1)
+                    sensor1 = int(m.group(2))
+                    sensor2 = int(m.group(3))
 
-                data = {
-                    "response": dt,
-                    "sensor1": sensor1,
-                    "sensor2": sensor2
-                }
+                    data = {
+                        "response": dt,
+                        "sensor1": sensor1,
+                        "sensor2": sensor2
+                    }
 
-                return data
-            else:
-                return None
-        else:
-            return None
+                    return data
+            retries -= 1
 
     def pumpEnable(self,bEnable):
 

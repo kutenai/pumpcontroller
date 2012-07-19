@@ -244,6 +244,8 @@ DitchMonitor will exit and restart again in one minute.
                 % (int(ditch), int(sump)))
 
             self.db.insertLogEntry(int(ditch),int(sump),0)
+        else:
+            print("Log failed to get sensor data!!")
 
     def callCheck(self):
         """
