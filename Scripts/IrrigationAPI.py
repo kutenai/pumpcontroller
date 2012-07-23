@@ -79,6 +79,26 @@ class IrrigationAPI(object):
 
         self.ser.timeout = 0.1
 
+    def getSystemStatus(self,retries=10):
+
+        # Expected response example:
+        # D:530 S:529 PC:1 P:1 NC:0 N:0 SC0: S:0 ST:0 STen:0;
+        while retries:
+            retval = self.sendPacket(b'7;\n')
+            if retval:
+                m = re.search("1,\s*(.*)\s*;\s*",retval)
+                if m:
+                    status = m.group(1)
+                    pairs = re.split("\s+",status)
+                    data = {}
+                    for pair in pairs:
+                        key,val = re.split(":",pair)
+                        data[key] = val
+
+                    return data
+            retries -= 1
+
+        return None
     def getSensorData(self,retries=10):
 
         while retries:

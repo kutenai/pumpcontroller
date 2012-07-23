@@ -231,12 +231,12 @@ DitchMonitor will exit and restart again in one minute.
             self.setSouthZone(False)
 
 
-    def logDitchLevels(self):
+    def getSystemStatus(self):
 
-        s = self.api.getSensorData()
+        s = self.api.getSystemStatus()
         if s:
-            ditch = s['sensor1']
-            sump = s['sensor2']
+            ditch = s['Ditch']
+            sump = s['Sump']
 
             self.setLevels(int(ditch),int(sump))
 
@@ -293,7 +293,7 @@ DitchMonitor will exit and restart again in one minute.
         """
 
         self.checkRedis()
-        self.logDitchLevels()
+        self.getSystemStatus()
         self.levelChecks()
         self.callCheck()
 
