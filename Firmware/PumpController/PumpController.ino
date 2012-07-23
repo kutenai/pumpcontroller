@@ -204,7 +204,7 @@ void status_msg() {
   char buf[350] = { '\0' };
   
   // Read sensors.
-  sprintf(buf,"D:%d S:%d PC:%d P:%d NC:%d N:%d SC%d: S:%d ST:%d STen:%d",
+  sprintf(buf,"Ok:Ditch:%d Sump:%d PC:%d P:%d NC:%d N:%d SC:%d S:%d ST:%d STen:%d",
     ditchCurr,
     sumpCurr,
     pumpCall,
