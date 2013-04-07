@@ -163,7 +163,7 @@ void north_msg() {
   // Message data is any ASCII bytes (0-255 value). But can't contain the field
   // separator, command separator chars you decide (eg ',' and ';')
   //setFlash(5);
-  //cmdMessenger.sendCmd(kACK,"valve1 msg received");
+  cmdMessenger.sendCmd(kACK,"north valve msg received");
   while ( cmdMessenger.available() )
   {
     char buf[350] = { '\0' };
@@ -185,7 +185,7 @@ void south_msg() {
   // Message data is any ASCII bytes (0-255 value). But can't contain the field
   // separator, command separator chars you decide (eg ',' and ';')
   //setFlash(4);
-  //cmdMessenger.sendCmd(kACK,"valve2 msg received");
+  cmdMessenger.sendCmd(kACK,"south valve msg received");
   while ( cmdMessenger.available() ) {
     char buf[350] = { '\0' };
     cmdMessenger.copyString(buf, 350);
