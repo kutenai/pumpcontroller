@@ -14,6 +14,8 @@ class IrrigationAPI(object):
         except:
             raise "Could not open serial port!"
 
+        self.setupConnection()
+
     def setupSerial(self,bFast = False):
 
         if bFast:
@@ -36,6 +38,48 @@ class IrrigationAPI(object):
             self.ser = serial.Serial(port,self.baudrate, timeout = 1)
             self.ser.open()
             print("Opened port %s" % port)
+
+    def setupConnection(self):
+        """
+        The Zigbee modules require a connection setup.
+        If I name the nodes, then it is easier.
+
+        For not the Ditch node is named 'DITCH', so I can issue the following
+        command to set the coordinator to talk to the ditch node:
+
+        +++
+        ATDN DITCH
+        ATCN
+
+        That puts the coordinator into command mode, sets the destination node to 'DITCH',
+        and then exits command mode.
+        """
+
+        self.atCommands(['ATDN DITCH'])
+
+    def atCommands(self,cmds):
+        """
+        Enter Command mode with +++
+        Send each of the commands in turn, waiting for an 'Ok' response
+        When done, send the ATCN command to exist command mode.
+        """
+
+        self.ser.write('+++')
+        retval = self.ser.readline()
+        if (retval != 'OK\r'):
+            print ("Could not enter command mode.. sorry Charlie")
+            raise "Failed to enter command mode"
+
+        cmds.append('ATCN')
+        for cmd in cmds:
+            self.ser.write(cmd+'\r')
+            retval = self.ser.readline()
+            if (retval != 'OK\r'):
+                print("Failed sending command %s" % cmd)
+            else:
+                print ("Send command %s" % cmd)
+
+
 
     def sendPacket(self,packet):
         self.ser.write(packet)
@@ -147,3 +191,17 @@ class IrrigationAPI(object):
             return ports[0]
         elif platform.system() == 'Windows':
             return "COM10" # No super good way to determine this..
+
+
+def main():
+
+    api = IrrigationAPI()
+    d = api.getSensorData()
+
+    if d:
+        print ("Data is " + d)
+
+
+
+if __name__ == '__main__':
+    main()

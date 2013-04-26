@@ -1,0 +1,14 @@
+
+
+
+
+
+.build/atmega328/src/PumpController.cpp : src/PumpController.ino
+	@mkdir -p .build/atmega328/src
+	@echo [93msrc/PumpController.ino[0m
+	@/Library/Frameworks/Python.framework/Versions/2.7/bin/ino preproc  -o $@ $^
+
+
+all : .build/atmega328/src/PumpController.cpp
+	@true
+

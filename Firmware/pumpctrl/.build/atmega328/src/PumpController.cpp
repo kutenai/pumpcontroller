@@ -1,7 +1,33 @@
+#include <Arduino.h>
+bool isPumpOn();
+bool isNorthOn();
+bool isSouthOn();
+void setPump(bool bOn);
+void setNorthCall(bool bOn);
+void setNorthValve(bool bOn);
+void setSouthCall(bool bOn);
+void setSouthValve(bool bOn);
+void enablepump_msg();
+void north_msg();
+void south_msg();
+void status_msg();
+void sumptrigger_msg();
+void sumptrigger_en_msg();
+void setAnalogPins_msg();
+void levelChecks();
+void updateValves();
+void readSensors();
+void arduino_ready();
+void unknownCmd();
+void setup();
+void timeout();
+void loop();
+#line 1 "src/PumpController.ino"
 #include <CmdMessenger.h>
 #include <stdio.h>
-#incldue "PumpController.h"
 
+
+//#include <Streaming.h>
 
 // Mustnt conflict / collide with our message payload data. Fine if we use base64 library ^^ above
 char field_separator = ',';
@@ -41,26 +67,29 @@ bool enableSumpTrigger = false;
 // Attach a new CmdMessenger object to the default Serial port
 CmdMessenger cmdMessenger = CmdMessenger(Serial, field_separator, command_separator);
 
-// ------------------ C M D  L I S T I N G ( T X / R X ) ---------------------
+#include "PumpController.h"
 
-// We can define up to a default of 50 cmds total, including both directions (send + recieve)
-// and including also the first 4 default command codes for the generic error handling.
-// If you run out of message slots, then just increase the value of MAXCALLBACKS in CmdMessenger.h
+void enablepump_msg();
+void north_msg();
+void south_msg();
+void status_msg();
+void sumptrigger_msg();
+void sumptrigger_en_msg();
+void setAnalogPins_msg();
 
-// Commands we send from the Arduino to be received on the PC
-enum
+// Commands we send from the PC and want to recieve on the Arduino.
+// We must define a callback function in our Arduino program for each entry in the list below vv.
+// They start at the address kSEND_CMDS_END defined ^^ above as 004
+messengerCallbackFunction messengerCallbacks[] =
 {
-  kCOMM_ERROR    = 000, // Lets Arduino report serial port comm error back to the PC (only works for some comm errors)
-  kACK           = 001, // Arduino acknowledges cmd was received
-  kARDUINO_READY = 002, // After opening the comm port, send this cmd 02 from PC to check arduino is ready
-  kERR           = 003, // Arduino reports badly formatted cmd, or cmd not recognised
-
-  // Now we can define many more 'send' commands, coming from the arduino -> the PC, eg
-  // kICE_CREAM_READY,
-  // kICE_CREAM_PRICE,
-  // For the above commands, we just call cmdMessenger.sendCmd() anywhere we want in our Arduino program.
-
-  kSEND_CMDS_END, // Mustnt delete this line
+  enablepump_msg,            // 004 in this example
+  north_msg,
+  south_msg,
+  status_msg,
+  sumptrigger_msg,
+  sumptrigger_en_msg,
+  setAnalogPins_msg,
+  NULL
 };
 
 bool isPumpOn() {
@@ -348,32 +377,6 @@ void unknownCmd()
 }
 
 // ------------------ S E T U P ----------------------------------------------
-
-// Commands we send from the PC and want to recieve on the Arduino.
-// We must define a callback function in our Arduino program for each entry in the list below vv.
-// They start at the address kSEND_CMDS_END defined ^^ above as 004
-messengerCallbackFunction messengerCallbacks[] =
-{
-  enablepump_msg,            // 004 in this example
-  north_msg,
-  south_msg,
-  status_msg,
-  sumptrigger_msg,
-  sumptrigger_en_msg,
-  setAnalogPins_msg,
-  NULL
-};
-
-void attach_callbacks(messengerCallbackFunction* callbacks)
-{
-  int i = 0;
-  int offset = kSEND_CMDS_END;
-  while(callbacks[i])
-  {
-    cmdMessenger.attach(offset+i, callbacks[i]);
-    i++;
-  }
-}
 
 void setup() {
   // Listen on serial connection for messages from the pc
