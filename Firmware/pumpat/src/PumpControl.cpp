@@ -1,6 +1,9 @@
 #include "Arduino.h"
 #include "PumpControl.h"
 
+/**
+	
+*/
 PumpControl::PumpControl() {
     pumpCall = false;
     northCall = false;
@@ -16,6 +19,20 @@ PumpControl::PumpControl() {
 
     sumpLowTrigger = 0;
     enableSumpTrigger = false;
+    
+    // Configure Pins
+  
+  // Pump and Valve controls
+  // High is off, low is on.
+  digitalWrite(PumpControl::pumpPin,HIGH);
+  pinMode(PumpControl::pumpPin,OUTPUT);
+  
+  digitalWrite(PumpControl::southPin,HIGH);
+  pinMode(PumpControl::southPin,OUTPUT);
+  
+  digitalWrite(PumpControl::northPin,HIGH);
+  pinMode(PumpControl::northPin,OUTPUT);
+    
 }
 
 PumpControl::~PumpControl() {}

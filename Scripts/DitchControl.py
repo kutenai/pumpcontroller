@@ -4,6 +4,7 @@ __author__ = 'kutenai'
 
 
 import argparse
+import time
 from IrrigationAPIAT import IrrigationAPI
 
 class DitchControl(object):
@@ -27,6 +28,11 @@ class DitchControl(object):
     def __init__(self):
         self.hi = True
         self.api = IrrigationAPI()
+        
+def showLevels(api):
+	sensors = api.getSensors()
+	if sensors:
+		print ("Sensor Levels: Ditch:%s Sump%s" % (sensors['ditch'],sensors['sump']))
 
 
 def main():
@@ -48,6 +54,8 @@ def main():
     parser.add_argument('--status', action='store_true',help="Read the status")
 
     parser.add_argument('--levels', action='store_true',help="Read the status")
+
+    parser.add_argument('--loop', action='store_true',help="Read Constantly")
 
     args = parser.parse_args()
 
@@ -81,11 +89,16 @@ def main():
 				print ("%s => %s" % (key,stat[key]))
 
     if args.levels:
-	    sensors = api.getSensors()
-	    if sensors:
-			print ("Sensor Levels:")
-			for key,val in sensors.iteritems():
-				print ("%s => %s" % (key,val))
+    	showLevels(api)
+    	
+    if args.loop and args.levels:
+		while True:
+			try:
+				time.sleep(0.1)
+				showLevels(api)
+			except KeyboardInterrupt:
+				break
+			
 
 
 

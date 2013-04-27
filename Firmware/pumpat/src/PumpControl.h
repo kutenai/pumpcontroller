@@ -8,8 +8,8 @@ public:
     static const int pumpPin = 2;
     // Need to swap these pins
     // The north and south are backwards
-    static const int northPin = 3;
-    static const int southPin = 4;
+    static const int northPin = 4;
+    static const int southPin = 3;
 
     // Analog inputs.
     static const int ditchPin = 2;

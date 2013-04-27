@@ -10,6 +10,13 @@ int statusLed = 13;
 int errorLed = 13;
 int loopCtr = 0;
 
+// Timeout handling
+long oneSecondInterval = 1000;
+long oneSecondCounter = 0;
+int ledCounter = 0;
+
+int counter = 0;
+
 void flashLed(int pin, int times, int wait) {
 
   for (int i = 0; i < times; i++) {
@@ -30,7 +37,21 @@ void setup() {
 
     //Serial.setTimeout(1000);
     cmdProc.setSerial(Serial);
+    
+	pinMode(statusLed,OUTPUT);
 }
+
+void toggleLed()
+{
+  // blink
+  if (ledCounter % 2) {
+    digitalWrite(statusLed, HIGH);
+  } else {
+    digitalWrite(statusLed, LOW);
+  }
+  ledCounter++;
+}  
+
 
 // ------------------ M A I N ( ) --------------------------------------------
 
@@ -42,11 +63,14 @@ void loop()
 
     pctrl.readSensors();
 
-    if (loopCtr % 10 == 0) {
+	if ( millis() - oneSecondCounter > oneSecondInterval) {
+		oneSecondCounter = millis();
+		// Things to do at a one-second interval. 
+		toggleLed();
         pctrl.Loop();
-    }
+	}
 
-    delay(100);
+    delay(1);
 
     loopCtr++;
 
