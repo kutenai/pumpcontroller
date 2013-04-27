@@ -73,17 +73,19 @@ def main():
         print("Pump status %s and %s" % (s['call'],s['actual']))
         bStatus = True
 
-    stat = api.getSystemStatus()
-    if stat and (bStatus or args.status):
-        print ("System Status:")
-        for key in sorted(stat.iterkeys()):
-            print ("%s => %s" % (key,stat[key]))
+    if (bStatus or args.status):
+	    stat = api.getSystemStatus()
+	    if stat:
+			print ("System Status:")
+			for key in sorted(stat.iterkeys()):
+				print ("%s => %s" % (key,stat[key]))
 
-    sensors = api.getSensors()
-    if sensors and args.levels:
-        print ("Sensor Levels:")
-        for key,val in sensors.iteritems():
-            print ("%s => %s" % (key,val))
+    if args.levels:
+	    sensors = api.getSensors()
+	    if sensors:
+			print ("Sensor Levels:")
+			for key,val in sensors.iteritems():
+				print ("%s => %s" % (key,val))
 
 
 

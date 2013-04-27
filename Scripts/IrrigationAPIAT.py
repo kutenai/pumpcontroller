@@ -22,7 +22,7 @@ class IrrigationAPI(object):
         else:
             self.baudrate = 9600
 
-        print("Baud Rate set to %d" % self.baudrate)
+        #print("Baud Rate set to %d" % self.baudrate)
 
         port = self.getPorts()
         if self.ser:
