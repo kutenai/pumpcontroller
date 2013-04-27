@@ -38,21 +38,43 @@ void PumpCmdProcessor::Loop()
                 );
             _pHW->print(buffer);
 
+        } else if (strcmp(pCmd,"levels") == 0) {
+              sprintf(buffer,"Ok:%d %d\n",
+                _pPC->ditchCurr,
+                _pPC->sumpCurr
+                );
+            _pHW->print(buffer);
+
         } else if(strcmp(pCmd,"pump") == 0) {
             int idx = -1;
             if (paramCnt() > 0) {
                 getParam(0,idx);
-                _pPC->setPump(idx == 1);
+                _pPC->setPump(idx != 0);
                 _pHW->print("Ok\n");
             } else {
                 _pHW->print("Fail:pump requires a single param: 1 | 0.\n");
             }
 
+        } else if(strcmp(pCmd,"pump?") == 0) {
+            sprintf(buffer,"Ok:%d %d\n",
+                _pPC->pumpCall,_pPC->isPumpOn()
+                );
+            _pHW->print(buffer);
+        } else if(strcmp(pCmd,"north?") == 0) {
+            sprintf(buffer,"Ok:%d %d\n",
+                _pPC->northCall, _pPC->isNorthOn()
+                );
+            _pHW->print(buffer);
+        } else if(strcmp(pCmd,"south?") == 0) {
+            sprintf(buffer,"Ok:%d %d\n",
+                _pPC->southCall, _pPC->isSouthOn()
+                );
+            _pHW->print(buffer);
         } else if(strcmp(pCmd,"north") == 0) {
             int idx = -1;
             if (paramCnt() > 0) {
                 getParam(0,idx);
-                _pPC->setNorthCall(idx == 1);
+                _pPC->setNorthCall(idx != 0);
                 _pHW->print("Ok\n");
             } else {
                 _pHW->print("Fail:north requires a single param: 1 | 0.\n");
@@ -61,7 +83,7 @@ void PumpCmdProcessor::Loop()
             int idx = -1;
             if (paramCnt() > 0) {
                 getParam(0,idx);
-                _pPC->setSouthCall(idx == 1);
+                _pPC->setSouthCall(idx != 0);
                 _pHW->print("Ok\n");
             } else {
                 _pHW->print("Fail:south requires a single param.: 1 | 0\n");
@@ -79,7 +101,7 @@ void PumpCmdProcessor::Loop()
             int idx = -1;
             if (paramCnt() > 0) {
                 getParam(0,idx);
-                _pPC->setSumpTriggerEnable(idx == 1);
+                _pPC->setSumpTriggerEnable(idx != 0);
                 _pHW->print("Ok\n");
             } else {
                 _pHW->print("Fail:sump_trig_en requires a single param.\n");
