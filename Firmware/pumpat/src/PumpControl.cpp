@@ -37,7 +37,7 @@ bool PumpControl::isPumpOn() {
 }
 
 bool PumpControl::isNorthOn() {
-  int pin = digitalRead(northPin);
+  int pin = digitalRead(PumpControl::northPin);
   if (pin == LOW) {
     return true;
   }
@@ -45,7 +45,7 @@ bool PumpControl::isNorthOn() {
 }
 
 bool PumpControl::isSouthOn() {
-  int pin = digitalRead(southPin);
+  int pin = digitalRead(PumpControl::southPin);
   if (pin == LOW) {
     return true;
   }
@@ -55,10 +55,10 @@ bool PumpControl::isSouthOn() {
 void PumpControl::setPump(bool bOn) {
   if (bOn) {
     pumpCall = true;
-    digitalWrite(pumpPin,LOW);
+    digitalWrite(PumpControl::pumpPin,LOW);
   } else {
     pumpCall = false;
-    digitalWrite(pumpPin,HIGH);
+    digitalWrite(PumpControl::pumpPin,HIGH);
   }
 }
 
@@ -68,9 +68,9 @@ void PumpControl::setNorthCall(bool bOn) {
 
 void PumpControl::setNorthValve(bool bOn) {
   if (bOn) {
-    digitalWrite(northPin,LOW);
+    digitalWrite(PumpControl::northPin,LOW);
   } else {
-    digitalWrite(northPin,HIGH);
+    digitalWrite(PumpControl::northPin,HIGH);
   }
 }
 
@@ -80,9 +80,9 @@ void PumpControl::setSouthCall(bool bOn) {
 
 void PumpControl::setSouthValve(bool bOn) {
   if (bOn) {
-    digitalWrite(southPin,LOW);
+    digitalWrite(PumpControl::southPin,LOW);
   } else {
-    digitalWrite(southPin,HIGH);
+    digitalWrite(PumpControl::southPin,HIGH);
   }
 }
 
@@ -120,8 +120,8 @@ void PumpControl::updateValves() {
   averaging.
 */
 void PumpControl::readSensors() {
-  int ditch = analogRead(ditchPin);
-  int sump = analogRead(sumpPin);
+  int ditch = analogRead(PumpControl::ditchPin);
+  int sump = analogRead(PumpControl::sumpPin);
 
   ditchSum += ditch;
   ditchCount++;
