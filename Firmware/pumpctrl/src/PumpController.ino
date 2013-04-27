@@ -1,8 +1,14 @@
-#include <CmdMessenger.h>
-#include <stdio.h>
 
+#include <XBee.h>
 
-//#include <Streaming.h>
+XBee theXbee = XBee();
+XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x409e0e94);
+
+uint8_t payload[] = { 'H', 'i' };
+
+// SH + SL Address of receiving XBee
+ZBTxRequest zbTx = ZBTxRequest(addr64, payload, sizeof(payload));
+ZBTxStatusResponse txStatus = ZBTxStatusResponse();
 
 // Mustnt conflict / collide with our message payload data. Fine if we use base64 library ^^ above
 char field_separator = ',';
@@ -38,34 +44,6 @@ int sumpCount = 0;
 // Trigger levels.. to turn off the pump if the levels are reached
 int sumpLowTrigger = 0;
 bool enableSumpTrigger = false;
-
-// Attach a new CmdMessenger object to the default Serial port
-CmdMessenger cmdMessenger = CmdMessenger(Serial, field_separator, command_separator);
-
-#include "PumpController.h"
-
-void enablepump_msg();
-void north_msg();
-void south_msg();
-void status_msg();
-void sumptrigger_msg();
-void sumptrigger_en_msg();
-void setAnalogPins_msg();
-
-// Commands we send from the PC and want to recieve on the Arduino.
-// We must define a callback function in our Arduino program for each entry in the list below vv.
-// They start at the address kSEND_CMDS_END defined ^^ above as 004
-messengerCallbackFunction messengerCallbacks[] =
-{
-  enablepump_msg,            // 004 in this example
-  north_msg,
-  south_msg,
-  status_msg,
-  sumptrigger_msg,
-  sumptrigger_en_msg,
-  setAnalogPins_msg,
-  NULL
-};
 
 bool isPumpOn() {
   int pin = digitalRead(pumpPin);
@@ -130,65 +108,31 @@ void enablepump_msg()
   //cmdMessenger.sendCmd(kACK,"enable pump recieved");
   //setFlash(6);
 
-  while ( cmdMessenger.available() )
-  {
-    char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
-    if(buf[0]) {
-      if (strcmp(buf,"on") == 0) {
-        cmdMessenger.sendCmd(kACK, "Ok:PumpOn");
-        pumpCall = true;
-      } else if (strcmp(buf,"off") == 0) {
-        cmdMessenger.sendCmd(kACK, "Ok:PumpOff");
-        pumpCall = false;
-      } else {
-        char msg[30];
-        sprintf(msg,"Fail:invalid command:%s",buf);
-        cmdMessenger.sendCmd(kERR, msg);
-      }
-    }
-  }
+
+    // 4,on|off;
+
+    // on => pumpCall = true
+    // off => pumpCall = false
 }
 
 void north_msg() {
   // Message data is any ASCII bytes (0-255 value). But can't contain the field
   // separator, command separator chars you decide (eg ',' and ';')
   //setFlash(5);
-  cmdMessenger.sendCmd(kACK,"north valve msg received");
-  while ( cmdMessenger.available() )
-  {
-    char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
-    if(buf[0]) {
-      //cmdMessenger.sendCmd(kACK, buf);
-      if (strcmp(buf,"on") == 0) {
-        setNorthCall(true);
-        cmdMessenger.sendCmd(kACK,"Ok");
-      } else {
-        setNorthCall(false);
-        cmdMessenger.sendCmd(kACK,"Ok");
-      }
-    }
-  }
+  //cmdMessenger.sendCmd(kACK,"north valve msg received");
+
+  // 5,on|off;
+  // setNorthCall(param == 'on')
+
 }
 
 void south_msg() {
   // Message data is any ASCII bytes (0-255 value). But can't contain the field
   // separator, command separator chars you decide (eg ',' and ';')
   //setFlash(4);
-  cmdMessenger.sendCmd(kACK,"south valve msg received");
-  while ( cmdMessenger.available() ) {
-    char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
-    if(buf[0]) {
-      cmdMessenger.sendCmd(kACK, buf);
-      if (strcmp(buf,"on") == 0) {
-        setSouthCall(true);
-      } else {
-        setSouthCall(false);
-      }
-    }
-  }
+
+  // 6,on|off;
+  // setNorthCall(param == 'on')
 }
 
 void status_msg() {
@@ -205,16 +149,14 @@ void status_msg() {
     sumpLowTrigger,
     enableSumpTrigger
     );
-  cmdMessenger.sendCmd(kACK,buf);
-
   //setFlash(3);
 }
 
 void sumptrigger_msg() {
-  while ( cmdMessenger.available() )
+  //while ( cmdMessenger.available() )
   {
     char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
+    //cmdMessenger.copyString(buf, 350);
     if(buf[0]) {
       int triggerLevel = atoi(buf);
 
@@ -222,33 +164,33 @@ void sumptrigger_msg() {
         // Probably a bad value
         char msg[30];
         sprintf(msg,"Fail:bad trigger level(%s), enter a number between 1 and 1023",buf);
-        cmdMessenger.sendCmd(kERR, msg);
+        //cmdMessenger.sendCmd(kERR, msg);
       } else {
         sumpLowTrigger = triggerLevel;
         char msg[30];
         sprintf(msg,"Ok:sump trigger to set %d",sumpLowTrigger);
-        cmdMessenger.sendCmd(kACK, msg);
+        //cmdMessenger.sendCmd(kACK, msg);
       }
     }
   }
 }
 
 void sumptrigger_en_msg() {
-  while ( cmdMessenger.available() )
+  //while ( cmdMessenger.available() )
   {
     char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
+    //cmdMessenger.copyString(buf, 350);
     if(buf[0]) {
       if (strcmp(buf,"en") == 0) {
         enableSumpTrigger = true;
-        cmdMessenger.sendCmd(kACK, "Ok:Sump Trigger Enabled.");
+        //cmdMessenger.sendCmd(kACK, "Ok:Sump Trigger Enabled.");
       } else if (strcmp(buf,"disable") == 0)  {
         enableSumpTrigger = false;
-        cmdMessenger.sendCmd(kACK, "Ok:Sump Trigger Disabled.");
+        //cmdMessenger.sendCmd(kACK, "Ok:Sump Trigger Disabled.");
       } else {
         char msg[30];
         sprintf(msg,"Fail:invalid command:%s use one of en,disable",buf);
-        cmdMessenger.sendCmd(kERR, msg);
+        //cmdMessenger.sendCmd(kERR, msg);
       }
     }
   }
@@ -258,11 +200,11 @@ void sumptrigger_en_msg() {
 // The defaults are 2 and 5.. but you can swap these to
 // 5 and 2.. 
 void setAnalogPins_msg() {
-  if ( cmdMessenger.available() )
+  //if ( cmdMessenger.available() )
   {
     // First is the ditch number..
     char buf[350] = { '\0' };
-    cmdMessenger.copyString(buf, 350);
+    //cmdMessenger.copyString(buf, 350);
     if(buf[0]) {
       int pinNum = atoi(buf);
 
@@ -276,14 +218,14 @@ void setAnalogPins_msg() {
         }
         char msg[30];
         sprintf(msg,"Ok:ditchPin:%d sumpPin:%d",ditchPin,sumpPin);
-        cmdMessenger.sendCmd(kERR, msg);
+        //cmdMessenger.sendCmd(kERR, msg);
       } else {
         char msg[30];
         sprintf(msg,"Fail:please specify the ditch pin as 2 or 5");
-        cmdMessenger.sendCmd(kERR, msg);
+        //cmdMessenger.sendCmd(kERR, msg);
       }
     }
-    while (cmdMessenger.available()) ;
+    //while (cmdMessenger.available()) ;
   }
 }
 
@@ -342,45 +284,37 @@ void readSensors() {
 void arduino_ready()
 {
   // In response to ping. We just send a throw-away Acknowledgement to say "im alive"
-  cmdMessenger.sendCmd(kACK,"Arduino ready");
+  //cmdMessenger.sendCmd(kACK,"Arduino ready");
 }
 
 void unknownCmd()
 {
   // Default response for unknown commands and corrupt messages
-  cmdMessenger.sendCmd(kERR,"Unknown command");
+  //cmdMessenger.sendCmd(kERR,"Unknown command");
 }
 
 // ------------------ S E T U P ----------------------------------------------
 
 void setup() {
-  // Listen on serial connection for messages from the pc
-  // Serial.begin(57600);  // Arduino Duemilanove, FTDI Serial
-  Serial.begin(9600); // Arduino Uno, Mega, with AT8u2 USB
 
-  cmdMessenger.discard_LF_CR(); // Useful if your terminal appends CR/LF, and you wish to remove them
-  cmdMessenger.print_LF_CR();   // Make output more readable whilst debugging in Arduino Serial Monitor
+    Serial.begin(9600);
+    theXbee.setSerial(Serial);
+
+    arduino_ready();
+
+
+
+    // blink
+    pinMode(13, OUTPUT);
   
-  // Attach default / generic callback methods
-  cmdMessenger.attach(kARDUINO_READY, arduino_ready);
-  cmdMessenger.attach(unknownCmd);
-
-  // Attach my application's user-defined callback methods
-  attach_callbacks(messengerCallbacks);
-
-  arduino_ready();
-
-  // blink
-  pinMode(13, OUTPUT);
-  
-  // Pump and Valve controls
-  // High is off, low is on.
-  digitalWrite(2,HIGH);
-  pinMode(2,OUTPUT);
-  digitalWrite(3,HIGH);
-  pinMode(3,OUTPUT);
-  digitalWrite(4,HIGH);
-  pinMode(4,OUTPUT);
+    // Pump and Valve controls
+    // High is off, low is on.
+    digitalWrite(2,HIGH);
+    pinMode(2,OUTPUT);
+    digitalWrite(3,HIGH);
+    pinMode(3,OUTPUT);
+    digitalWrite(4,HIGH);
+    pinMode(4,OUTPUT);
 }
 
 // ------------------ M A I N ( ) --------------------------------------------
@@ -405,19 +339,31 @@ void timeout()
 void loop() 
 {
   // Process incoming serial data, if any
-  cmdMessenger.feedinSerialData();
 
-  // Things to do all the time.
-  readSensors();
+  if (theXbee.readPacket(1000)) {
+    // Got a response
+    XBeeResponse response;
+    theXbee.getResponse(response);
+    uint8_t *payload = response.getFrameData();
+    ZBTxRequest zbTx = ZBTxRequest(coordAddr, payload, sizeof(*payload));
+    theXbee.send(zbTx);
 
-  if ( millis() - oneSecondCounter > oneSecondInterval) {
-    oneSecondCounter = millis();
-    // Things to do at a one-second interval. 
+  } else {
+    // Things to do all the time.
+    uint8_t payload[] = { 'H', 'e', 'l', 'l', 'o' };
+    ZBTxRequest zbTx = ZBTxRequest(coordAddr, payload, sizeof(payload));
+    theXbee.send(zbTx);
+
+    readSensors();
+
+    //if ( millis() - oneSecondCounter > oneSecondInterval) {
+    //oneSecondCounter = millis();
+    // Things to do at a one-second interval.
     timeout();
     levelChecks();
     updateValves();
+  //}
   }
-
 }
 
 
