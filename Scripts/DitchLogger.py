@@ -127,13 +127,10 @@ class DitchLogger(object):
         inches = m* int(reading)
         return inches
 
-
-    def logStream(self,feedid,id,val):
-
-        if self.feedHist.has_key(id) and self.feedHist[id] == val:
-            return
-
-        self.feedHist[id] = val
+    def _logStream(self,feedid,id,val):
+        """
+        Low-level log, no history
+        """
 
         data = {
             'id' : id,
@@ -148,12 +145,48 @@ class DitchLogger(object):
 
         if response.status == 200:
             self.lprint ("Logged To Feedid %d Stream %s => %s" % (feedid,id,val))
+            return True
         else:
             self.lprint(response.status, response.reason)
             data = response.read()
             self.lprint('Response:' + data)
 
-        conn.close()
+            conn.close()
+
+        return False
+
+
+    def logStream(self, feedid, id, val):
+        """
+        Log the stream to the given feedid and id.
+
+        Use a history mechanism to keep from re-logging identical values, however,
+        if you don't log a value for a while and the previous value has changed.. then
+        log the previous value again, and the new value.
+        """
+
+        if self.feedHist.has_key(id):
+            fh = self.feedHist[id]
+            if fh['val'] == val: # No change
+                return
+            lastUpdateDuration = time.time() - fh['lastupdate']
+        else:
+            self.feedHist[id] = {
+                'val' : None,
+                'lastupdate' : None
+            }
+            lastUpdateDuration = 0
+
+        fh = self.feedHist[id]
+
+        if lastUpdateDuration > 60:
+            # Log the previous value to update the time.
+            self._logStream(feedid, id, fh['val'])
+
+        if self._logStream(feedid, id, val):
+            fh['val'] = val
+            fh['lastupdate'] = time.time()
+
 
     def logBoolStream(self,feedid,id,bIn):
         """
