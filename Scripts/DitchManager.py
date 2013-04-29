@@ -377,7 +377,7 @@ class DitchManager(DitchRedisHandler):
         self.redis.set('northcall',status['NC'])
         self.redis.set('northon',status['N'])
         self.redis.set('southcall',status['SC'])
-        self.redis.set('sourthon',status['S'])
+        self.redis.set('southon',status['S'])
         self.redis.set('ditch',status['Ditch'])
         self.redis.set('sump',status['Sump'])
         self.redis.set('ditch_inches',self.loggr.ditchInches(status['Ditch']))
