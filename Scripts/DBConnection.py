@@ -157,7 +157,7 @@ class DBConnection(object):
             ]
             self.port = 3306
             self.user = 'ditchuser'
-            self.pw = 'bywasbashichri!'
+            self.pw = 'bywasbashichri'
             if not db:
                 self.db = 'ditchmon'
         else:

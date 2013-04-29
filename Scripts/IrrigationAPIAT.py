@@ -131,9 +131,10 @@ class IrrigationAPI(object):
         while retries:
             if self.sendPacket(b'status'):
                 result = self.getLastResult()
-                data = dict(item.split(":") for item in re.split('\s',result))
+                data = dict(item.split(":") for item in re.split('\s', result))
                 return data
             retries -= 1
+            print("Retries..")
 
         return None
 

@@ -36,7 +36,7 @@ class DBDitch(DBConnUser):
             insert into %s
             (
                 date,
-                time,
+                timestamp,
                 ditchlvl,
                 sumplvl,
                 ditch_inches,

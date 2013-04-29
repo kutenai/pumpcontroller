@@ -152,6 +152,8 @@ class DitchLogger(object):
                 int(stat['P']), int(stat['N']), int(stat['S'])
             )
 
+            print("Logged to Database.")
+
 
     def logLevels(self):
         vals = self.api.getSensors()
