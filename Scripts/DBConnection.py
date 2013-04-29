@@ -151,15 +151,15 @@ class DBConnection(object):
         if dest == 'local':
             self.hosts = [
                 {
-                    'host':'bondinorth.deepbondi.net',
+                    'host':'127.0.0.1',
                     'port':3306
                 },
             ]
             self.port = 3306
             self.user = 'ditchuser'
-            self.pw = '11dKk21!'
+            self.pw = 'bywasbashichri!'
             if not db:
-                self.db = 'ditch_db'
+                self.db = 'ditchmon'
         else:
             raise "Invalid DB Destination"
 

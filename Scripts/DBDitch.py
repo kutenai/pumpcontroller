@@ -17,7 +17,7 @@ class DBDitch(DBConnUser):
 
     def setTableNames(self):
 
-        self.ditchLog = "ditch_log"
+        self.ditchLog = "level_log"
 
     def clearLog(self):
         """
@@ -27,24 +27,30 @@ class DBDitch(DBConnUser):
         curs.execute("delete from %s" % self.ditchLog)
         curs.execute("alter table %s AUTO_INCREMENT=1" % self.compTable)
 
-    def insertLogEntry(self,ditchlvl,sumplvl,pumpOn):
+    def insertLogEntry(self,ditchlvl,sumplvl,ditchin, sumpin, pumpOn, northOn, southOn):
 
-        ctime = strftime('%Y-%m-%d %H:%M:%S')
+        cdate = strftime('%Y-%m-%d')
+        ctime = strftime('%H:%M:%S')
 
         sql = """
             insert into %s
             (
-                logtime,
-                ditch_level,
-                sump_level,
-                pump_status
+                date,
+                time,
+                ditchlvl,
+                sumplvl,
+                ditch_inches,
+                sump_inches,
+                pump_on,
+                north_on,
+                south_on
             ) values (
-                "%s", %d, %d, %d
+                "%s", "%s", %d, %d, %f, %f, %d, %d, %d
             )
 
             """ % (self.ditchLog,
-                   ctime,
-                   ditchlvl, sumplvl, pumpOn
+                   cdate, ctime,
+                   ditchlvl, sumplvl, ditchin, sumpin, pumpOn, northOn, southOn
                 )
 
         curs = self.getCursor()

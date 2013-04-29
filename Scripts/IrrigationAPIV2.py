@@ -27,21 +27,29 @@ class IrrigationAPI(object):
         self.isAsync = async
 
         self.dataBuffer = []
-        try:
-            self.setupSerial(False)
-        except:
-            raise "Could not open serial port!"
-
-        #self.setupConnection()
 
     def __delete__(self):
 
         self.halt()
 
     def nextFrameid(self):
+        """
+        Increment the frame id, but keep the frame to
+        just a single byte.
+
+        """
 
         self.frameid = (self.frameid + 1) % 255
         return "%d" % self.frameid
+
+    def Initialize(self):
+        """
+        Initialize and open the serial port. Needs to be done one time.
+        """
+        try:
+            self.setupSerial(False)
+        except:
+            raise "Could not open serial port!"
 
     def setupSerial(self,bFast = False):
 

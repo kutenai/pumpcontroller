@@ -10,33 +10,61 @@ class IrrigationAPI(object):
         super(IrrigationAPI,self).__init__()
         self.ser = None
         self.lastResult = None
+        self.port = None
+
+
+    def Initialize(self):
+        """
+        Initialzie the serial port.
+        """
+
         try:
             self.setupSerial(False)
         except:
             raise "Could not open serial port!"
 
+
     def setupSerial(self,bFast = False):
+        """
+        Determine the serial port, then open that port with the default
+        buad rate.
+        """
 
         if bFast:
             self.baudrate = 115200
         else:
             self.baudrate = 9600
 
-        #print("Baud Rate set to %d" % self.baudrate)
+        self.port = self.getPorts()
 
-        port = self.getPorts()
         if self.ser:
             ''' Reset to new baud rate '''
             print("Closed existing port.")
             self.ser.close()
             self.ser = None
-            self.ser = serial.Serial(port,self.baudrate,timeout = 1)
-            print ("Re-opened port at different baud rate")
-            self.initHardware()
-        else:
-            self.ser = serial.Serial(port,self.baudrate, timeout = 1)
+            self.ser = serial.Serial(self.port,self.baudrate,timeout = 1)
             self.ser.open()
-            print("Opened port %s" % port)
+            print ("Re-opened port at different baud rate")
+
+        else:
+            self.ser = serial.Serial(self.port,self.baudrate, timeout = 1)
+            self.open()
+            print("Opened port %s" % self.port)
+
+    def close(self):
+        """
+        Close the serial connection
+        """
+        self.ser.close()
+
+
+    def open(self):
+        """
+        Open the serial connection
+        """
+
+        self.ser.open()
+
 
     def setLastResult(self,res):
         self.lastResult = res
@@ -45,6 +73,12 @@ class IrrigationAPI(object):
         return self.lastResult
 
     def sendPacket(self,packet):
+        """
+        Send a packet of data.
+        Append a newline if not already present.
+
+
+        """
 
 
         if packet[-1] != '\n':
@@ -53,8 +87,6 @@ class IrrigationAPI(object):
         self.ser.write(packet)
 
         self.setLastResult(None)
-
-        tstart = time.time()
 
         while True:
             t = time.time()
@@ -126,6 +158,10 @@ class IrrigationAPI(object):
         return None
 
     def sendBool(self,cmd,bOn):
+        """
+        Re-usable function that sends a boolean value as a 1 or a 0.
+
+        """
 
         if bOn:
             self.sendPacket('%s 1' % cmd)
@@ -133,29 +169,49 @@ class IrrigationAPI(object):
             self.sendPacket('%s 0' % cmd)
 
     def pumpEnable(self,bEnable):
+        """
+        Send the pump enable signal. Can be true or false to enable or disable the pump.
+
+        """
         self.sendBool('pump',bEnable)
 
     def getStatus(self,cmd):
+        """
+        Return the status of the specified command.
+        Valid commands are pump, north or south.
+        """
+
         data = {
             'call' : -1,
             'actual' : -1
         }
-        if self.sendPacket(b'pump?'):
-            result = re.split("\s",self.getLastResult())
-            data['call'] = result[0]
-            data['actual']= result[1]
+
+        if cmd in ['pump','north','south']:
+            if self.sendPacket(b'%s?' % cmd):
+                result = re.split("\s",self.getLastResult())
+                data['call'] = result[0]
+                data['actual']= result[1]
 
         return data
 
 
     def isPumpOn(self):
-        return self.getStatus('pump?')
+        return self.getStatus('pump')['actual'] == '1'
 
     def isNorthOn(self):
-        return self.getStatus('north?')
+        return self.getStatus('north')['actual'] == '1'
 
     def isSouthOn(self):
-        return self.getStatus('south?')
+        return self.getStatus('south')['actual'] == '1'
+
+    def getPumpStatus(self):
+        return self.getStatus('pump')
+
+    def getNorthStatus(self):
+        return self.getStatus('north')
+
+    def getSouthStatus(self):
+        return self.getStatus('south')
 
     def northEnable(self,bEnable):
         self.sendBool('north',bEnable)
@@ -197,23 +253,23 @@ def main():
         print("No Sensor levels returned")
 
 
-    print("Pump Call:" + api.isPumpOn()['call'])
+    print("Pump Call:" + api.getPumpStatus()['call'])
     api.pumpEnable(True)
-    print("Pump Call:" + api.isPumpOn()['call'])
+    print("Pump Call:" + api.getPumpStatus()['call'])
     api.pumpEnable(False)
-    print("Pump Call:" + api.isPumpOn()['call'])
+    print("Pump Call:" + api.getPumpStatus()['call'])
 
-    print("North Call:" + api.isNorthOn()['call'])
+    print("North Call:" + api.getNorthStatus()['call'])
     api.northEnable(True)
-    print("North Call:" + api.isNorthOn()['call'])
+    print("North Call:" + api.getNorthStatus()['call'])
     api.northEnable(False)
-    print("North Call:" + api.isNorthOn()['call'])
+    print("North Call:" + api.getNorthStatus()['call'])
 
-    print("South Call:" + api.isSouthOn()['call'])
+    print("South Call:" + api.getSouthStatus()['call'])
     api.southEnable(True)
-    print("South Call:" + api.isSouthOn()['call'])
+    print("South Call:" + api.getSouthStatus()['call'])
     api.southEnable(False)
-    print("South Call:" + api.isSouthOn()['call'])
+    print("South Call:" + api.getSouthStatus()['call'])
 
 if __name__ == '__main__':
     main()

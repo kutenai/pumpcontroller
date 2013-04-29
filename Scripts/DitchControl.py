@@ -94,7 +94,7 @@ def main():
     if args.loop and args.levels:
 		while True:
 			try:
-				time.sleep(0.1)
+				time.sleep(0.5)
 				showLevels(api)
 			except KeyboardInterrupt:
 				break

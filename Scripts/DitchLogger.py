@@ -1,9 +1,13 @@
+#!/usr/bin/env python
 __author__ = 'kutenai'
 
 
 import json
+import time
 import httplib, urllib
 from IrrigationAPIAT import IrrigationAPI
+from DBConnection import DBConnection
+from DBDitch import DBDitch
 
 """
 Feed id: 127898
@@ -70,10 +74,39 @@ class DitchLogger(object):
 
     """
 
-    def __init__(self):
+    def __init__(self,api = None):
         self.hi = True
 
+        if not api:
+            self.api = IrrigationAPI()
+        else:
+            self.api = api
+
+        self.conn = None
+        self.dbTable = None
+
         self.apikey = "d8ytNTiS45sNRIVqsluvbDTlW2eSAKxJVUNVamJLUmtJZz0g"
+
+    def InitializeDB(self):
+        """
+        Initialize the DB Connection for logging
+        """
+
+        self.conn = DBConnection()
+        self.dbTable = DBDitch(self.conn)
+
+
+    def ditchInches(self,reading):
+
+        m = 0.011974658
+        intercept = 17.5
+        return intercept - m*int(reading)
+
+    def sumpInches(self,reading):
+
+        m = 0.037290516
+        inches = m* int(reading)
+        return inches
 
 
     def logStream(self,feedid,id,val):
@@ -98,15 +131,55 @@ class DitchLogger(object):
         conn.close()
 
 
-    def logResults(self,ditch,sump):
+    def logResultsCosm(self,ditch,sump):
         feedid = 121835
-        self.logStream(feedid,'ditch_level',ditch)
-        self.logStream(feedid,'sump_level', sump)
+        self.logStream(feedid,'ditch_level',self.ditchInches(ditch))
+        self.logStream(feedid,'sump_level', self.sumpInches(sump))
+
+    def logResultsDB(self,stat):
+        """
+        Dump all information to the database.
+        """
+
+        if not self.conn:
+            self.InitializeDB()
+
+        if self.conn and self.dbTable:
+            self.dbTable.insertLogEntry(
+                int(stat['Ditch']), int(stat['Sump']),
+                self.ditchInches(stat['Ditch']),
+                self.sumpInches(stat['Sump']),
+                int(stat['P']), int(stat['N']), int(stat['S'])
+            )
 
 
-    def logResults2(self,ditch):
-        feedid = 127898
-        self.logStream(feedid,'ditch_level',ditch)
+    def logLevels(self):
+        vals = self.api.getSensors()
+
+        if vals:
+            self.logResults(vals['ditch'],vals['sump'])
+
+
+    def logSome(self,interval,count):
+        """
+        Script is called once a minute.. so, log every 10 seconds
+        5 times.
+        """
+
+        self.api.Initialize()
+
+        while count:
+            try:
+                self.api.open()
+                self.logLevels()
+                self.api.close()
+                time.sleep(interval)
+                count -= 1
+            except KeyboardInterrupt:
+                break
+
+        self.api.close()
+
 
 def main():
     """
@@ -116,13 +189,10 @@ def main():
 
     """
 
-    api = IrrigationAPI()
-    vals = api.getSensors()
+    lgr = DitchLogger()
 
-    if vals:
-        dl = DitchLogger()
-        dl.logResults(vals['ditch'],vals['sump'])
-        dl.logResults2(vals['ditch'])
+
+    lgr.logSome(10,5)
 
 
 if __name__ == "__main__":
