@@ -15,8 +15,7 @@ from DitchRedisHandler import DitchRedisHandler
 
 from IrrigationAPIAT import IrrigationAPI
 from DitchLogger import DitchLogger
-
-import resource
+from DitchMessenger import DitchMessenger
 
 class DitchManager(DitchRedisHandler):
     """
@@ -52,6 +51,9 @@ class DitchManager(DitchRedisHandler):
         self.loggr = DitchLogger(self.api)
         self.loggr.setPrintObj(self)
 
+        self.messenger = DitchMessenger()
+        self.messenger.setPrintObj(self)
+
         self.txt = ""
         self.txtChanged = False
 
@@ -66,10 +68,38 @@ class DitchManager(DitchRedisHandler):
         self.logfile = None
         self.logfp = None
 
+        self.systemStates = {
+            'pump' : 'off',
+            'north' : 'off',
+            'south' : 'off'
+        }
+
         self.currCommandValues = {
             'pump' : False,
             'north' : False,
             'south' : False
+        }
+
+        self.alarms = {
+            'ditch' : {
+                'alarm' : 13.0,
+                'warm' : 12.5,
+                'normal' : 12.0,
+                'alarmStarted' : None,
+                'lastMsgSent' : None,
+                'alarmed' : False
+            }
+        }
+
+        self.logIntervals = {
+            'on' : {
+                'cosm' : 10,
+                'db' : 5
+            },
+            'off' : {
+                'cosm' : 60,
+                'db'   : 60
+            }
         }
 
         self.cosmLogInterval = 60
@@ -203,7 +233,10 @@ class DitchManager(DitchRedisHandler):
         if dbDiff > self.dbLogInterval or cosmDiff > self.cosmLogInterval:
 
             status = self.api.getSystemStatus()
+
             if status:
+
+                self.alarmChecks(self.loggr.ditchInches(status['Ditch']))
 
                 if cosmDiff > self.cosmLogInterval:
                     self.lastCosmLogTime = time()
@@ -213,6 +246,113 @@ class DitchManager(DitchRedisHandler):
                     self.loggr.logResultsDB(status)
 
                 self.upateRedis(status)
+
+    def inAlarmState(self,ditchInches):
+        """
+        Provide some hysteresis for the alarm.
+        If we are not in an alarmed state, and the level goes above the alarm level,
+        then send the alarm.
+
+        If we are in the alarmed state, then the level must drop 1" below the alarm level
+        to clear the alarm.
+        """
+
+        a = self.alarms['ditch']
+
+        if a['alarmed']:
+            # If we are in an alarm state, then the value has to drop 1" below that state.
+            if ditchInches > (a['alarm'] - 1):
+                return True
+        else:
+            if ditchInches > a['alarm']:
+                return True
+
+        return False
+
+
+    def alarmChecks(self,ditchInches):
+        """
+        Check for alarm levels.
+
+        If the ditch level gets too high, then we send an alarm.
+        A high "full" flow gives a ditch level of 11.4", perhaps as high as 12".  A clogged ditch
+        will be at 16.85" - I know!
+        """
+
+        a = self.alarms['ditch']
+
+        tnow = time()
+        if self.inAlarmState(ditchInches):
+
+            if not a['alarmed']:
+                # First time we detected an alarm
+                self.sendAlarmMessage(ditchInches, tnow, tnow, 0)
+                a['alarmed'] = True
+                a['alarmStarted'] = tnow
+                a['lastMsgSent'] = tnow
+            else:
+                # Already alarmed, should we send a reminder?
+                if (tnow - a['lastMsgSent'] > 30*60): # 30 minutes
+                    alarmLength = int(tnow - a['alarmStarted'])/60
+                    # First time we detected an alarm
+                    self.sendAlarmMessage(ditchInches, a['alarmStarted'], tnow, alarmLength)
+                    a['alarmed'] = True
+                    a['lastMsgSent'] = tnow
+        else:
+            if a['alarmed']:
+                # If we are in an alarmed state, then send a 'all clear' message
+                alarmLength = int(tnow - a['alarmStarted'])/60
+                self.sendAlarmClearMessage(ditchInches, a['alarmStarted'], tnow, alarmLength)
+                a['alarmed'] = False
+                a['alarmStarted'] = None
+                a['lastMsgSent'] = None
+
+
+
+
+    def sendAlarmMessage(self,ditchInches, alarmStart, tnow, alarmLength):
+        """
+        Send an alarm message
+        """
+        subject = "Ditch is Clogged!"
+        msg = """
+    The Ditch at Ed & Vicki's house is reading a very high level.
+    Levels greater than 13" usually indicate that the ditch is clogged.
+    The current level is %f"
+
+    Please take steps to clear the ditch, otherwise the property will be flooded.
+
+    The original ditch alarm occured at %s. The time is now %s. The ditch has been flooded
+    for %d minutes.
+
+            """ % (ditchInches,
+                   strftime("%A, %H:%M",localtime(alarmStart)),
+                   strftime("%A, %H:%M",localtime(tnow)),
+                   int(alarmLength))
+
+        self.messenger.sendMessage('alarm',subject, msg)
+
+    def sendAlarmClearMessage(self,ditchInches, alarmStart, tnow, alarmLength):
+        """
+        Send an alarm cleared message
+        """
+        subject = "Ditch Clog has been Cleared!"
+        msg = """
+    The Ditch at Ed & Vicki's house was reading a clogged state, but now the level is below
+    the alarm level by at least an inch.
+
+    Levels greater than 13" usually indicate that the ditch is clogged.
+    The current level is %f"
+
+    The original ditch alarm occured at %s. The time is now %s. The ditch has been flooded
+    for %d minutes.
+
+            """ % (ditchInches,
+                   strftime("%A, %H:%M",localtime(alarmStart)),
+                   strftime("%A, %H:%M",localtime(tnow)),
+                   int(alarmLength))
+
+        self.messenger.sendMessage('alarm',subject, msg)
 
     def upateRedis(self,status):
 
@@ -353,6 +493,22 @@ class DitchManager(DitchRedisHandler):
 
             jmsg = self.rpop(msgq)
 
+def runTests():
+
+    mgr = DitchManager('localhost', 6388, 9)
+
+    # Test Alarms
+
+    mgr.alarmChecks(11)
+    mgr.alarmChecks(12)
+    mgr.alarmChecks(13)
+    mgr.alarmChecks(13.2)
+    mgr.alarmChecks(13)
+    mgr.alarmChecks(12.5)
+    mgr.alarmChecks(14)
+    mgr.alarmChecks(12)
+
+
 
 def start_server():
     """ Start the server.
@@ -371,7 +527,12 @@ def start_server():
 
     parser.add_argument("--debug",action="store_true")
 
+    parser.add_argument("--test", action='store_true', help="Enter test mode")
+
     args = parser.parse_args()
+
+    if args.test:
+        runTests()
 
     host = args.host
 

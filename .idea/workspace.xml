@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05caa682-40d8-4590-b43e-d3c8001cf1c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/DitchControlR.py" afterPath="$PROJECT_DIR$/Scripts/DitchControlR.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Scripts/DitchMessenger.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/DitchManager.py" afterPath="$PROJECT_DIR$/Scripts/DitchManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pumpcontrol.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367034728793" ignored="false" />
+    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367211903554" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/management/__init__.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914904296" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/library/jquery-1.8.2.min.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/WEB-INF/views/index.jsp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
@@ -349,7 +351,7 @@
     <file path="/ino.ini" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367033351482" ignored="false" />
     <file path="/PumpController.ino" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367027409544" ignored="false" />
     <file path="/IrrigationAPIV2.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367194217341" ignored="false" />
-    <file path="/fragment.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367199397921" ignored="false" />
+    <file path="/fragment.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367215034561" ignored="false" />
     <file path="/a.groovy" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367023485766" ignored="false" />
     <file path="/DitchDummy.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367026723428" ignored="false" />
     <file path="/zbtest.ino" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367028865091" ignored="false" />
@@ -366,14 +368,15 @@
     <file path="/IrrigationAPIAT.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367204331749" ignored="false" />
     <file path="/DitchLogger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367204474487" ignored="false" />
     <file path="/DitchControl.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367050216788" ignored="false" />
-    <file path="/ditchd.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367203226650" ignored="false" />
-    <file path="/DitchManager.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367204392654" ignored="false" />
+    <file path="/ditchd.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367212945441" ignored="false" />
+    <file path="/DitchManager.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367215182251" ignored="false" />
     <file path="/DitchRedisHandler.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367193752982" ignored="false" />
     <file path="/redis-gardenbuzz-cms.conf" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367192661149" ignored="false" />
     <file path="/org.redis.redis-ditchmgr.plist" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367193021324" ignored="false" />
     <file path="/DBConnection.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367199088169" ignored="false" />
     <file path="/DBDitch.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367199502665" ignored="false" />
     <file path="/DitchControlR.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367205103673" ignored="false" />
+    <file path="/DitchMessenger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367213021199" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -436,10 +439,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.49628052">
       <split-first>
         <leaf>
-          <file leaf-file-name="DitchManager.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="DitchManager.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="24" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-22.846153">
+                <state line="501" column="31" selection-start="14842" selection-end="14842" vertical-scroll-proportion="-0.09371781">
                   <folding>
                     <element signature="e#24#51#0" expanded="true" />
                   </folding>
@@ -447,72 +450,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ditchd.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/ditchd.py">
+          <file leaf-file-name="DitchMessenger.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Scripts/DitchMessenger.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="33" column="56" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
+                <state line="55" column="0" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
                   <folding>
-                    <element signature="e#94#109#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DitchControl.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/DitchControl.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#48#63#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DitchControlR.py" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Scripts/DitchControlR.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="94" column="11" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.9638917">
-                  <folding>
-                    <element signature="e#48#63#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DBDitch.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/DBDitch.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="50" column="0" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pydevd.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/Library/Application Support/IntelliJIdea12/python/helpers/pydev/pydevd.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1115" column="0" selection-start="46680" selection-end="46680" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IrrigationAPIAT.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/IrrigationAPIAT.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="56" selection-start="306" selection-end="306" vertical-scroll-proportion="-10.615385">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DBConnection.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/DBConnection.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#24#33#0" expanded="true" />
+                    <element signature="e#47#61#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -531,45 +474,43 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DitchLogger.py" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="DitchLogger.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchLogger.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="128" column="60" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.28733265">
-                  <folding>
-                    <element signature="e#47#58#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DitchManager.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="63" column="36" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#24#51#0" expanded="true" />
-                    <marker date="1367204392000" expanded="true" signature="6196:6847" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PumpCmdProcessor.cpp" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
+                <state line="72" column="35" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DitchRedisHandler.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Scripts/DitchRedisHandler.py">
+          <file leaf-file-name="SpiceMonitor.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../EEWeb/spiceserver/SpiceMonitor.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="23" selection-start="141" selection-end="158" vertical-scroll-proportion="0.0">
+                <state line="14" column="49" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DitchManager.py" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="273" column="72" selection-start="7706" selection-end="7706" vertical-scroll-proportion="0.3550652">
                   <folding>
-                    <element signature="e#1#15#0" expanded="true" />
+                    <element signature="e#24#51#0" expanded="true" />
+                    <marker date="1367215188000" expanded="true" signature="9240:9962" placeholder="..." />
+                    <marker date="1367215188000" expanded="true" signature="10043:10769" placeholder="..." />
+                    <marker date="1367215188000" expanded="true" signature="14752:15014" placeholder="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IrrigationAPIAT.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Scripts/IrrigationAPIAT.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="107" column="24" selection-start="2211" selection-end="2211" vertical-scroll-proportion="-12.423077">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -594,7 +535,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Firmware/pumpat/src/PumpControl.h" />
         <option value="$PROJECT_DIR$/Firmware/pumpat/src/pumpat.ino" />
         <option value="$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp" />
         <option value="$PROJECT_DIR$/Firmware/pumpat/src/PumpControl.cpp" />
@@ -605,11 +545,12 @@
         <option value="$PROJECT_DIR$/Scripts/IrrigationAPIV2.py" />
         <option value="$PROJECT_DIR$/Scripts/DBConnection.py" />
         <option value="$PROJECT_DIR$/Scripts/DBDitch.py" />
-        <option value="$PROJECT_DIR$/Scripts/ditchd.py" />
         <option value="$PROJECT_DIR$/Scripts/IrrigationAPIAT.py" />
-        <option value="$PROJECT_DIR$/Scripts/DitchManager.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchLogger.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchControlR.py" />
+        <option value="$PROJECT_DIR$/Scripts/ditchd.py" />
+        <option value="$PROJECT_DIR$/Scripts/DitchMessenger.py" />
+        <option value="$PROJECT_DIR$/Scripts/DitchManager.py" />
       </list>
     </option>
   </component>
@@ -618,8 +559,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1920" />
-    <option name="y" value="40" />
+    <option name="x" value="-1911" />
+    <option name="y" value="41" />
     <option name="width" value="3807" />
     <option name="height" value="1148" />
   </component>
@@ -734,19 +675,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -975,6 +903,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1017,7 +958,7 @@
       <recent name="$PROJECT_DIR$/pumpcontroller/pumpcontroller/settings" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.DitchControlR">
+  <component name="RunManager" selected="Python.DitchManager">
     <configuration default="false" name="IrrigationAPI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1456,11 +1397,45 @@
       <module name="pumpcontrol" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/DitchManager.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="--test" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonCover" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonCover" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DitchControlR" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pumpcontrol" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/DitchControlR.py" />
+      <option name="PARAMETERS" value="--status" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="DitchMessenger" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pumpcontrol" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/DitchMessenger.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="false" name="Tomcat server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
@@ -1527,24 +1502,7 @@
       </ConfigurationWrapper>
       <method />
     </configuration>
-    <configuration default="false" name="DitchControlR" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Scripts" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="pumpcontrol" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Scripts/DitchControlR.py" />
-      <option name="PARAMETERS" value="--status" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <method />
-    </configuration>
-    <list size="15">
+    <list size="16">
       <item index="0" class="java.lang.String" itemvalue="Django server.Software" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.JSR2Migration" />
       <item index="2" class="java.lang.String" itemvalue="Python.SerialTest" />
@@ -1553,13 +1511,14 @@
       <item index="5" class="java.lang.String" itemvalue="Python.DitchMonitor" />
       <item index="6" class="java.lang.String" itemvalue="Python.IrrigationAPIV2" />
       <item index="7" class="java.lang.String" itemvalue="Python.DitchDummy" />
-      <item index="8" class="java.lang.String" itemvalue="Python.IrrigationAPI" />
-      <item index="9" class="java.lang.String" itemvalue="Python.IrrigationAPIAT" />
-      <item index="10" class="java.lang.String" itemvalue="Python.DitchLogger" />
-      <item index="11" class="java.lang.String" itemvalue="Python.DitchControl" />
-      <item index="12" class="java.lang.String" itemvalue="Python.DitchManager" />
-      <item index="13" class="java.lang.String" itemvalue="Tomcat Server.Tomcat server" />
-      <item index="14" class="java.lang.String" itemvalue="Python.DitchControlR" />
+      <item index="8" class="java.lang.String" itemvalue="Python.IrrigationAPIAT" />
+      <item index="9" class="java.lang.String" itemvalue="Python.DitchLogger" />
+      <item index="10" class="java.lang.String" itemvalue="Python.DitchControl" />
+      <item index="11" class="java.lang.String" itemvalue="Python.DitchManager" />
+      <item index="12" class="java.lang.String" itemvalue="Python.DitchControlR" />
+      <item index="13" class="java.lang.String" itemvalue="Python.IrrigationAPI" />
+      <item index="14" class="java.lang.String" itemvalue="Python.DitchMessenger" />
+      <item index="15" class="java.lang.String" itemvalue="Tomcat Server.Tomcat server" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -1599,13 +1558,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="40" width="3807" height="1148" extended-state="0" />
+    <frame x="-1911" y="41" width="3807" height="1148" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1946" y="181" width="1600" height="1019" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.39899257" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="-3570" y="109" width="1592" height="1019" />
@@ -1628,6 +1586,7 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1946" y="181" width="1600" height="1019" />
       <window_info id="Messages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13679746" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1705,66 +1664,13 @@
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="81" />
+      <option name="time" value="85" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Firmware/pumpctrl/src/PumpController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.551655">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/serial/serialposix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="313" column="47" selection-start="10819" selection-end="10819" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DBDitch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Application Support/IntelliJIdea12/python/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1115" column="0" selection-start="46680" selection-end="46680" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DitchControl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#48#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/python-daemon/daemon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="836" selection-end="836" vertical-scroll-proportion="0.5587302">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/python-daemon-1.5.5/daemon/daemon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5245737">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5245737" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/daemon.py">
@@ -1776,63 +1682,108 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchControlR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="24" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-22.846153">
+        <state line="94" column="11" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.9638917">
           <folding>
-            <element signature="e#24#51#0" expanded="true" />
+            <element signature="e#48#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DitchRedisHandler.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="23" selection-start="141" selection-end="158" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.4493481">
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
+            <element signature="e#48#63#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/IrrigationAPIAT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="56" selection-start="306" selection-end="306" vertical-scroll-proportion="-10.615385">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/DBConnection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Application Support/IntelliJIdea12/python/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1115" column="0" selection-start="46680" selection-end="46680" vertical-scroll-proportion="0.551655">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/DBDitch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1178" selection-end="1178" vertical-scroll-proportion="0.6028084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../EEWeb/spiceserver/SpiceMonitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="49" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/ditchd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="56" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#94#109#0" expanded="true" />
-          </folding>
+        <state line="15" column="0" selection-start="199" selection-end="199" vertical-scroll-proportion="0.33099297">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../EEWeb/spiceserver/SpiceRedisMonitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="47" selection-start="205" selection-end="205" vertical-scroll-proportion="0.26479438">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/DitchLogger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="60" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.28733265">
+        <state line="72" column="35" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchRedisHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="291" selection-end="292" vertical-scroll-proportion="0.13182287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.022066198">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/IrrigationAPIAT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="24" selection-start="2211" selection-end="2211" vertical-scroll-proportion="-12.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchMessenger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#47#58#0" expanded="true" />
+            <element signature="e#47#61#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DitchControlR.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="11" selection-start="2508" selection-end="2508" vertical-scroll-proportion="0.9638917">
+        <state line="501" column="31" selection-start="14842" selection-end="14842" vertical-scroll-proportion="-0.09371781">
           <folding>
-            <element signature="e#48#63#0" expanded="true" />
+            <element signature="e#24#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
