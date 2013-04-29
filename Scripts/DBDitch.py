@@ -29,13 +29,9 @@ class DBDitch(DBConnUser):
 
     def insertLogEntry(self,ditchlvl,sumplvl,ditchin, sumpin, pumpOn, northOn, southOn):
 
-        cdate = strftime('%Y-%m-%d')
-        ctime = strftime('%H:%M:%S')
-
         sql = """
             insert into %s
             (
-                date,
                 timestamp,
                 ditchlvl,
                 sumplvl,
@@ -45,16 +41,17 @@ class DBDitch(DBConnUser):
                 north_on,
                 south_on
             ) values (
-                "%s", "%s", %d, %d, %f, %f, %d, %d, %d
-            )
+                now(), %d, %d, %f, %f, %d, %d, %d
+            );
 
             """ % (self.ditchLog,
-                   cdate, ctime,
                    ditchlvl, sumplvl, ditchin, sumpin, pumpOn, northOn, southOn
                 )
 
+        print (sql)
         curs = self.getCursor()
         curs.execute(sql)
+        self.conn.commit()
 
 def main():
 

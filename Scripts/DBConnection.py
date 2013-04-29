@@ -151,13 +151,15 @@ class DBConnection(object):
         if dest == 'local':
             self.hosts = [
                 {
-                    'host':'127.0.0.1',
+                    'host':'localhost',
                     'port':3306
                 },
             ]
             self.port = 3306
-            self.user = 'ditchuser'
-            self.pw = 'bywasbashichri'
+            #self.user = 'ditchuser'
+            #self.pw = 'bywasbashichri'
+            self.user ='root'
+            self.pw = '!jake@maggie12'
             if not db:
                 self.db = 'ditchmon'
         else:
@@ -217,6 +219,7 @@ class DBConnection(object):
                     raise Exception("Failed to open Database connection.","-1001")
                 else:
                     self.conn = conn
+                    #conn.autocommit()
 
             except MySQLdb.Error as e:
                 print "Failed to open connection. MySQLdb error: %d:%s" % (e.args[0], e.args[1])
