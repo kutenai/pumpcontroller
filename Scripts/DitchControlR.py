@@ -73,7 +73,20 @@ class DitchControl(DitchRedisHandler):
     def showSystemStatus(self):
 
         print("Showing System Status:")
-        pass
+        d = self.redis.get('ditch')
+        s = self.redis.get('sump')
+        pc = self.redis.get('pumpcall')
+        p = self.redis.get('pumpon')
+        nc = self.redis.get('northcall')
+        n = self.redis.get('northon')
+        sc = self.redis.get('southcall')
+        s = self.redis.get('southon')
+
+        print("Pump: Call:%s On:%s" %(pc,p))
+        print("North: Call:%s On:%s" %(nc,n))
+        print("South: Call:%s On:%s" %(sc,s))
+        print("Ditch: %s\" (%d)" %(self.redis.get('ditch_inches'),int(self.redis.get('ditch'))))
+        print("Sump: %s\" (%d)" %(self.redis.get('sump_inches'),int(self.redis.get('sump'))))
 
     def lprint(self,str):
         print(str)
