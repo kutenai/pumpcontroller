@@ -48,7 +48,6 @@ class DBDitch(DBConnUser):
                    ditchlvl, sumplvl, ditchin, sumpin, pumpOn, northOn, southOn
                 )
 
-        print (sql)
         curs = self.getCursor()
         curs.execute(sql)
         self.conn.commit()

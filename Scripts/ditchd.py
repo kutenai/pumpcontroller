@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env Python
 
 """@package SpiceServer
 
@@ -21,9 +21,8 @@ class DitchDaemon(Daemon):
     def __init__(self,pidfile,stdin='/dev/null', stdout='/dev/null', stderr='/dev/null'):
         super(DitchDaemon,self).__init__(pidfile,stdin,stdout,stderr)
         self.host = '127.0.0.1'
-        self.port = 7000
-        self.db = 1
-        self._nworkers = 1
+        self.port = 6388
+        self.db = 0
         self.instanceid = None
 
 
@@ -140,10 +139,6 @@ if __name__ == "__main__":
 
     if args.db:
         daemon.setDB(args.db)
-
-    # Set the default values
-    daemon.nworkers = args.workers
-    daemon.maxlength = args.maxlength
 
     if 'start' == args.command:
         daemon.start()

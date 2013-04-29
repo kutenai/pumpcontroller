@@ -18,7 +18,7 @@ from DitchLogger import DitchLogger
 
 import resource
 
-class DitchManager(DitchRedisHandler,DitchLogger):
+class DitchManager(DitchRedisHandler):
     """
 
     Manage the ditch interface.
@@ -32,7 +32,7 @@ class DitchManager(DitchRedisHandler,DitchLogger):
 
     """
 
-    def __init__(self, host, port, db):
+    def __init__(self, host='localhost', port=6388, db=0):
         super(DitchManager,self).__init__(host,port,db)
 
         self._debug = False
@@ -47,7 +47,10 @@ class DitchManager(DitchRedisHandler,DitchLogger):
 
 
         self.api = IrrigationAPI()
+        self.api.setPrintObj(self)
+
         self.loggr = DitchLogger(self.api)
+        self.loggr.setPrintObj(self)
 
         self.txt = ""
         self.txtChanged = False
@@ -63,8 +66,14 @@ class DitchManager(DitchRedisHandler,DitchLogger):
         self.logfile = None
         self.logfp = None
 
+        self.currCommandValues = {
+            'pump' : False,
+            'north' : False,
+            'south' : False
+        }
+
         self.cosmLogInterval = 60
-        self.dbLogInterval = 5
+        self.dbLogInterval = 60
         self.lastCosmLogTime = time() - 100
         self.lastDBLogTime = time() - 100
 
@@ -107,6 +116,7 @@ class DitchManager(DitchRedisHandler,DitchLogger):
             atexit.register(self.shutdown)
 
         self.redisConnect() # attempt to connect
+        self.initRedisValues()
 
         self.logprint("Starting Ditch Manager %s." % (self.myid))
 
@@ -117,41 +127,70 @@ class DitchManager(DitchRedisHandler,DitchLogger):
                 continue # Jump back to the top while loop
 
             # Do some things
-            self.ping()
-
             self.logCurrentLevels()
 
-            if self.commandValuesChanged():
-
-                pass
-
-            else:
-                # do a bit of sleep to avoid just thrashing.
-                # this occurs when we have no sim slots available, or
-                # when we are shutting down gracefully.
-                sleep(0.5)
+            self.checkCommandValues()
 
             # Do maintenance in between actions, or when
             # there are no sims to process
             self.processLogMessages()
             self.processMessages()
 
+            sleep(0.5)
+
 
         self.redisDisconnect()
 
-    def ping(self):
+    def initRedisValues(self):
         """
-        Ping the redis server to indicate that this server is still active.
+        Read the redis values. Initialize them if they don't exist,
+        and store our copies if they do.
         """
+        pRequest = self.redis.get('pumprequest');
+        nRequest= self.redis.get('northrequest');
+        sRequest= self.redis.get('southrequest');
 
-        self.hset(self.myid,'pingtime',time())
+        if pRequest == None:
+            self.redis.set('pumprequest',0)
+            pRequest = '0'
+        if nRequest == None:
+            self.redis.set('northrequest',0)
+            nRequest = '0'
+        if sRequest == None:
+            self.redis.set('southrequest',0)
+            sRequest = '0'
 
-    def commandValuesChanged(self):
+        self.currCommandValues['pump'] = pRequest != '0'
+        self.currCommandValues['north'] = nRequest  != '0'
+        self.currCommandValues['south'] = sRequest  != '0'
+
+
+    def checkCommandValues(self):
         """
         Determine if any of the redis command values have changed.
+
+        If so, then send the appropriate commands
+
         """
 
-        return False
+        pRequest = self.redis.get('pumprequest');
+        nRequest= self.redis.get('northrequest');
+        sRequest= self.redis.get('southrequest');
+
+        cmds = {
+            'pump' : pRequest != '0',
+            'north' : nRequest != '0',
+            'south' : sRequest != '0'
+        }
+
+        for key in cmds.iterkeys():
+            if cmds[key] != self.currCommandValues[key]:
+                self.api.sendBool(key,cmds[key])
+                self.lprint("%s set to %s" % (key,cmds[key]))
+                self.currCommandValues[key] = cmds[key]
+
+                if key == 'pump' and cmds[key]:
+                    self.dbLogInterval = 5
 
     def logCurrentLevels(self):
         """
@@ -172,6 +211,26 @@ class DitchManager(DitchRedisHandler,DitchLogger):
                 if dbDiff > self.dbLogInterval:
                     self.lastDBLogTime = time()
                     self.loggr.logResultsDB(status)
+
+                self.upateRedis(status)
+
+    def upateRedis(self,status):
+
+        self.redis.set('pumpcall',status['PC'])
+        self.redis.set('pumpon',status['P'])
+        self.redis.set('northcall',status['NC'])
+        self.redis.set('northon',status['N'])
+        self.redis.set('southcall',status['SC'])
+        self.redis.set('sourthon',status['S'])
+        self.redis.set('ditch',status['Ditch'])
+        self.redis.set('sump',status['Sump'])
+        self.redis.set('ditch_inches',self.loggr.ditchInches(status['Ditch']))
+        self.redis.set('sump_inches',self.loggr.sumpInches(status['Sump']))
+
+        if status['P'] != '0':
+            self.dbLogInterval = 5
+        else:
+            self.dbLogInterval = 60
 
 
     def logRunningTime(self):

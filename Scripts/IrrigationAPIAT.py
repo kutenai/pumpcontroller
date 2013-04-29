@@ -11,7 +11,19 @@ class IrrigationAPI(object):
         self.ser = None
         self.lastResult = None
         self.port = None
+        self.printer = None
 
+
+    def setPrintObj(self,pobj):
+
+        self.printer = pobj
+
+    def lprint(self,txt):
+
+        if self.printer:
+            self.printer.lprint(txt)
+        else:
+            print(txt)
 
     def Initialize(self):
         """
@@ -39,17 +51,17 @@ class IrrigationAPI(object):
 
         if self.ser:
             ''' Reset to new baud rate '''
-            print("Closed existing port.")
+            self.lprint("Closed existing port.")
             self.ser.close()
             self.ser = None
             self.ser = serial.Serial(self.port,self.baudrate,timeout = 1)
             self.ser.open()
-            print ("Re-opened port at different baud rate")
+            self.lprint ("Re-opened port at different baud rate")
 
         else:
             self.ser = serial.Serial(self.port,self.baudrate, timeout = 1)
             self.open()
-            print("Opened port %s" % self.port)
+            self.lprint("Opened port %s" % self.port)
 
     def close(self):
         """
@@ -131,7 +143,10 @@ class IrrigationAPI(object):
         while retries:
             if self.sendPacket(b'status'):
                 result = self.getLastResult()
-                data = dict(item.split(":") for item in re.split('\s', result))
+                try:
+                    data = dict(item.split(":") for item in re.split('\s', result))
+                except:
+                    continue
                 return data
             retries -= 1
             print("Retries..")

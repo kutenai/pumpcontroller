@@ -85,7 +85,20 @@ class DitchLogger(object):
         self.conn = None
         self.dbTable = None
 
+        self.printer = None
+
         self.apikey = "d8ytNTiS45sNRIVqsluvbDTlW2eSAKxJVUNVamJLUmtJZz0g"
+
+    def setPrintObj(self,pobj):
+
+        self.printer = pobj
+
+    def lprint(self,txt):
+
+        if self.printer:
+            self.printer.lprint(txt)
+        else:
+            print(txt)
 
     def InitializeDB(self):
         """
@@ -122,11 +135,11 @@ class DitchLogger(object):
         response = conn.getresponse()
 
         if response.status == 200:
-            print ("Logged To Feedid %d Stream %s => %s" % (feedid,id,val))
+            self.lprint ("Logged To Feedid %d Stream %s => %s" % (feedid,id,val))
         else:
-            print response.status, response.reason
+            self.lprint(response.status, response.reason)
             data = response.read()
-            print('Response:' + data)
+            self.lprint('Response:' + data)
 
         conn.close()
 
@@ -152,7 +165,7 @@ class DitchLogger(object):
                 int(stat['P']), int(stat['N']), int(stat['S'])
             )
 
-            print("Logged to Database.")
+            self.lprint("Logged to Database.")
 
 
     def logLevels(self):
