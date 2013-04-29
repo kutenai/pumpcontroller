@@ -121,7 +121,7 @@ class DitchManager(DitchRedisHandler):
         def onGracefulStop(signal,frame):
             self.enDequeue = False
             self.logprint("Graceful stop received. Initiating shutdown..")
-            # Wait for the run flag to be cleared, meaning all sims are done.
+            # Wait for the run flag to be cleared
 
         signal.signal(signal.SIGINT,signal_handler)
         signal.signal(signal.SIGTERM,onterm)
@@ -156,15 +156,13 @@ class DitchManager(DitchRedisHandler):
                 self.redisConnect()
                 continue # Jump back to the top while loop
 
+            self.checkCommandValues()
+
             # Do some things
             self.logCurrentLevels()
 
-            self.checkCommandValues()
-
-            # Do maintenance in between actions, or when
-            # there are no sims to process
+            # Do maintenance in between actions
             self.processLogMessages()
-            self.processMessages()
 
             sleep(0.5)
 
@@ -213,14 +211,19 @@ class DitchManager(DitchRedisHandler):
             'south' : sRequest != '0'
         }
 
+        bUpdateStatus = False
         for key in cmds.iterkeys():
             if cmds[key] != self.currCommandValues[key]:
                 self.api.sendBool(key,cmds[key])
                 self.lprint("%s set to %s" % (key,cmds[key]))
                 self.currCommandValues[key] = cmds[key]
+                bUpdateStatus = True
 
                 if key == 'pump' and cmds[key]:
                     self.dbLogInterval = 5
+
+        if bUpdateStatus:
+            self.updateStatus()
 
     def logCurrentLevels(self):
         """
@@ -245,7 +248,7 @@ class DitchManager(DitchRedisHandler):
                     self.lastDBLogTime = time()
                     self.loggr.logResultsDB(status)
 
-                self.upateRedis(status)
+                self.updateRedis(status)
 
     def inAlarmState(self,ditchInches):
         """
@@ -308,8 +311,6 @@ class DitchManager(DitchRedisHandler):
                 a['lastMsgSent'] = None
 
 
-
-
     def sendAlarmMessage(self,ditchInches, alarmStart, tnow, alarmLength):
         """
         Send an alarm message
@@ -354,7 +355,22 @@ class DitchManager(DitchRedisHandler):
 
         self.messenger.sendMessage('alarm',subject, msg)
 
-    def upateRedis(self,status):
+    def updateStatus(self):
+        """
+        Get the current status of the system, and update the redis
+        variables with all of the call and actual values.
+        """
+
+        status = self.api.getSystemStatus()
+
+        if status:
+            self.updateRedis(status)
+
+    def updateRedis(self,status):
+        """
+        Use the given status structure and upate all of the redis variables with
+        the current values.
+        """
 
         self.redis.set('pumpcall',status['PC'])
         self.redis.set('pumpon',status['P'])
@@ -456,42 +472,6 @@ class DitchManager(DitchRedisHandler):
 
         self.msglock.release()
 
-    def processMessages(self):
-        """
-        Sim messages for this server are placed into our server message queue.
-        Pop messages from the queue and pass them along to any sims.
-        """
-
-        msgq = 'msg:%s' % self.myid
-
-        jmsg = self.rpop(msgq)
-        while jmsg:
-            msg = json.loads(jmsg)
-            simid = msg['simid']
-            cmd = msg['cmd']
-
-            sim = self.getSim(simid)
-
-            if sim:
-                sim.ping()
-
-                if cmd == 'status':
-                    pass # nothing to do
-                elif cmd == 'cancel':
-                    # cancel this sim!
-                    self.logprint("Processing message. Simid:%s cmd:%s." % (simid,cmd))
-                    self.simCancel(sim)
-                elif cmd == 'removed':
-                    # sim removed by client
-                    self.logprint("Processing message. Simid:%s cmd:%s." % (simid,cmd))
-                    self.mgr.removeSim(sim)
-                elif cmd == 'data':
-                    # Sim data has been retrieved by client.
-                    pass
-                else:
-                    print("Unknown command:%s for simID:%s." % (cmd,simid))
-
-            jmsg = self.rpop(msgq)
 
 def runTests():
 
@@ -513,7 +493,7 @@ def runTests():
 def start_server():
     """ Start the server.
 
-    Create a sim manager and a redis manager, and connect the two together..
+    Create a ditch manager and a redis manager, and connect the two together..
     then start the redis manager running.
 
     """

@@ -27,8 +27,6 @@ class DitchRedisHandler(object):
 
         try:
             self.redis.ping()
-            self.redis.sadd("servers",self.myid)
-            self.redis.hset(self.myid,'pingtime',time())
             self.lprint("Done..")
             self.isConnected = True
         except ConnectionError:

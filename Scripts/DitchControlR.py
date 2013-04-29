@@ -143,15 +143,15 @@ def main():
 
     if args.levels:
     	ctrl.showLevels()
-    	
+
     if args.loop and args.levels:
-		while True:
-			try:
-				time.sleep(5)
-				ctrl.showLevels()
-			except KeyboardInterrupt:
-				break
-			
+        while True:
+            try:
+                time.sleep(5)
+                ctrl.showLevels()
+            except KeyboardInterrupt:
+                break
+
 
 
 
