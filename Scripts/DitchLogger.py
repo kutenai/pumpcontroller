@@ -89,6 +89,12 @@ class DitchLogger(object):
 
         self.apikey = "d8ytNTiS45sNRIVqsluvbDTlW2eSAKxJVUNVamJLUmtJZz0g"
 
+        self.feedid = 121835
+
+        self.feedHist = {
+
+        }
+
     def setPrintObj(self,pobj):
 
         self.printer = pobj
@@ -123,6 +129,12 @@ class DitchLogger(object):
 
 
     def logStream(self,feedid,id,val):
+
+        if self.feedHist.has_key(id) and self.feedHist[id] == val:
+            return
+
+        self.feedHist[id] = val
+
         data = {
             'id' : id,
             "current_value" : val
@@ -143,11 +155,27 @@ class DitchLogger(object):
 
         conn.close()
 
+    def logBoolStream(self,feedid,id,bIn):
+        """
+        Convert a boolean value to a 1 or a 0 and log the stream
+        """
+        bval = 0
+        if bIn:
+            bval = 1
+
+        self.logStream(feedid,id,bval)
+
 
     def logResultsCosm(self,ditch,sump):
-        feedid = 121835
+        feedid = self.feedid
         self.logStream(feedid,'ditch_level',self.ditchInches(ditch))
         self.logStream(feedid,'sump_level', self.sumpInches(sump))
+
+    def logSystemStatus(self,pumpOn, northOn, southOn):
+        feedid = self.feedid
+        self.logBoolStream(feedid, 'pump_on', pumpOn)
+        self.logBoolStream(feedid, 'north_on', northOn)
+        self.logBoolStream(feedid, 'south_on', southOn)
 
     def logResultsDB(self,stat):
         """

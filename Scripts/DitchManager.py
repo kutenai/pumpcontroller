@@ -247,7 +247,7 @@ class DitchManager(DitchRedisHandler):
 
                     if cosmDiff > self.cosmLogInterval:
                         self.lastCosmLogTime = time()
-                        self.loggr.logResultsCosm(status['Ditch'],status['Sump'])
+                        self.loggr.logResultsCosm(status['Ditch'], status['Sump'])
                     if dbDiff > self.dbLogInterval:
                         self.lastDBLogTime = time()
                         self.loggr.logResultsDB(status)
@@ -393,6 +393,14 @@ class DitchManager(DitchRedisHandler):
             self.dbLogInterval = 5
         else:
             self.dbLogInterval = 60
+
+        try:
+            self.loggr.logSystemStatus(status['P'] != '0',
+                                       status['N'] != '0',
+                                       status['S'] != '0')
+
+        except:
+            pass
 
 
     def logRunningTime(self):
