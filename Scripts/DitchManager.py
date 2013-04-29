@@ -214,13 +214,16 @@ class DitchManager(DitchRedisHandler):
         bUpdateStatus = False
         for key in cmds.iterkeys():
             if cmds[key] != self.currCommandValues[key]:
-                self.api.sendBool(key,cmds[key])
-                self.lprint("%s set to %s" % (key,cmds[key]))
-                self.currCommandValues[key] = cmds[key]
-                bUpdateStatus = True
+                try:
+                    self.api.sendBool(key,cmds[key])
+                    self.lprint("%s set to %s" % (key,cmds[key]))
+                    self.currCommandValues[key] = cmds[key]
+                    bUpdateStatus = True
 
-                if key == 'pump' and cmds[key]:
-                    self.dbLogInterval = 5
+                    if key == 'pump' and cmds[key]:
+                        self.dbLogInterval = 5
+                except Exception as e:
+                    self.lprint("Exception trying to set the command value %s to %s." % (key,cmds[key]))
 
         if bUpdateStatus:
             self.updateStatus()
@@ -235,20 +238,23 @@ class DitchManager(DitchRedisHandler):
 
         if dbDiff > self.dbLogInterval or cosmDiff > self.cosmLogInterval:
 
-            status = self.api.getSystemStatus()
+            try:
+                status = self.api.getSystemStatus()
 
-            if status:
+                if status:
 
-                self.alarmChecks(self.loggr.ditchInches(status['Ditch']))
+                    self.alarmChecks(self.loggr.ditchInches(status['Ditch']))
 
-                if cosmDiff > self.cosmLogInterval:
-                    self.lastCosmLogTime = time()
-                    self.loggr.logResultsCosm(status['Ditch'],status['Sump'])
-                if dbDiff > self.dbLogInterval:
-                    self.lastDBLogTime = time()
-                    self.loggr.logResultsDB(status)
+                    if cosmDiff > self.cosmLogInterval:
+                        self.lastCosmLogTime = time()
+                        self.loggr.logResultsCosm(status['Ditch'],status['Sump'])
+                    if dbDiff > self.dbLogInterval:
+                        self.lastDBLogTime = time()
+                        self.loggr.logResultsDB(status)
 
-                self.updateRedis(status)
+                    self.updateRedis(status)
+            except Exception as e:
+                self.lprint("Exception thrown while updating.\n\t%s" % e)
 
     def inAlarmState(self,ditchInches):
         """
@@ -410,7 +416,7 @@ class DitchManager(DitchRedisHandler):
         logTime = strftime("%Y%m%d %H:%M:%S", currTime)
         txt = logTime + " " + txt
         self.printlock.acquire()
-        if self.logfp:
+        if self.logfp and not self.logfp.closed:
             self.logfp.write(txt)
             if txt[-1] != '\n':
                 self.logfp.write("\n")
