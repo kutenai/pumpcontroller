@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05caa682-40d8-4590-b43e-d3c8001cf1c3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/DitchManager.py" afterPath="$PROJECT_DIR$/Scripts/DitchManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pumpcontrol.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367217145827" ignored="false" />
+    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367267463736" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/management/__init__.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914904296" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/library/jquery-1.8.2.min.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/WEB-INF/views/index.jsp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
@@ -28,7 +28,7 @@
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/config/eeweb-host/services-context.xml" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936631" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/java/com/schemeit/controllers/EmbedController.java" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/config/eeweb-local/datasource-context.xml" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936631" ignored="false" />
-    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/main/eeGui.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
+    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/main/eeGui.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265040946" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/java/com/schemeit/controllers/ExportController.java" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/java/com/schemeit/controllers/FeedbackController.java" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/main/eeProject.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
@@ -59,7 +59,7 @@
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/partsim/simShareDialog.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkApp.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkEditor.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
-    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkGui.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
+    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkGui.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265344669" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkMain.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkProject.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/schemeit/dkUser.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
@@ -95,7 +95,7 @@
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/bom/embedBomView.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/config/eeweb-dev-master/services-context.xml" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/less/layout.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
-    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/less/main.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
+    <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/less/main.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265425705" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/WEB-INF/applicationContext.xml" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936631" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/eeLib/embed/embedGui.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366998842187" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/config/eeweb-dev-master-dev/datasource-context.xml" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
@@ -344,7 +344,7 @@
     <file path="/PumpController.cpp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367001163321" ignored="false" />
     <file path="/IrrigationAPI.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366951454920" ignored="false" />
     <file path="/local.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366960161794" ignored="false" />
-    <file path="/*.regexp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367029381956" ignored="false" />
+    <file path="/*.regexp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265457814" ignored="false" />
     <file path="$PROJECT_DIR$/../../sharpertool/gardenbuzz/application/GardenBuzzBootstrap.php" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366999574643" ignored="false" />
     <file path="/ino.ini" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367033351482" ignored="false" />
     <file path="/PumpController.ino" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367027409544" ignored="false" />
@@ -364,10 +364,10 @@
     <file path="/PumpCmdProcessor.h" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367035864952" ignored="false" />
     <file path="/PumpCmdProcessor.cpp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367042608220" ignored="false" />
     <file path="/IrrigationAPIAT.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367204331749" ignored="false" />
-    <file path="/DitchLogger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367204474487" ignored="false" />
+    <file path="/DitchLogger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367268105564" ignored="false" />
     <file path="/DitchControl.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367050216788" ignored="false" />
     <file path="/ditchd.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367212945441" ignored="false" />
-    <file path="/DitchManager.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367219095035" ignored="false" />
+    <file path="/DitchManager.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367266005627" ignored="false" />
     <file path="/DitchRedisHandler.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367193752982" ignored="false" />
     <file path="/redis-gardenbuzz-cms.conf" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367192661149" ignored="false" />
     <file path="/org.redis.redis-ditchmgr.plist" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367193021324" ignored="false" />
@@ -375,6 +375,7 @@
     <file path="/DBDitch.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367199502665" ignored="false" />
     <file path="/DitchControlR.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367205103673" ignored="false" />
     <file path="/DitchMessenger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367213021199" ignored="false" />
+    <file path="/main.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265416396" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -434,13 +435,13 @@
     <favorites_list name="pumpcontrol" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49628052">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="DitchManager.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="DitchManager.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="379" column="27" selection-start="11493" selection-end="11493" vertical-scroll-proportion="0.35005015">
+                <state line="401" column="15" selection-start="12441" selection-end="12441" vertical-scroll-proportion="0.022066198">
                   <folding>
                     <element signature="e#24#51#0" expanded="true" />
                   </folding>
@@ -461,11 +462,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="DitchLogger.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="DitchLogger.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchLogger.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="71" column="33" selection-start="1864" selection-end="1864" vertical-scroll-proportion="0.0">
-                  <folding />
+                <state line="262" column="62" selection-start="6676" selection-end="6680" vertical-scroll-proportion="0.8084449">
+                  <folding>
+                    <element signature="e#47#58#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -473,10 +476,8 @@
           <file leaf-file-name="DitchManager.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="231" column="0" selection-start="6300" selection-end="6300" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#24#51#0" expanded="true" />
-                  </folding>
+                <state line="234" column="0" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -485,17 +486,15 @@
             <entry file="file://$PROJECT_DIR$/Scripts/DitchControlR.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="85" column="51" selection-start="2211" selection-end="2211" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#48#63#0" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PumpCmdProcessor.cpp" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="PumpCmdProcessor.cpp" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.39719158">
+                <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -549,12 +548,12 @@
         <option value="$PROJECT_DIR$/Scripts/DBConnection.py" />
         <option value="$PROJECT_DIR$/Scripts/DBDitch.py" />
         <option value="$PROJECT_DIR$/Scripts/IrrigationAPIAT.py" />
-        <option value="$PROJECT_DIR$/Scripts/DitchLogger.py" />
         <option value="$PROJECT_DIR$/Scripts/ditchd.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchMessenger.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchRedisHandler.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchControlR.py" />
         <option value="$PROJECT_DIR$/Scripts/DitchManager.py" />
+        <option value="$PROJECT_DIR$/Scripts/DitchLogger.py" />
       </list>
     </option>
   </component>
@@ -563,7 +562,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1914" />
+    <option name="x" value="-1910" />
     <option name="y" value="40" />
     <option name="width" value="3807" />
     <option name="height" value="1148" />
@@ -679,9 +678,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -788,47 +784,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpcontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpcontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Firmware" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpcontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpcontrol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Firmware" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pumpat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -1472,7 +1431,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1914" y="40" width="3807" height="1148" extended-state="0" />
+    <frame x="-1910" y="40" width="3807" height="1148" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1612,9 +1571,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../EEWeb/spiceserver/SpiceRedisMonitor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="47" selection-start="205" selection-end="205" vertical-scroll-proportion="0.26479438">
-          <folding />
-        </state>
+        <state line="12" column="47" selection-start="205" selection-end="205" vertical-scroll-proportion="0.26479438" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/DitchMessenger.py">
@@ -1626,21 +1583,12 @@
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/serial/serialposix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="449" column="40" selection-start="16350" selection-end="16350" vertical-scroll-proportion="0.2006018">
-          <folding />
-        </state>
+        <state line="449" column="40" selection-start="16350" selection-end="16350" vertical-scroll-proportion="0.2006018" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../EEWeb/spiceserver/SpiceMonitor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="49" selection-start="281" selection-end="281" vertical-scroll-proportion="0.1544634">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/DitchLogger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="33" selection-start="1864" selection-end="1864" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1662,9 +1610,7 @@
     <entry file="file://$PROJECT_DIR$/Scripts/DitchControlR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="51" selection-start="2211" selection-end="2211" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#48#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1684,16 +1630,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Firmware/pumpat/src/PumpCmdProcessor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.39719158">
+        <state line="36" column="25" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/DitchManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="379" column="27" selection-start="11493" selection-end="11493" vertical-scroll-proportion="0.35005015">
+        <state line="234" column="0" selection-start="6489" selection-end="6489" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/DitchLogger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="262" column="62" selection-start="6676" selection-end="6680" vertical-scroll-proportion="0.8084449">
           <folding>
-            <element signature="e#24#51#0" expanded="true" />
+            <element signature="e#47#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
