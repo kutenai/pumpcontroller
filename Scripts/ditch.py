@@ -2,10 +2,10 @@
 
 __author__ = 'kutenai'
 
-
 import argparse
 import time
 from DitchRedisHandler import DitchRedisHandler
+
 
 class Ditch(DitchRedisHandler):
     """
@@ -26,113 +26,119 @@ class Ditch(DitchRedisHandler):
     """
 
     def __init__(self):
-        super(Ditch,self).__init__('localhost',6388,0)
+        super(Ditch, self).__init__('localhost', 6388, 0)
         self.hi = True
         self.redisConnect()
-        
-        
+
+
     def allOff(self):
-		self.redis.set('northrequest','0')
-		self.redis.set('southrequest','0')
-		self.redis.set('pumprequest','0')
+        print("Setting all controls to off.")
+        self.redis.set('northrequest', '0')
+        self.redis.set('southrequest', '0')
+        self.redis.set('pumprequest', '0')
 
     def runNorth(self):
+        print("Turning on North Zone.")
+        self.redis.set('northrequest', '1')
+        self.redis.set('southrequest', '0')
+        self.redis.set('pumprequest', '1')
 
-		self.redis.set('northrequest','1')
-		self.redis.set('southrequest','0')
-		self.redis.set('pumprequest','1')
- 
+
     def runSouth(self):
-		self.redis.set('northrequest','0')
-		self.redis.set('southrequest','1')
-		self.redis.set('pumprequest','1')
+        print("Turning on South Zone.")
+        self.redis.set('northrequest', '0')
+        self.redis.set('southrequest', '1')
+        self.redis.set('pumprequest', '1')
 
-    def southEnable(self,bOn):
 
+    def southEnable(self, bOn):
         if bOn:
-            self.redis.set('southrequest','1')
+            self.redis.set('southrequest', '1')
         else:
-            self.redis.set('southrequest','0')
+            self.redis.set('southrequest', '0')
 
-    def pumpEnable(self,bOn):
 
+    def pumpEnable(self, bOn):
         if bOn:
-            self.redis.set('pumprequest','1')
+            self.redis.set('pumprequest', '1')
         else:
-            self.redis.set('pumprequest','0')
+            self.redis.set('pumprequest', '0')
 
-    def northEnable(self,bOn):
 
+    def northEnable(self, bOn):
         if bOn:
-            self.redis.set('northrequest','1')
+            self.redis.set('northrequest', '1')
         else:
-            self.redis.set('northrequest','0')
+            self.redis.set('northrequest', '0')
 
-    def southEnable(self,bOn):
 
+    def southEnable(self, bOn):
         if bOn:
-            self.redis.set('southrequest','1')
+            self.redis.set('southrequest', '1')
         else:
-            self.redis.set('southrequest','0')
+            self.redis.set('southrequest', '0')
+
 
     def isPumpOn(self):
         return self.redis.get('pumpon') != '0'
 
+
     def isNorthOn(self):
         return self.redis.get('northon') != '0'
+
 
     def isSouthOn(self):
         return self.redis.get('southon') != '0'
 
-    def showLevels(self):
 
+    def showLevels(self):
         d = self.redis.get('ditch')
         s = self.redis.get('sump')
         di = self.redis.get('ditch_inches')
         si = self.redis.get('sump_inches')
 
-        print("Ditch is %s\" (%d)" % (di,int(d)))
-        print("Sump is %s\" (%d)" % (si,int(s)))
-        
-    def getSystemValue(self,key,default):
-    
-    	val = self.redis.get(key)
-    	if val == None:
-    		val = default
-    		self.redis.set(key,val)
-    		
-    	return val
-    	
-        
+        print("Ditch is %s\" (%d)" % (di, int(d)))
+        print("Sump is %s\" (%d)" % (si, int(s)))
+
+
+    def getSystemValue(self, key, default):
+        val = self.redis.get(key)
+        if val == None:
+            val = default
+            self.redis.set(key, val)
+
+        return val
+
+
     def getSystemStatus(self):
-    
-    	stat = {
-    		'ditch' 	: self.getSystemValue('ditch',0),
-    		'sump'		: self.getSystemValue('sump',0),
-    		'ditch_in' 	: self.getSystemValue('ditch_inches',0.0),
-    		'sump_in'	: self.getSystemValue('sump_inches',0.0),
-    		'pumpcall'	: self.getSystemValue('pumpcall',0),
-    		'northcall'	: self.getSystemValue('northcall',0),
-    		'southcall'	: self.getSystemValue('southcall',0),
-    		'pumpon'	: self.getSystemValue('pumpon',0),
-    		'northon'	: self.getSystemValue('northon',0),
-    		'southon'	: self.getSystemValue('southon',0)
-    	}
-    	return stat    	
+        stat = {
+            'ditch': self.getSystemValue('ditch', 0),
+            'sump': self.getSystemValue('sump', 0),
+            'ditch_in': self.getSystemValue('ditch_inches', 0.0),
+            'sump_in': self.getSystemValue('sump_inches', 0.0),
+            'pumpcall': self.getSystemValue('pumpcall', 0),
+            'northcall': self.getSystemValue('northcall', 0),
+            'southcall': self.getSystemValue('southcall', 0),
+            'pumpon': self.getSystemValue('pumpon', 0),
+            'northon': self.getSystemValue('northon', 0),
+            'southon': self.getSystemValue('southon', 0)
+        }
+        return stat
+
 
     def showSystemStatus(self):
-    
         print("Showing System Status:")
-    	stat = self.getSystemStatus()
+        stat = self.getSystemStatus()
 
-        print("Pump: Call:%s On:%s" %(stat['pumpcall'],stat['pumpon']))
-        print("North: Call:%s On:%s" %(stat['northcall'],stat['northon']))
-        print("South: Call:%s On:%s" %(stat['southcall'],stat['southon']))
-        print("Ditch: %s\" (%d)" %(stat['ditch_in'],int(stat['ditch'])))
-        print("Sump: %s\" (%d)" %(stat['sump_in'],int(stat['sump'])))
+        print("Pump: Call:%s On:%s" % (stat['pumpcall'], stat['pumpon']))
+        print("North: Call:%s On:%s" % (stat['northcall'], stat['northon']))
+        print("South: Call:%s On:%s" % (stat['southcall'], stat['southon']))
+        print("Ditch: %s\" (%d)" % (stat['ditch_in'], int(stat['ditch'])))
+        print("Sump: %s\" (%d)" % (stat['sump_in'], int(stat['sump'])))
 
-    def lprint(self,str):
-        print(str)
+
+    def lprint(self, string):
+        print(string)
 
 
 def main():
@@ -157,50 +163,50 @@ def main():
 
     parser.add_argument('--south', help="Turn the south valve on or off")
 
-    parser.add_argument('--status', action='store_true',help="Read the status")
+    parser.add_argument('--status', action='store_true', help="Read the status")
 
-    parser.add_argument('--levels', action='store_true',help="Read the status")
+    parser.add_argument('--levels', action='store_true', help="Read the status")
 
-    parser.add_argument('--loop', action='store_true',help="Read Constantly")
+    parser.add_argument('--loop', action='store_true', help="Read Constantly")
 
     args = parser.parse_args()
 
     ctrl = Ditch()
 
-    bStatus = False # Read if any of the contols are set
-    
-    if args.runnorth:
-    	ctrl.runNorth()
-    	
-    if args.runsouth:
-    	ctrl.runSouth()
-    	
-    if args.off:
-    	ctrl.allOff()
+    bStatus = False # Read if any of the controls are set
 
-    if args.north and args.north in ['on','off']:
+    if args.runnorth:
+        ctrl.runNorth()
+
+    if args.runsouth:
+        ctrl.runSouth()
+
+    if args.off:
+        ctrl.allOff()
+
+    if args.north and args.north in ['on', 'off']:
         ctrl.northEnable(args.north == 'on')
         s = ctrl.isNorthOn()
         print("North Array status %s" % s)
         bStatus = True
 
-    if args.south and args.south in ['on','off']:
+    if args.south and args.south in ['on', 'off']:
         ctrl.southEnable(args.south == 'on')
         s = ctrl.isSouthOn()
         print("South Array status %s" % s)
         bStatus = True
 
-    if args.pump and args.pump in ['on','off']:
+    if args.pump and args.pump in ['on', 'off']:
         ctrl.pumpEnable(args.pump == 'on')
         s = ctrl.isPumpOn()
         print("Pump status %s" % s)
         bStatus = True
 
     if (bStatus or args.status):
-	    stat = ctrl.showSystemStatus()
+        stat = ctrl.showSystemStatus()
 
     if args.levels:
-    	ctrl.showLevels()
+        ctrl.showLevels()
 
     if args.loop and args.levels:
         while True:
@@ -209,7 +215,6 @@ def main():
                 ctrl.showLevels()
             except KeyboardInterrupt:
                 break
-
 
     ctrl.showSystemStatus()
 
