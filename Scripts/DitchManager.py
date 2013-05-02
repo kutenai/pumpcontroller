@@ -223,8 +223,6 @@ class DitchManager(DitchRedisHandler):
                     self.currCommandValues[key] = cmds[key]
                     bUpdateStatus = True
 
-                    if key == 'pump' and cmds[key]:
-                        self.dbLogInterval = 5
                 except Exception as e:
                     self.lprint("Exception trying to set the command value %s to %s." % (key,cmds[key]))
 
@@ -368,12 +366,26 @@ class DitchManager(DitchRedisHandler):
         """
         Get the current status of the system, and update the redis
         variables with all of the call and actual values.
+
+        Update the log intervals to be slow if nothing is on.
         """
 
-        status = self.api.getSystemStatus()
+        st = self.api.getSystemStatus()
 
         if status:
-            self.updateRedis(status)
+            self.updateRedis(st)
+
+        bFast = False
+        for key in ['P','PC','N','NC','S','SC']:
+            if st[key] != '0':
+                bFast = True
+
+        if bFast:
+            self.dbLogInterval = 5
+            self.cosmLogInterval = 10
+        else:
+            self.dbLogInterval = 60
+            self.cosmLogInterval = 60
 
     def updateRedis(self,status):
         """
