@@ -26,7 +26,7 @@ class Ditch(DitchRedisHandler):
     """
 
     def __init__(self):
-        super(DitchControl,self).__init__('localhost',6388,0)
+        super(Ditch,self).__init__('localhost',6388,0)
         self.hi = True
         self.redisConnect()
         
@@ -93,24 +93,43 @@ class Ditch(DitchRedisHandler):
 
         print("Ditch is %s\" (%d)" % (di,int(d)))
         print("Sump is %s\" (%d)" % (si,int(s)))
+        
+    def getSystemValue(self,key,default):
+    
+    	val = self.redis.get(key)
+    	if val == None:
+    		val = default
+    		self.redis.set(key,val)
+    		
+    	return val
+    	
+        
+    def getSystemStatus(self):
+    
+    	stat = {
+    		'ditch' 	: self.getSystemValue('ditch',0),
+    		'sump'		: self.getSystemValue('sump',0),
+    		'ditch_in' 	: self.getSystemValue('ditch_inches',0.0),
+    		'sump_in'	: self.getSystemValue('sump_inches',0.0),
+    		'pumpcall'	: self.getSystemValue('pumpcall',0),
+    		'northcall'	: self.getSystemValue('northcall',0),
+    		'southcall'	: self.getSystemValue('southcall',0),
+    		'pumpon'	: self.getSystemValue('pumpon',0),
+    		'northon'	: self.getSystemValue('northon',0),
+    		'southon'	: self.getSystemValue('southon',0)
+    	}
+    	return stat    	
 
     def showSystemStatus(self):
-
+    
         print("Showing System Status:")
-        d = self.redis.get('ditch')
-        s = self.redis.get('sump')
-        pc = self.redis.get('pumpcall')
-        p = self.redis.get('pumpon')
-        nc = self.redis.get('northcall')
-        n = self.redis.get('northon')
-        sc = self.redis.get('southcall')
-        s = self.redis.get('southon')
+    	stat = self.getSystemStatus()
 
-        print("Pump: Call:%s On:%s" %(pc,p))
-        print("North: Call:%s On:%s" %(nc,n))
-        print("South: Call:%s On:%s" %(sc,s))
-        print("Ditch: %s\" (%d)" %(self.redis.get('ditch_inches'),int(self.redis.get('ditch'))))
-        print("Sump: %s\" (%d)" %(self.redis.get('sump_inches'),int(self.redis.get('sump'))))
+        print("Pump: Call:%s On:%s" %(stat['pumpcall'],stat['pumpon']))
+        print("North: Call:%s On:%s" %(stat['northcall'],stat['northon']))
+        print("South: Call:%s On:%s" %(stat['southcall'],stat['southon']))
+        print("Ditch: %s\" (%d)" %(stat['ditch_in'],int(stat['ditch'])))
+        print("Sump: %s\" (%d)" %(stat['sump_in'],int(stat['sump'])))
 
     def lprint(self,str):
         print(str)
@@ -146,7 +165,7 @@ def main():
 
     args = parser.parse_args()
 
-    ctrl = DitchControl()
+    ctrl = Ditch()
 
     bStatus = False # Read if any of the contols are set
     

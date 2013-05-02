@@ -151,18 +151,21 @@ class DitchManager(DitchRedisHandler):
         self.logprint("Starting Ditch Manager %s." % (self.myid))
 
         while self.enRun:
-            if not self.isConnected:
-                sleep(5) # Retry at 5 second intervals
-                self.redisConnect()
-                continue # Jump back to the top while loop
+            try:
+                if not self.isConnected:
+                    sleep(5) # Retry at 5 second intervals
+                    self.redisConnect()
+                    continue # Jump back to the top while loop
 
-            self.checkCommandValues()
+                self.checkCommandValues()
 
-            # Do some things
-            self.logCurrentLevels()
+                # Do some things
+                self.logCurrentLevels()
 
-            # Do maintenance in between actions
-            self.processLogMessages()
+                # Do maintenance in between actions
+                self.processLogMessages()
+            except Exception as e:
+                self.lprint("Exception occurred: %s" % e)
 
             sleep(0.5)
 
