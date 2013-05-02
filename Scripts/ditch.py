@@ -128,11 +128,11 @@ def main():
 
     parser.add_argument('--pump', help="Turn the pump on or off")
 
-    parser.add_argument('--runnorth', help="Run the north zone.")
+    parser.add_argument('--runnorth', action="store_true", help="Run the north zone.")
 
-    parser.add_argument('--runsouth', help="Run the south zone.")
+    parser.add_argument('--runsouth', action="store_true", help="Run the south zone.")
 
-    parser.add_argument('--off', help="Turn all off.")
+    parser.add_argument('--off', action="store_true", help="Turn all off.")
 
     parser.add_argument('--north', help="Turn the north valve on or off")
 
