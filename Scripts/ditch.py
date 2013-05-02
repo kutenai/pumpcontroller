@@ -114,6 +114,7 @@ class Ditch(DitchRedisHandler):
         val = self.redis.get(key)
         if val == None:
             val = default
+            self.lprint("Setting %s to default value of %s" % (key,default))
             self.redis.set(key, val)
 
         return val
