@@ -28,8 +28,6 @@ class DitchManager(DitchRedisHandler):
      control values, so, you can set the pump to 'on', and the north or south valves to
      'on', thus instructing the manager to send the appropriate commands.
 
-
-
     """
 
     def __init__(self, host='localhost', port=6388, db=0):
@@ -183,13 +181,13 @@ class DitchManager(DitchRedisHandler):
         sRequest= self.redis.get('southrequest')
 
         if pRequest == None:
-            self.redis.set('pumprequest',0)
+            self.redis.set('pumprequest','0')
             pRequest = '0'
         if nRequest == None:
-            self.redis.set('northrequest',0)
+            self.redis.set('northrequest','0')
             nRequest = '0'
         if sRequest == None:
-            self.redis.set('southrequest',0)
+            self.redis.set('southrequest','0')
             sRequest = '0'
 
         self.currCommandValues['pump'] = pRequest != '0'
@@ -210,7 +208,7 @@ class DitchManager(DitchRedisHandler):
         sRequest= self.redis.get('southrequest')
 
         cmds = {
-            'pump' : pRequest != '0',
+            'pump'  : pRequest != '0',
             'north' : nRequest != '0',
             'south' : sRequest != '0'
         }

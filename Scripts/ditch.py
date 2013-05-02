@@ -30,53 +30,62 @@ class Ditch(DitchRedisHandler):
         self.hi = True
         self.redisConnect()
 
+    def setRequest(self,key,val):
+
+        req = key + 'request'
+        if val:
+            self.redis.set(req,1)
+            print ("Set %s to 1" % req)
+        else:
+            self.redis.set(req,0)
+            print ("Set %s to 0" % req)
 
     def allOff(self):
         print("Setting all controls to off.")
-        self.redis.set('northrequest', '0')
-        self.redis.set('southrequest', '0')
-        self.redis.set('pumprequest', '0')
+        self.setRequest('pump',False)
+        self.setRequest('north',False)
+        self.setRequest('south',False)
 
     def runNorth(self):
         print("Turning on North Zone.")
-        self.redis.set('northrequest', '1')
-        self.redis.set('southrequest', '0')
-        self.redis.set('pumprequest', '1')
+        self.setRequest('pump',True)
+        self.setRequest('north',True)
+        self.setRequest('south',False)
 
 
     def runSouth(self):
         print("Turning on South Zone.")
-        self.redis.set('northrequest', '0')
-        self.redis.set('southrequest', '1')
-        self.redis.set('pumprequest', '1')
+        self.setRequest('pump',True)
+        self.setRequest('north',True)
+        self.setRequest('south',False)
 
 
     def southEnable(self, bOn):
         if bOn:
-            self.redis.set('southrequest', '1')
+            self.setRequest('south', True)
         else:
-            self.redis.set('southrequest', '0')
+            self.setRequest('south', False)
 
 
     def pumpEnable(self, bOn):
         if bOn:
-            self.redis.set('pumprequest', '1')
+            self.setRequest('pump', True)
         else:
-            self.redis.set('pumprequest', '0')
+            self.setRequest('pump', False)
 
 
     def northEnable(self, bOn):
         if bOn:
-            self.redis.set('northrequest', '1')
+            self.setRequest('north', True)
         else:
-            self.redis.set('northrequest', '0')
+            self.setRequest('north', False)
 
 
     def southEnable(self, bOn):
         if bOn:
-            self.redis.set('southrequest', '1')
+            self.setRequest('south', True)
         else:
-            self.redis.set('southrequest', '0')
+            self.setRequest('south', False)
 
 
     def isPumpOn(self):
