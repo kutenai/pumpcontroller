@@ -190,9 +190,9 @@ class DitchManager(DitchRedisHandler):
             self.redis.set('southrequest','0')
             sRequest = '0'
 
-        self.lprint("Set current pump request to %s" % pRequest != '0')
-        self.lprint("Set current north request to %s" % nRequest != '0')
-        self.lprint("Set current south request to %s" % sRequest != '0')
+        self.lprint("Set current pump request to %s" % pRequest)
+        self.lprint("Set current north request to %s" % nRequest)
+        self.lprint("Set current south request to %s" % sRequest)
 
         self.currCommandValues['pump'] = pRequest != '0'
         self.currCommandValues['north'] = nRequest  != '0'
