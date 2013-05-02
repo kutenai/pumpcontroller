@@ -372,7 +372,7 @@ class DitchManager(DitchRedisHandler):
 
         st = self.api.getSystemStatus()
 
-        if status:
+        if st:
             self.updateRedis(st)
 
         bFast = False
