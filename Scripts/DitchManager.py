@@ -171,32 +171,32 @@ class DitchManager(DitchRedisHandler):
 
         self.redisDisconnect()
 
+    def getSystemValue(self, key, default):
+        val = self.redis.get(key)
+        if val == None:
+            val = default
+            self.lprint("Set %s to default of %s" % (key,default))
+            self.redis.set(key, val)
+
+        return val
+
     def initRedisValues(self):
         """
         Read the redis values. Initialize them if they don't exist,
         and store our copies if they do.
         """
-        pRequest = self.redis.get('pumprequest')
-        nRequest= self.redis.get('northrequest')
-        sRequest= self.redis.get('southrequest')
 
-        if pRequest == None:
-            self.redis.set('pumprequest','0')
-            pRequest = '0'
-        if nRequest == None:
-            self.redis.set('northrequest','0')
-            nRequest = '0'
-        if sRequest == None:
-            self.redis.set('southrequest','0')
-            sRequest = '0'
-
-        self.lprint("Set current pump request to %s" % pRequest)
-        self.lprint("Set current north request to %s" % nRequest)
-        self.lprint("Set current south request to %s" % sRequest)
+        pRequest = self.getSystemValue('pumprequest','0')
+        nRequest= self.getSystemValue('northrequest','0')
+        sRequest= self.getSystemValue('southrequest','0')
 
         self.currCommandValues['pump'] = pRequest != '0'
         self.currCommandValues['north'] = nRequest  != '0'
         self.currCommandValues['south'] = sRequest  != '0'
+
+        for key in ['pump','north','south']:
+            self.api.sendBool(key,self.currCommandValues[key])
+            self.lprint("%s set to %s" % (key,self.currCommandValues[key]))
 
 
     def checkCommandValues(self):

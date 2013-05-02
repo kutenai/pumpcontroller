@@ -181,8 +181,10 @@ class IrrigationAPI(object):
 
         if bOn:
             self.sendPacket('%s 1' % cmd)
+            self.lprint("Set %s to on" % cmd)
         else:
             self.sendPacket('%s 0' % cmd)
+            self.lprint("Set %s to on" % cmd)
 
     def pumpEnable(self,bEnable):
         """
