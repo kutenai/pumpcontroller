@@ -56,8 +56,8 @@ class Ditch(DitchRedisHandler):
     def runSouth(self):
         print("Turning on South Zone.")
         self.setRequest('pump',True)
-        self.setRequest('north',True)
-        self.setRequest('south',False)
+        self.setRequest('north',False)
+        self.setRequest('south',True)
 
 
     def southEnable(self, bOn):
