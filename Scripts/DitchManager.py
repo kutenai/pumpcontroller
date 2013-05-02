@@ -5,6 +5,7 @@ import re
 import os.path
 import os,atexit
 import json
+import traceback
 
 from time import time,localtime,gmtime,strftime,sleep
 import signal
@@ -177,9 +178,9 @@ class DitchManager(DitchRedisHandler):
         Read the redis values. Initialize them if they don't exist,
         and store our copies if they do.
         """
-        pRequest = self.redis.get('pumprequest');
-        nRequest= self.redis.get('northrequest');
-        sRequest= self.redis.get('southrequest');
+        pRequest = self.redis.get('pumprequest')
+        nRequest= self.redis.get('northrequest')
+        sRequest= self.redis.get('southrequest')
 
         if pRequest == None:
             self.redis.set('pumprequest',0)
@@ -204,9 +205,9 @@ class DitchManager(DitchRedisHandler):
 
         """
 
-        pRequest = self.redis.get('pumprequest');
-        nRequest= self.redis.get('northrequest');
-        sRequest= self.redis.get('southrequest');
+        pRequest = self.redis.get('pumprequest')
+        nRequest= self.redis.get('northrequest')
+        sRequest= self.redis.get('southrequest')
 
         cmds = {
             'pump' : pRequest != '0',
