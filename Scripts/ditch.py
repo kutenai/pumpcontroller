@@ -105,7 +105,7 @@ class Ditch(DitchRedisHandler):
         val = self.redis.get(key)
         if val == None:
             val = default
-            self.redis.set(key, val)
+            #self.redis.set(key, val)
 
         return val
 
