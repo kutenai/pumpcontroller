@@ -3,9 +3,9 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$USER_HOME$/proj/bondiproj/pumpcontrol/webapp/ditch/ditch" />
-        <option name="settingsModule" value="settings.py" />
-        <option name="manageScript" value="settings.py" />
+        <option name="rootFolder" value="$MODULE_DIR$" />
+        <option name="settingsModule" value="" />
+        <option name="manageScript" value="manage.py" />
       </configuration>
     </facet>
   </component>

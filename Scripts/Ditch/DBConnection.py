@@ -202,7 +202,7 @@ class DBConnection(object):
                     host = hostval['host']
                     port = hostval['port']
                     try:
-                        print "Trying DB connection to %s at %d" % (host,port)
+                        #print "Trying DB connection to %s at %d" % (host,port)
                         conn = MySQLdb.connect(host=host,
                                                port=port,
                                                user=self.user,
@@ -216,7 +216,8 @@ class DBConnection(object):
 
 
                 if not conn:
-                    raise Exception("Failed to open Database connection.","-1001")
+                    print ("DB Connection to %s:%s failed." % (host,port))
+                    raise Exception("Failed to open Database connection.", "-1001")
                 else:
                     self.conn = conn
                     #conn.autocommit()

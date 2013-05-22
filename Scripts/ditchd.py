@@ -12,7 +12,7 @@ import os
 import time
 
 from signal import SIGTERM,SIGUSR1
-import DitchManager
+from Ditch.DitchManager import DitchManager
 
 from daemon import Daemon
 
@@ -58,7 +58,7 @@ class DitchDaemon(Daemon):
         else:
             logfile = os.path.join(logroot,"ditchd.log")
 
-        app = DitchManager.DitchManager()
+        app = DitchManager()
         app.setDaemon(True)
         app.setLogFile(logfile)
 

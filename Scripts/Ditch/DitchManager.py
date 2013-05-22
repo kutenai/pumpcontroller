@@ -149,6 +149,9 @@ class DitchManager(DitchRedisHandler):
 
         self.logprint("Starting Ditch Manager %s." % (self.myid))
 
+        self.lastStatusUpdate = time()
+        self.statusUpdateRate = 5 # Every 5 seconds.
+
         while self.enRun:
             try:
                 if not self.isConnected:
@@ -157,6 +160,9 @@ class DitchManager(DitchRedisHandler):
                     continue # Jump back to the top while loop
 
                 self.checkCommandValues()
+
+                if time() - self.lastStatusUpdate > self.statusUpdateRate:
+                    self.updateStatus()
 
                 # Do some things
                 self.logCurrentLevels()
@@ -242,23 +248,21 @@ class DitchManager(DitchRedisHandler):
 
         if dbDiff > self.dbLogInterval or cosmDiff > self.cosmLogInterval:
 
-            try:
-                status = self.api.getSystemStatus()
+            self.alarmChecks(self.loggr.ditchInches(self.redis.get('ditch')))
 
-                if status:
+            ditch = self.redis.get('ditch')
+            sump = self.redis.get('sump')
+            pump = self.redis.get('pumpon')
+            north = self.redis.get('northon')
+            south = self.redis.get('southon')
 
-                    self.alarmChecks(self.loggr.ditchInches(status['Ditch']))
+            if cosmDiff > self.cosmLogInterval:
+                self.lastCosmLogTime = time()
+                self.loggr.logResultsCosm(ditch,sump)
+            if dbDiff > self.dbLogInterval:
+                self.lastDBLogTime = time()
+                self.loggr.logResultsDB(ditch,sump,pump,north,south)
 
-                    if cosmDiff > self.cosmLogInterval:
-                        self.lastCosmLogTime = time()
-                        self.loggr.logResultsCosm(status['Ditch'], status['Sump'])
-                    if dbDiff > self.dbLogInterval:
-                        self.lastDBLogTime = time()
-                        self.loggr.logResultsDB(status)
-
-                    self.updateRedis(status)
-            except Exception as e:
-                self.lprint("Exception thrown while updating.\n\t%s" % e)
 
     def inAlarmState(self,ditchInches):
         """
@@ -373,22 +377,26 @@ class DitchManager(DitchRedisHandler):
         Update the log intervals to be slow if nothing is on.
         """
 
-        st = self.api.getSystemStatus()
+        try :
+            st = self.api.getSystemStatus()
 
-        if st:
-            self.updateRedis(st)
+            if st:
+                self.updateRedis(st)
 
-        bFast = False
-        for key in ['P','PC','N','NC','S','SC']:
-            if st[key] != '0':
-                bFast = True
+            bFast = False
+            for key in ['P','PC','N','NC','S','SC']:
+                if st[key] != '0':
+                    bFast = True
 
-        if bFast:
-            self.dbLogInterval = 5
-            self.cosmLogInterval = 10
-        else:
-            self.dbLogInterval = 60
-            self.cosmLogInterval = 60
+            if bFast:
+                self.dbLogInterval = 5
+                self.cosmLogInterval = 10
+            else:
+                self.dbLogInterval = 60
+                self.cosmLogInterval = 60
+        except:
+            self.lprint("Exception updating status")
+
 
     def updateRedis(self,status):
         """

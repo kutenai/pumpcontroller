@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/pumpcontroller.iml" filepath="$PROJECT_DIR$/pumpcontroller.iml" />
+      <module fileurl="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch.iml" filepath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ditchD/ditchD.iml" filepath="$PROJECT_DIR$/ditchD/ditchD.iml" />
+      <module fileurl="file:///Users/kutenai/proj/bondiproj/pumpcontrol/pumpcontrol.iml" filepath="/Users/kutenai/proj/bondiproj/pumpcontrol/pumpcontrol.iml" />
     </modules>
   </component>
 </project>

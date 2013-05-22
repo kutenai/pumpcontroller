@@ -210,7 +210,7 @@ class DitchLogger(object):
         self.logBoolStream(feedid, 'north_on', northOn)
         self.logBoolStream(feedid, 'south_on', southOn)
 
-    def logResultsDB(self,stat):
+    def logResultsDB(self,ditch,sump, pump,north,south):
         """
         Dump all information to the database.
         """
@@ -220,10 +220,10 @@ class DitchLogger(object):
 
         if self.conn and self.dbTable:
             self.dbTable.insertLogEntry(
-                int(stat['Ditch']), int(stat['Sump']),
-                self.ditchInches(stat['Ditch']),
-                self.sumpInches(stat['Sump']),
-                int(stat['P']), int(stat['N']), int(stat['S'])
+                int(ditch), int(sump),
+                self.ditchInches(ditch),
+                self.sumpInches(sump),
+                int(pump), int(north), int(south)
             )
 
             self.lprint("Logged to Database.")

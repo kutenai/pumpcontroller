@@ -149,7 +149,7 @@ class IrrigationAPI(object):
                     continue
                 return data
             retries -= 1
-            print("Retries..")
+            #print("Retries..")
 
         return None
 

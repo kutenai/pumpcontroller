@@ -4,7 +4,7 @@ __author__ = 'kutenai'
 
 import argparse
 import time
-from DitchRedisHandler import DitchRedisHandler
+from Ditch.DitchRedisHandler import DitchRedisHandler
 
 
 class Ditch(DitchRedisHandler):
