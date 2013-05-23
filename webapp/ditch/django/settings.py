@@ -1,4 +1,4 @@
-# Django settings for ditch project.
+# Django settings for gardenbuzz_django project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,13 +11,13 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'ditchmon',                      # Or path to database file if using sqlite3.
-        'USER': 'gb_user',                      # Not used with sqlite3.
-        'PASSWORD': 'aj-vic-gik-du-i',                  # Not used with sqlite3.
-        #'HOST': 'gardenbuzz.com',                      # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 
@@ -83,7 +83,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ')#w(pmjx(&+1q&yfz&d=)@2ut1q^gkkq^rco77o!_9#b&7!2uz'
+SECRET_KEY = 'pi4b!!-&94es_j0o^l*uk(kegxgor82t%1yht97tqk9-e^-lxl'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -102,10 +102,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'ditch.urls'
+ROOT_URLCONF = 'gardenbuzz_django.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'ditch.wsgi.application'
+WSGI_APPLICATION = 'gardenbuzz_django.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -120,8 +120,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ditchmon',
-    #'ditchctrl',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

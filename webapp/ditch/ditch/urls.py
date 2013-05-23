@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'ditch.views.home', name='home'),
     # url(r'^ditch/', include('ditch.foo.urls')),
+    url(r'^$', 'ditch.views.home'),
     url(r'^mon/', include ('ditchmon.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

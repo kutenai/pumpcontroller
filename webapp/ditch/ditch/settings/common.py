@@ -1,10 +1,12 @@
-# Django settings for ditchD project.
+# Django settings for ditch project.
 
 import os
 import os.path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
+APPLICATION_PATH = os.path.join(os.path.normpath(os.path.dirname(__file__)),'../..')
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -86,7 +88,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '0!-h6m&ar*-67p1zs($r%lpa5sl)^b-85%a+z-5!f$wvm7+5g2'
+SECRET_KEY = ')#w(pmjx(&+1q&yfz&d=)@2ut1q^gkkq^rco77o!_9#b&7!2uz'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -105,13 +107,16 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'ditchD.urls'
+ROOT_URLCONF = 'ditch.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'ditchD.wsgi.application'
+WSGI_APPLICATION = 'ditch.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(APPLICATION_PATH,'templates'),
 )
 
 INSTALLED_APPS = (
@@ -122,6 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ditchmon',
+    #'ditchctrl',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

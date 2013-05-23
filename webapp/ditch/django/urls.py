@@ -6,11 +6,9 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'ditchD.views.home', name='home'),
-    # url(r'^ditchD/', include('ditchD.foo.urls')),
+    # url(r'^$', 'gardenbuzz_django.views.home', name='home'),
+    # url(r'^gardenbuzz_django/', include('gardenbuzz_django.foo.urls')),
 
-    url(r'^$', 'ditch.views.home'),
-    url(r'^mon/', include ('ditchmon.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
