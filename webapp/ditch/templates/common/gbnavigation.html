@@ -1,0 +1,44 @@
+<div id="navwrapper">
+    <div id="navigation">
+        <ul class="nav nav-pills">
+            <li><a href="/">Home</a></li>
+            <li><a href="/featuredgardeners/">Featured Gardeners</a></li>
+            {% if enableNurseries %}
+            <li class="dropdown">
+                <a class="dropdown-toggle"
+                   data-toggle="dropdown"
+                   href="#">
+                    Nurseries
+                    <b class="caret"></b>
+                </a>
+                <!--
+                <ul class="dropdown-menu">
+                    <li><a href="/nurseries/">Nursery List</a></li>
+                    <li><a href="#">Furthest</a></li>
+                    <li><a href="#">Our recommended</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Random Choice</a></li>
+                    <li><a href="#">Just another option</a></li>
+                </ul>
+                -->
+            </li>
+            {% endif %}
+            {% if enablePlants %}
+            <li><a href="/tools/">Plants</a></li>
+            {% endif %}
+            <li><a href="/contact/">Contact Us</a></li>
+            <li><a href="/contact/">About</a></li>
+            {% if isLoggedIn %}
+            <!--
+            <li><a href="/aboutthevalley/">About The Valley</a></li>
+            <li><a href="/tools/">Gardening Tools</a></li>
+            <li><a href="/video/">Video Library</a></li>
+            <li><a href="/books/">Garden Books</a></li>
+            -->
+            <li><a href="/accounts/logout/">Log out</a></li>
+            {% else %}
+            <li><a href="/accounts/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

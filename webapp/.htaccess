@@ -1,0 +1,7 @@
+
+<FilesMatch "\.(less|css)$">
+ExpiresActive Off
+Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
+Header set Pragma "no-cache"
+</FilesMatch>
+

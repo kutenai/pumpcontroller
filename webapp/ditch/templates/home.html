@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Boise Ditch</title>
-</head>
-<body>
+{%  extends 'common/base_angular.html' %}
+
+{% block title %}Boise Ditch Company{% endblock %}
+{% block content %}
     <h1>Boise Ditch Company</h1>
 
-    <h2> Your Home For Ditch automation.</h2>
-</body>
-</html>
+    <div id='ditchcontrol'  ng-controller='DitchController'>
+        <button ng-click="ditchStart('north')">Start North</button>
+        <button ng-click="ditchStart('south')">Start South</button>
+        <button ng-click="ditchStop()">Stop</button>
+
+        <div>
+            {% verbatim %}
+            <span>Ditch Level:{{ info.ditch_inches }}</span>
+            <span>Sump Level:{{ info.sump_inches }}</span>
+            <span>Pump Status:{{ info.pump_on}}</span>
+            <span>North Status:{{ info.north_on}}</span>
+            <span>South Status:{{ info.south_on}}</span>
+            {% endverbatim %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+<h3>Ya'll come back soon!</h3>
+{% endblock %}

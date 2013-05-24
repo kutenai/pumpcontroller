@@ -2,24 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05caa682-40d8-4590-b43e-d3c8001cf1c3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/ditch/ditch_dev.wsgi" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/ditch/ditch_test.wsgi" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webapp/ditch/django/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webapp/ditch/django/settings.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webapp/ditch/django/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/webapp/ditch/django/wsgi.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/webapp/ditch/ditch/settings/prod.py" afterPath="$PROJECT_DIR$/webapp/ditch/ditch/settings/production.py" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/Controller.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Scripts/Ditch/Controller.py" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/angular_head.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/ditch/templates/common/angular_head.html" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/base_angular.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/ditch/templates/common/base_angular.html" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/less/ditch.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/less/ditch.less" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchClient.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/js/ditchClient.js" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchMain.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/js/ditchMain.js" />
+      <change type="NEW" beforePath="" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/urls.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webapp/ditch/ditchctrl/urls.py" />
       <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/Firmware/Libraries/CmdMessenger" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/Firmware/Libraries/CmdMessenger" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Firmware/Libraries/CmdMessenger" afterPath="$PROJECT_DIR$/Firmware/Libraries/CmdMessenger" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/ditch/settings/__init__.py" afterPath="$PROJECT_DIR$/webapp/ditch/ditch/settings/__init__.py" />
+      <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/settings/common.py" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/settings/common.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/ditch/settings/common.py" afterPath="$PROJECT_DIR$/webapp/ditch/ditch/settings/common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/ditch.wsgi" afterPath="$PROJECT_DIR$/webapp/ditch/ditch.wsgi" />
+      <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditch.py" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/ditch.py" afterPath="$PROJECT_DIR$/Scripts/ditch.py" />
+      <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/home.html" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/home.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/templates/home.html" afterPath="$PROJECT_DIR$/webapp/ditch/templates/home.html" />
+      <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/urls.py" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/ditch/urls.py" afterPath="$PROJECT_DIR$/webapp/ditch/ditch/urls.py" />
+      <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/views.py" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webapp/ditch/ditchctrl/views.py" afterPath="$PROJECT_DIR$/webapp/ditch/ditchctrl/views.py" />
       <change type="MODIFICATION" beforePath="/Users/kutenai/proj/bondiproj/pumpcontrol/.idea/workspace.xml" afterPath="/Users/kutenai/proj/bondiproj/pumpcontrol/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pumpcontrol.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369352536927" ignored="false" />
+    <file path="/Dummy.txt" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369357401218" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/management/__init__.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914904296" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/js/library/jquery-1.8.2.min.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
     <file path="$PROJECT_DIR$/../../EEWeb/schemeit/schemeit-web/src/main/webapp/WEB-INF/views/index.jsp" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1366914936632" ignored="false" />
@@ -390,20 +406,26 @@
     <file path="/DitchMessenger.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367213021199" ignored="false" />
     <file path="/main.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367265416396" ignored="false" />
     <file path="$USER_HOME$/Library/Caches/IntelliJIdea11/python_stubs/-1856293957/__builtin__.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1367522848151" ignored="false" />
-    <file path="/ditch.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369261225937" ignored="false" />
+    <file path="/ditch.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369360531976" ignored="false" />
     <file path="/settings.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369351420954" ignored="false" />
-    <file path="/urls.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369350988581" ignored="false" />
-    <file path="/views.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369351042143" ignored="false" />
+    <file path="/urls.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369358934644" ignored="false" />
+    <file path="/views.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369367559844" ignored="false" />
     <file path="/models.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369265503611" ignored="false" />
     <file path="/ditchmon.html" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369266674706" ignored="false" />
     <file path="/ditchtags.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369266854065" ignored="false" />
     <file path="/wsgi.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369354023136" ignored="false" />
     <file path="/sharpertool.wsgi" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369350837661" ignored="false" />
-    <file path="/home.html" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369351852744" ignored="false" />
+    <file path="/home.html" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369358580088" ignored="false" />
     <file path="/ditch.wsgi" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369354697936" ignored="false" />
-    <file path="/common.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369352283791" ignored="false" />
+    <file path="/common.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369359612770" ignored="false" />
     <file path="/ditch_dev.wsgi" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369354689853" ignored="false" />
     <file path="/ditch_test.wsgi" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369354703557" ignored="false" />
+    <file path="/angular_head.html" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369356551809" ignored="false" />
+    <file path="/base_angular.html" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369362097618" ignored="false" />
+    <file path="/ditchMain.js" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369367204167" ignored="false" />
+    <file path="/ditch.less" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369358104598" ignored="false" />
+    <file path="/.htaccess.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369358183167" ignored="false" />
+    <file path="/Controller.py" changelist="05caa682-40d8-4590-b43e-d3c8001cf1c3" time="1369360015962" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,52 +485,25 @@
     <favorites_list name="pumpcontrol" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46509573">
+    <splitter split-orientation="horizontal" split-proportion="0.44478154">
       <split-first>
         <leaf>
-          <file leaf-file-name="ditch.py" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Scripts/ditch.py">
+          <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/webapp/ditch/templates/home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="0" selection-start="266" selection-end="266" vertical-scroll-proportion="0.30010495">
+                <state line="13" column="53" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.225806">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="production.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/production.py">
+          <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="common.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/common.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="159" column="13" selection-start="5732" selection-end="5732" vertical-scroll-proportion="0.0">
+                <state line="35" column="32" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.42287514">
                   <folding>
-                    <element signature="e#38#47#0" expanded="true" />
+                    <element signature="e#27#36#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="wsgi.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/wsgi.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="3" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -517,10 +512,46 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="wsgi.py" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/wsgi.py">
+          <file leaf-file-name="Controller.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/Controller.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="64" selection-start="392" selection-end="392" vertical-scroll-proportion="0.18467996">
+                <state line="52" column="16" selection-start="1364" selection-end="1372" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".htaccess" pinned="false" current="false" current-in-tab="false">
+            <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/.htaccess">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="7" column="12" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../../gardenbuzz.com/gardenbuzz_django/sharpertool/gbtemplates/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="5" column="0" selection-start="81" selection-end="81" vertical-scroll-proportion="-3.548387">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ditchMain.js" pinned="false" current="false" current-in-tab="true">
+            <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchMain.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="63" column="0" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.3326338">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="base_angular.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/base_angular.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="5" column="42" selection-start="269" selection-end="269" vertical-scroll-proportion="-3.548387">
                   <folding />
                 </state>
               </provider>
@@ -536,7 +567,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="/Users/kutenai/proj/bondiproj/pumpcontrol" />
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -546,22 +577,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/webapp/ditch/templates/ditchmon.html" />
-        <option value="$PROJECT_DIR$/webapp/ditch/django/wsgi.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/sharpertool.wsgi" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/urls.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/views.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/settings.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditchD/settings.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditchD/urls.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/templates/home.html" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/settings/prod.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/settings/common.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/settings/__init__.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch/wsgi.py" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch_dev.wsgi" />
-        <option value="$PROJECT_DIR$/webapp/ditch/ditch.wsgi" />
         <option value="$PROJECT_DIR$/webapp/ditch/ditch_test.wsgi" />
+        <option value="$PROJECT_DIR$/webapp/ditch/templates/common/base.html" />
+        <option value="$PROJECT_DIR$/webapp/ditch/templates/common/angular_head.html" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchClient.js" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/home.html" />
+        <option value="$PROJECT_DIR$/webapp/ditch/templates/common/base_angular.html" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/.htaccess.py" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/less/ditch.less" />
+        <option value="$PROJECT_DIR$/webapp/ditch/templates/home.html" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/urls.py" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/settings/common.py" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/Controller.py" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditch.py" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/base_angular.html" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchMain.js" />
+        <option value="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/views.py" />
       </list>
     </option>
   </component>
@@ -570,8 +601,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1911" />
-    <option name="y" value="82" />
+    <option name="x" value="-1906" />
+    <option name="y" value="81" />
     <option name="width" value="3761" />
     <option name="height" value="1104" />
   </component>
@@ -723,6 +754,94 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ditch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -733,6 +852,84 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ditch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ditch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ditch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ditchctrl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="ditch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -747,15 +944,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ditch" />
+              <option name="myItemId" value="pumpcontrol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ditch" />
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="settings" />
+              <option name="myItemId" value="Scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ditch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pumpcontroller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ditch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -777,6 +1012,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -792,11 +1028,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl" />
+      <recent name="$PROJECT_DIR$/webapp/ditch/templates/common" />
       <recent name="$PROJECT_DIR$/webapp/ditch" />
       <recent name="$PROJECT_DIR$/webapp/ditch/ditch/settings" />
       <recent name="$PROJECT_DIR$/webapp/ditch/ditch" />
-      <recent name="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchmon" />
-      <recent name="$PROJECT_DIR$/Scripts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/webapp/ditch/ditch" />
@@ -806,7 +1042,7 @@
       <recent name="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Django server.ditchD">
+  <component name="RunManager" selected="JavaScript Debug.Javascriopt">
     <configuration default="false" name="IrrigationAPI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -841,7 +1077,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="ditchD" />
+      <module name="pumpcontrol" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
@@ -875,7 +1111,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="ditchD" />
+      <module name="pumpcontrol" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
@@ -924,7 +1160,7 @@
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
-      <module name="ditchD" />
+      <module name="pumpcontrol" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
@@ -1075,11 +1311,65 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
+    <configuration default="false" name="ditch" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="ditch" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ditchD" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="ditchD" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="JSR2Migration" type="JavascriptDebugSession" factoryName="Remote">
       <JSRemoteDebuggerConfigurationSettings>
         <option name="engineId" value="firefox" />
         <option name="fileUrl" value="http://localhost:8080/JSR2Migration/" />
       </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
+    <configuration default="false" name="Javascriopt" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="chrome" />
+        <option name="fileUrl" value="http://ditch.local/" />
+        <mapping url="http://ditch.local" local-file="/Users/kutenai/proj/bondiproj/pumpcontrol/webapp" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
     <configuration default="false" name="SerialTest" type="PythonConfigurationType" factoryName="Python">
@@ -1286,6 +1576,23 @@
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="ditch" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pumpcontrol" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditch.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="Tomcat server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/JSR2Migration" />
       <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
@@ -1350,69 +1657,27 @@
       </ConfigurationWrapper>
       <method />
     </configuration>
-    <configuration default="false" name="ditch" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="ditch" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ditchD" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="ditchD" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <method />
-    </configuration>
-    <list size="18">
+    <list size="20">
       <item index="0" class="java.lang.String" itemvalue="Django server.Software" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.JSR2Migration" />
-      <item index="2" class="java.lang.String" itemvalue="Python.SerialTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python.PyQwtDemo" />
-      <item index="4" class="java.lang.String" itemvalue="Python.IMU_Display" />
-      <item index="5" class="java.lang.String" itemvalue="Python.DitchMonitor" />
-      <item index="6" class="java.lang.String" itemvalue="Python.IrrigationAPIV2" />
-      <item index="7" class="java.lang.String" itemvalue="Python.DitchDummy" />
-      <item index="8" class="java.lang.String" itemvalue="Python.IrrigationAPIAT" />
-      <item index="9" class="java.lang.String" itemvalue="Python.DitchLogger" />
-      <item index="10" class="java.lang.String" itemvalue="Python.DitchControl" />
-      <item index="11" class="java.lang.String" itemvalue="Python.DitchManager" />
-      <item index="12" class="java.lang.String" itemvalue="Python.DitchControlR" />
-      <item index="13" class="java.lang.String" itemvalue="Python.DitchMessenger" />
-      <item index="14" class="java.lang.String" itemvalue="Tomcat Server.Tomcat server" />
-      <item index="15" class="java.lang.String" itemvalue="Django server.ditch" />
-      <item index="16" class="java.lang.String" itemvalue="Django server.ditchD" />
+      <item index="1" class="java.lang.String" itemvalue="Django server.ditch" />
+      <item index="2" class="java.lang.String" itemvalue="Django server.ditchD" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.JSR2Migration" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.Javascriopt" />
+      <item index="5" class="java.lang.String" itemvalue="Python.SerialTest" />
+      <item index="6" class="java.lang.String" itemvalue="Python.PyQwtDemo" />
+      <item index="7" class="java.lang.String" itemvalue="Python.IMU_Display" />
+      <item index="8" class="java.lang.String" itemvalue="Python.DitchMonitor" />
+      <item index="9" class="java.lang.String" itemvalue="Python.IrrigationAPIV2" />
+      <item index="10" class="java.lang.String" itemvalue="Python.DitchDummy" />
+      <item index="11" class="java.lang.String" itemvalue="Python.IrrigationAPIAT" />
+      <item index="12" class="java.lang.String" itemvalue="Python.DitchLogger" />
+      <item index="13" class="java.lang.String" itemvalue="Python.DitchControl" />
+      <item index="14" class="java.lang.String" itemvalue="Python.DitchManager" />
+      <item index="15" class="java.lang.String" itemvalue="Python.DitchControlR" />
+      <item index="16" class="java.lang.String" itemvalue="Python.DitchMessenger" />
       <item index="17" class="java.lang.String" itemvalue="Python.IrrigationAPI" />
+      <item index="18" class="java.lang.String" itemvalue="Python.ditch" />
+      <item index="19" class="java.lang.String" itemvalue="Tomcat Server.Tomcat server" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -1454,13 +1719,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1911" y="82" width="3761" height="1104" extended-state="0" />
+    <frame x="-1906" y="81" width="3761" height="1104" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1946" y="181" width="1600" height="1019" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1946" y="181" width="1600" height="1019" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.39899257" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="-3570" y="109" width="1592" height="1019" />
@@ -1474,7 +1739,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329685" sideWeight="0.6705314" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08515225" sideWeight="0.0" order="2" side_tool="false" content_ui="combo" x="-2498" y="111" width="558" height="1035" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1118297" sideWeight="0.0" order="2" side_tool="false" content_ui="combo" x="-2498" y="111" width="558" height="1035" />
       <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3192739" sideWeight="0.6" order="11" side_tool="false" content_ui="tabs" x="1919" y="194" width="1236" height="946" />
       <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1549,123 +1814,127 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="20" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/IrrigationAPIAT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="20" selection-start="3175" selection-end="3175" vertical-scroll-proportion="0.023084994">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/DitchManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="34" selection-start="11959" selection-end="11959" vertical-scroll-proportion="0.023084994">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="51" selection-start="708" selection-end="708" vertical-scroll-proportion="0.023084994">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditchD/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="163" selection-end="163" vertical-scroll-proportion="0.115424976">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="0.20776495">
-          <folding>
-            <element signature="e#26#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchmon/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="26" selection-start="213" selection-end="213" vertical-scroll-proportion="0.16159496">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="12" selection-start="63" selection-end="63" vertical-scroll-proportion="0.09233998">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="56" selection-end="56" vertical-scroll-proportion="0.09233998">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="13" selection-start="5732" selection-end="5732" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#38#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/settings/__init__.py">
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditchd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#94#109#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/angular_head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="26" selection-start="83" selection-end="83" vertical-scroll-proportion="0.047722343">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch.wsgi">
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="44" selection-start="322" selection-end="322" vertical-scroll-proportion="0.25393495">
+        <state line="20" column="9" selection-start="682" selection-end="682" vertical-scroll-proportion="0.4616999">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch_test.wsgi">
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditch/settings/common.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="58" selection-start="322" selection-end="322" vertical-scroll-proportion="0.25393495">
+        <state line="124" column="19" selection-start="4627" selection-end="4627" vertical-scroll-proportion="0.570658">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch/wsgi.py">
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="3" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
+        <state line="8" column="37" selection-start="229" selection-end="229" vertical-scroll-proportion="0.18467996">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/ditch/ditch_dev.wsgi">
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchmon/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="75" selection-start="321" selection-end="321" vertical-scroll-proportion="0.25393495">
+        <state line="20" column="19" selection-start="612" selection-end="612" vertical-scroll-proportion="0.3693599">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/ditch.py">
+    <entry file="file://$PROJECT_DIR$/webapp/ditch/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="266" selection-end="266" vertical-scroll-proportion="0.30010495">
+        <state line="13" column="53" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.225806">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sharpertool/gardenbuzz/gbrest/gbrest/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="49" selection-start="4588" selection-end="4588" vertical-scroll-proportion="0.050701186">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/less/ditch.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="47" selection-start="199" selection-end="199" vertical-scroll-proportion="0.3231899">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/ditch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.023084994">
+          <folding>
+            <element signature="e#23#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sharpertool/gardenbuzz/gbrest/nurseries/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="62" selection-start="374" selection-end="374" vertical-scroll-proportion="0.09233998">
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/templates/common/base_angular.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="42" selection-start="269" selection-end="269" vertical-scroll-proportion="-3.548387">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/Scripts/Ditch/Controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="16" selection-start="1364" selection-end="1372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/library/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5525" column="52" selection-start="172361" selection-end="172361" vertical-scroll-proportion="0.5634837">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/js/ditchMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.3326338">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Users/kutenai/proj/bondiproj/pumpcontrol/webapp/ditch/ditchctrl/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="32" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.42287514">
+          <folding>
+            <element signature="e#27#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
