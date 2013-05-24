@@ -1,7 +1,6 @@
 # Django settings for ditch project.
 
 import os
-import os.path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
