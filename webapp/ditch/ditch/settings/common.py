@@ -6,6 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 APPLICATION_PATH = os.path.join(os.path.normpath(os.path.dirname(__file__)),'../..')
+STATIC_DIR = os.path.normpath(os.path.join(APPLICATION_PATH,'../static'))
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -76,6 +77,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    STATIC_DIR,
 )
 
 # List of finder classes that know how to find static files in

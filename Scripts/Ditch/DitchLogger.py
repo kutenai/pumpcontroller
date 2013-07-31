@@ -9,6 +9,8 @@ from IrrigationAPIAT import IrrigationAPI
 from DBConnection import DBConnection
 from DBDitch import DBDitch
 
+import plotly
+
 """
 Feed id: 127898
 
@@ -94,6 +96,8 @@ class DitchLogger(object):
         self.feedHist = {
 
         }
+
+        self.py = plotly.plotly(username='kutenai',key='xhhbxk2swl')
 
     def setPrintObj(self,pobj):
 

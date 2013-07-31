@@ -52,6 +52,26 @@ class DBDitch(DBConnUser):
         curs.execute(sql)
         self.conn.commit()
 
+    def queryLastNReadings(self,N=1000):
+        """
+        Query the last N readings from teh DB
+        """
+
+        sql = """
+            select
+                timestamp, ditch_inches,sump_inches
+            from %s
+            where
+                second(timestamp)  = 0
+                and timestamp > current_date()-7
+                and ditch_inches > 8 and ditch_inches < 20
+            """ % (self.ditchLog)
+        curs = self.getCursor()
+
+        curs.execute(sql)
+        readings = curs.fetchallDict()
+        return readings
+
 def main():
 
     # Left over.. could put some test code here.

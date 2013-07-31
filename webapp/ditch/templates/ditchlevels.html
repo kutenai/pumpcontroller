@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ditch Monitor</title>
+</head>
+<body>
+
+    <h1>Here are the results you desire</h1>
+
+    <ul>
+        {% for lvl in readings.y %}
+            <li>
+                <span>Ditch:{{ lvl | floatformat:2 }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

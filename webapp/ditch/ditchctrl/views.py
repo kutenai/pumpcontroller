@@ -53,4 +53,32 @@ def index(request):
         d.allOff()
         return JSONResponse({}, status=201)
 
+@csrf_exempt
+def levels(request):
+    """
+    List all code nurseries, or create a new snippet.
+    """
+    if request.method == 'GET':
+        d = DitchController()
+        stat = d.getSystemStatus()
+        return JSONResponse(stat, status=201)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        if data.has_key('zone'):
+            d = DitchController()
+            zone = data['zone']
+            if zone == 'north':
+                d.runNorth()
+            elif zone == 'south':
+                d.runSouth()
+
+        return JSONResponse({}, status=201)
+
+    elif request.method == 'DELETE':
+        print("Deleting. or stopping it")
+        d = DitchController()
+        d.allOff()
+        return JSONResponse({}, status=201)
+
 
