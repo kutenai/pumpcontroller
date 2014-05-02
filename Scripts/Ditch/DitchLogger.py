@@ -97,7 +97,7 @@ class DitchLogger(object):
 
         }
 
-        self.py = plotly.plotly(username='kutenai',key='xhhbxk2swl')
+        self.py = plotly.plotly(username_or_email='kutenai',key='xhhbxk2swl')
 
     def setPrintObj(self,pobj):
 

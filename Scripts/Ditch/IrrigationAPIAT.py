@@ -27,13 +27,13 @@ class IrrigationAPI(object):
 
     def Initialize(self):
         """
-        Initialzie the serial port.
+        Initializie the serial port.
         """
 
         try:
             self.setupSerial(False)
-        except:
-            raise "Could not open serial port!"
+        except Exception as e:
+            raise Exception("Could not open serial port! Exception:%s" % e)
 
 
     def setupSerial(self,bFast = False):
@@ -75,7 +75,8 @@ class IrrigationAPI(object):
         Open the serial connection
         """
 
-        self.ser.open()
+        if not self.ser.isOpen():
+            self.ser.open()
 
 
     def setLastResult(self,res):

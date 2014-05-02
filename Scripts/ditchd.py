@@ -1,11 +1,5 @@
 #!/usr/bin/env Python
 
-"""@package SpiceServer
-
-Spice Daemon for the Simulation Server.
-
-"""
-
 import argparse
 import sys
 import os
@@ -38,15 +32,10 @@ class DitchDaemon(Daemon):
     def setInstanceId(self,id):
         self.instanceid = id
 
-    def run(self):
-
-        # Create a manager, and a GUI. Then, cross connect them.
-        # Manager will dump messages and status to the GUI, and then
-        # the GUI can control the manager.
-        # The gui will update the # of workers upon startup.
-
-        pid = os.getpid()
-
+    def _logfile(self):
+        """
+        Determine the log file to used, based on permissions
+        """
         # If there are multiple instances of the server, use different logs.
         if os.access("/var/log", os.W_OK):
             logroot = "/var/log"
@@ -54,12 +43,25 @@ class DitchDaemon(Daemon):
             logroot = "/tmp"
 
         if self.instanceid:
+            pid = os.getpid()
             logfile = os.path.join(logroot,"ditchd_%d.log" % pid)
         else:
             logfile = os.path.join(logroot,"ditchd.log")
 
+        return logfile
+
+
+    def run(self):
+
+        # Create a manager, and a GUI. Then, cross connect them.
+        # Manager will dump messages and status to the GUI, and then
+        # the GUI can control the manager.
+        # The gui will update the # of workers upon startup.
+
         app = DitchManager()
         app.setDaemon(True)
+
+        logfile = self._logfile()
         app.setLogFile(logfile)
 
         app.run()
