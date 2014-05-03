@@ -1,9 +1,17 @@
 # Django settings for ditch project.
 
 import os
+import sys
+from unipath import Path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+DJANGO_ROOT = Path(__file__).ancestor(3)
+
+SITE_ROOT = DJANGO_ROOT.ancestor(2)
+SCRIPT_ROOT = SITE_ROOT.child('scripts')
+
 SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 APPLICATION_PATH = os.path.join(os.path.normpath(os.path.dirname(__file__)),'../..')
 STATIC_DIR = os.path.normpath(os.path.join(APPLICATION_PATH,'../static'))
@@ -20,7 +28,6 @@ DATABASES = {
         'NAME': 'ditchmon',                      # Or path to database file if using sqlite3.
         'USER': 'gb_user',                      # Not used with sqlite3.
         'PASSWORD': 'aj-vic-gik-du-i',                  # Not used with sqlite3.
-        #'HOST': 'gardenbuzz.com',                      # Set to empty string for localhost. Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -95,17 +102,33 @@ SECRET_KEY = ')#w(pmjx(&+1q&yfz&d=)@2ut1q^gkkq^rco77o!_9#b&7!2uz'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+)
+
+########## TEMPLATE CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'account.context_processors.account',
+    'pinax_theme_bootstrap.context_processors.theme',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'ditch.urls'
@@ -121,19 +144,26 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.webdesign',
+    'django.contrib.comments',
+
+    'pinax_theme_bootstrap',
+    'django_forms_bootstrap',
+
     'rest_framework',
+    'south',
+
     'ditchmon',
     'ditchctrl',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+
+    #'messages',
 )
 
 REST_FRAMEWORK = {
@@ -169,3 +199,6 @@ LOGGING = {
         },
     }
 }
+
+USE_LESS = True
+LESS_POLL = 3000
