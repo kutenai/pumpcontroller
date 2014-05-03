@@ -2,9 +2,20 @@
 
 from celery import Celery
 
-app = Celery('mgr.tasks',
-             broker='redis://gardenbuzz.com:6379/0',
-             backend='redis://gardenbuzz.com:6379/1')
+app = Celery('mgr.tasks')
+app.config_from_object('mgr.celeryconfig')
+
+app2 = Celery('gbmgr.tasks')
+app2.config_from_object('gbmgr.celeryconfig')
+
+@app2.task
+def onstatus(d):
+    """
+    Handler for status results..
+    :param d:
+    :return:
+    """
+    print("Status:%s" % d)
 
 @app.task
 def status():
@@ -34,6 +45,4 @@ if __name__ == "__main__":
     while not s.ready():
         pass
 
-    results = s.get()
-
-    print("Status:%s" % results)
+    print("Main dealio is done..")

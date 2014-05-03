@@ -2,8 +2,10 @@ from __future__ import absolute_import
 
 from celery import Celery
 
-app = Celery('mgr',include=['mgr.tasks'])
-app.config_from_object('mgr.celeryconfig')
+app = Celery('gbmgr',include=['gbmgr.tasks'])
+app.config_from_object('gbmgr.celeryconfig')
+
+#app.conf.CELERY_TASK_SERIALIZER = 'json'
 
 # Optional configuration, see the application user guide.
 app.conf.update(
