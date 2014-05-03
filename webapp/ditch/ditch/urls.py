@@ -4,9 +4,11 @@ from django.conf.urls import patterns, include, url
 # from django.contrib import admin
 #admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^$', 'ditch.views.home'),
-    url(r'^mon/', include ('ditchmon.urls')),
-    url(r'^ctrl/', include ('ditchctrl.urls')),
+from views import AboutView,HomeView
 
+urlpatterns = patterns('',
+    url(r'^$', HomeView.as_view(),name='home'),
+    url(r'^mon/', include ('ditchmon.urls'),name='mon'),
+    url(r'^ctrl/', include ('ditchctrl.urls'),name='ctrl'),
+    url(r'^about/', AboutView.as_view(),name='ctrl'),
 )

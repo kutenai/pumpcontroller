@@ -3,15 +3,11 @@
 import os
 import sys
 
+from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DITCH_DIR = os.path.abspath(os.path.join(BASE_DIR, '../../../Scripts'))
-
-sys.path.append('/Volumes/bnpraid/Users/kutenai/proj/bondiproj/pumpcontrol/Scripts')
 
 from Ditch.Controller import DitchController
 

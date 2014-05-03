@@ -1,9 +1,13 @@
 # Create your views here.
-from django.http import HttpResponse
-from datetime import timedelta, tzinfo, datetime
-from django.shortcuts import render_to_response
+from __future__ import absolute_import
 
-def home(request):
-    return render_to_response('home.html', {})
+from django.views.generic import TemplateView,FormView
+
+class HomeView(TemplateView):
+    template_name = 'home.html'
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
+
 
 
