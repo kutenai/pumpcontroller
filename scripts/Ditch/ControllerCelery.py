@@ -7,7 +7,7 @@ from celery import Celery,group,chain
 
 sys.path.append('/Users/kutenai/proj/bondiproj/pumpcontrol/ditch_mgr')
 
-from mgr.tasks import *
+from mgr.tasks import pump_enable, south_enable, north_enable, status
 
 class DitchController(object):
     """
