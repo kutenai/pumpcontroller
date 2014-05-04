@@ -7,6 +7,7 @@ from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from celeryditch.tasks import status
+from celeryapp.tasks import onstatus
 
 from ditchmon.models import LevelLog
 
@@ -30,24 +31,7 @@ class Command(BaseCommand):
 
         dummy_opt = options.get('dummy',None)
 
-        s = status.apply_async()
+        chain = status.s() | onstatus.s()
+        chain()
 
-        while not s.ready():
-            print("Waiting for finallity..")
-            time.sleep(0.100)
-
-        st = json.loads(s.get())
-
-        ll = LevelLog.objects.create(
-            ditchlvl    = st.get('Ditch'),
-            sumplvl     = st.get('Sump'),
-            ditch_inches= 0,
-            sump_inches = 0,
-            pump_on     = st.get('P') == '1',
-            north_on    = st.get('N') == '1',
-            south_on    = st.get('S') == '1'
-        )
-
-        ll.save()
-
-        print("Inserted new status entry.")
+        print("Done..")

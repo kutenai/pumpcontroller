@@ -1,21 +1,27 @@
 from __future__ import absolute_import
 
 from .celery import app
-from json import loads
-import time
 
-@app.task(queue = 'gb')
-def onstatus(d):
+@app.task(queue = 'gb',name='gbmgr.tasks.onstatus')
+def onstatus(st):
     """
     Handle the status results
     """
+    print("On Status Called..")
 
-    status = loads(d)
+    from ditchmon.models import LevelLog
 
-    for k,v in status.iteritems():
-        print("Key:%s Value:%s\n" % (k,v))
+    ll = LevelLog.objects.create(
+        ditchlvl    = st.get('Ditch'),
+        sumplvl     = st.get('Sump'),
+        ditch_inches= 0,
+        sump_inches = 0,
+        pump_on     = st.get('P') == '1',
+        north_on    = st.get('N') == '1',
+        south_on    = st.get('S') == '1'
+    )
 
-    print("Status:%s" % status)
-    secs = time.mktime(time.localtime())
-    print "asctime(localtime(secs)): %s" % time.asctime(time.localtime(secs))
+    ll.save()
+
+    print("Inserted new status entry.")
 
