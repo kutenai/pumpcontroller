@@ -1,3 +1,4 @@
 */.build/*
 .build
 ditch_mgr/.ipynb_checkpoints
+freeze.txt
