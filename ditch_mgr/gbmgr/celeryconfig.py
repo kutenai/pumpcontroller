@@ -1,5 +1,5 @@
-BROKER_URL = 'redis://gardenbuzz.com:6379/2'
-CELERY_RESULT_BACKEND = 'redis://gardenbuzz.com:6379/3'
+BROKER_URL = 'redis://localhost:6379/2'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/3'
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'

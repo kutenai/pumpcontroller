@@ -12,6 +12,8 @@ class IrrigationAPI(object):
         self.lastResult = None
         self.port = None
         self.printer = None
+        self._initialized = False
+        print("Initialized IrrigationAPI!")
 
 
     def setPrintObj(self,pobj):
@@ -29,9 +31,11 @@ class IrrigationAPI(object):
         """
         Initializie the serial port.
         """
-
         try:
-            self.setupSerial(False)
+            if not self._initialized:
+                self.setupSerial(False)
+                self._initialized = True
+                print("Opened the serial channel.")
         except Exception as e:
             raise Exception("Could not open serial port! Exception:%s" % e)
 
@@ -68,6 +72,7 @@ class IrrigationAPI(object):
         Close the serial connection
         """
         self.ser.close()
+        self._initialized = False
 
 
     def open(self):
@@ -92,6 +97,7 @@ class IrrigationAPI(object):
 
 
         """
+        self.Initialize()
 
 
         if packet[-1] != '\n':
@@ -141,6 +147,8 @@ class IrrigationAPI(object):
         STen = Sump trigger enable
         """
 
+        self.Initialize()
+
         while retries:
             if self.sendPacket(b'status'):
                 result = self.getLastResult()
@@ -161,6 +169,7 @@ class IrrigationAPI(object):
         Returns space seperated values:
          ditch sump
         """
+        self.Initialize()
 
         while retries:
             if self.sendPacket(b'levels'):
@@ -179,6 +188,7 @@ class IrrigationAPI(object):
         Re-usable function that sends a boolean value as a 1 or a 0.
 
         """
+        self.Initialize()
 
         if bOn:
             self.sendPacket('%s 1' % cmd)

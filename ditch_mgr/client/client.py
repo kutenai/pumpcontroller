@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 
-from json import loads
+import time
 
-from celery import Celery,group,chain
+from celery import group,chain
 
-app = Celery('mgr.tasks')
-app.config_from_object('mgr.celeryconfig')
 from mgr.tasks import status
-
-app2 = Celery('gbmgr.tasks')
-app2.config_from_object('gbmgr.celeryconfig')
 from gbmgr.tasks import onstatus
 
 if __name__ == "__main__":
 
-    s = status.apply_async(link=onstatus.s()).get()
-    #print("Status:%s" % s)
-    onstatus.delay(s).get()
-    #chain( status.s() | onstatus.s() )()
+    os = onstatus.s()
+    s = status.apply_async(link=onstatus.s())
+
+    while not s.ready():
+        print("Waiting for finallity..")
+        time.sleep(0.100)
+
+    os.delay(s.get())
 
     print("Main dealio is done..")

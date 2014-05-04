@@ -16,7 +16,6 @@ from .celery import app
 from Ditch.IrrigationAPIAT import IrrigationAPI
 
 api = IrrigationAPI()
-api.Initialize()
 
 @app.task
 def add(x,y):
@@ -28,7 +27,7 @@ def mul(x,y):
     return x * y
 
 
-@app.task
+@app.task(queue='ditch')
 def status():
     print("Getting system status..")
     stat = api.getSystemStatus()
