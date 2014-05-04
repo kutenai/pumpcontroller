@@ -1,5 +1,17 @@
-BROKER_URL = 'redis://localhost:6379/2'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/3'
+import socket
+hn = socket.gethostname()
+
+print("Hostname:%s" % hn)
+
+port1 = 2
+port2 = 3
+
+if hn == 'bondinorthpro':
+    BROKER_URL = 'redis://localhost:6379/{0}'.format(port1)
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/{0}'.format(port2)
+else:
+    BROKER_URL = 'redis://gardenbuzz.com:6379/{0}'.format(port2)
+    CELERY_RESULT_BACKEND = 'redis://gardenbuzz.com:6379/{0}'.format(port2)
 
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
