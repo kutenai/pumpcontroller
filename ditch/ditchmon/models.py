@@ -4,7 +4,7 @@ from ditchlib.UnitTimestamp import UnixTimestampField
 # Create your models here.
 
 class LevelLog(models.Model):
-    timestamp       = models.DateTimeField()
+    timestamp       = models.DateTimeField(auto_now=True)
     ditchlvl        = models.SmallIntegerField()
     sumplvl         = models.SmallIntegerField()
     ditch_inches    = models.FloatField()
