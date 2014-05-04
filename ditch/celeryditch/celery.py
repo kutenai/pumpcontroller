@@ -4,6 +4,6 @@ from celery import Celery
 
 print("Initialize mgr Celery app.")
 
-app = Celery('mgr')
+app = Celery('mgr',include=['celeryditch.tasks'])
 app.config_from_object('celeryditch.celeryconfig')
 
