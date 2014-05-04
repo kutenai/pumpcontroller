@@ -79,11 +79,11 @@ def loadImages(imgPath,urlBase):
 
     return imageList
 
-class GardenBuzzMixin(object):
+class DitchMixin(object):
     angular_app = 'gardenbuzz'
 
     def get_context_data(self, **kwargs):
-        context = super(GardenBuzzMixin,self).get_context_data(**kwargs)
+        context = super(DitchMixin,self).get_context_data(**kwargs)
 
         context.update({
             "angularapp": self.angular_app
