@@ -6,11 +6,11 @@ print("Hostname:%s" % hn)
 port1 = 0
 port2 = 1
 
-if hn == 'bondinorthpro':
+if False and hn == 'bondinorthpro':
     BROKER_URL = 'redis://localhost:6379/{0}'.format(port1)
     CELERY_RESULT_BACKEND = 'redis://localhost:6379/{0}'.format(port2)
 else:
-    BROKER_URL = 'redis://gardenbuzz.com:6379/{0}'.format(port2)
+    BROKER_URL = 'redis://gardenbuzz.com:6379/{0}'.format(port1)
     CELERY_RESULT_BACKEND = 'redis://gardenbuzz.com:6379/{0}'.format(port2)
 
 CELERY_TASK_SERIALIZER = 'json'
