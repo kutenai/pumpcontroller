@@ -3,7 +3,7 @@
 import argparse
 import time
 
-from Ditch.Controller import DitchController
+from Ditch.ControllerCelery import DitchController
 
 def main():
     """

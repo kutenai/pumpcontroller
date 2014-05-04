@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
-from gbmgr.celery import app
+from .celery import app
+from json import loads
 
 @app.task
 def onstatus(d):
@@ -8,8 +9,10 @@ def onstatus(d):
     Handle the status results
     """
 
-    for k,v in d.iteritems():
+    status = loads(d)
+
+    for k,v in status.iteritems():
         print("Key:%s Value:%s\n" % (k,v))
 
-    print("Status:%s" % d)
+    print("Status:%s" % status)
 
