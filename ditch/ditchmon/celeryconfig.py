@@ -3,8 +3,8 @@ hn = socket.gethostname()
 
 print("Hostname:%s" % hn)
 
-port1 = 0
-port2 = 1
+port1 = 2
+port2 = 3
 
 BROKER_URL = 'redis://gardenbuzz.com:6379/{0}'.format(port1)
 CELERY_RESULT_BACKEND = 'redis://gardenbuzz.com:6379/{0}'.format(port2)
