@@ -1,6 +1,7 @@
 from celery import group,chain
 import time
 from datetime import datetime
+import json
 
 from optparse import make_option
 from django.core.management.base import BaseCommand
@@ -35,7 +36,7 @@ class Command(BaseCommand):
             print("Waiting for finallity..")
             time.sleep(0.100)
 
-        st = s.get()
+        st = json.loads(s.get())
 
         ll = LevelLog.objects.create(
             ditchlvl    = st.get('Ditch'),

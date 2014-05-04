@@ -159,6 +159,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'south',
 
+    'ditch',
     'ditchmon',
     'ditchctrl',
 

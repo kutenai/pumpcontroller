@@ -1,9 +1,10 @@
 from __future__ import absolute_import
 
+import socket
+
 import sys
 from os.path import abspath
 from unipath import Path
-import json
 
 BASE_PATH = Path(abspath(__file__)).ancestor(1)
 SCRIPT_PATH = BASE_PATH.ancestor(2).child('scripts')
@@ -12,49 +13,31 @@ print("BasePath:%s" % BASE_PATH)
 sys.path.append(SCRIPT_PATH)
 print("Appended script path:%s" % SCRIPT_PATH)
 
+hn = socket.gethostname()
+
 from .celery import app
-from Ditch.IrrigationAPIAT import IrrigationAPI
 
-api = IrrigationAPI()
-
-@app.task
-def add(x,y):
-    return x + y
-
-
-@app.task
-def mul(x,y):
-    return x * y
-
-
-@app.task(queue='ditch')
+@app.task(queue='ditch',name='mgr.tasks.status')
 def status():
     print("Getting system status..")
-    stat = api.getSystemStatus()
-
-    #for k,v in stat.iteritems():
-    #    print("Key:%s Value:%s\n" % (k,v))
-
-    return json.dumps(stat)
+    return {}
 
 
-@app.task
+@app.task(queue='ditch',name='mgr.tasks.read_sensors')
 def read_sensors():
-    d = api.getSensorData()
-    return json.dumps(d)
+    pass
 
-
-@app.task
+@app.task(queue='ditch',name='mgr.tasks.pump_enable')
 def pump_enable(bEnable):
-    api.pumpEnable(bEnable)
+    pass
 
 
-@app.task
+@app.task(queue='ditch',name='mgr.tasks.south_enable')
 def south_enable(bEnable):
-    api.southEnable(bEnable)
+    pass
 
 
-@app.task
+@app.task(queue='ditch',name='mgr.tasks.north_enable')
 def north_enable(bEnable):
-    api.northEnable(bEnable)
+    pass
 
