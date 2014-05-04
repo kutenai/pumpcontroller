@@ -7,7 +7,7 @@ from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from celeryditch.tasks import status
-from celeryapp.tasks import onstatus
+from ditchmon.tasks import onstatus
 
 from ditchmon.models import LevelLog
 
@@ -29,22 +29,10 @@ class Command(BaseCommand):
         TODO: Generate sprite for partsim.
         """
 
+        import djcelery
+        djcelery.setup_loader()
+
         dummy_opt = options.get('dummy',None)
 
-        s = status.apply_async()
-
-        st = json.loads(s.get())
-
-        ll = LevelLog.objects.create(
-            ditchlvl    = st.get('Ditch'),
-            sumplvl     = st.get('Sump'),
-            ditch_inches= 0,
-            sump_inches = 0,
-            pump_on     = st.get('P') == '1',
-            north_on    = st.get('N') == '1',
-            south_on    = st.get('S') == '1'
-        )
-
-        ll.save()
-
-        print("Inserted new status entry.")
+        res = (status.s() | onstatus.s()).apply_async()
+        print("Result:%s" % res.get())

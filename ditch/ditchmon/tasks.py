@@ -1,13 +1,16 @@
 from __future__ import absolute_import
 
-from .celery import app
+import json
+from celery import shared_task
 
-@app.task(queue = 'gb',name='gbmgr.tasks.onstatus')
+@shared_task(queue = 'gb',name='gbmgr.tasks.onstatus')
 def onstatus(st):
     """
     Handle the status results
     """
     print("On Status Called..")
+
+    st = json.loads(st)
 
     from .models import LevelLog
 
@@ -24,4 +27,6 @@ def onstatus(st):
     ll.save()
 
     print("Inserted new status entry.")
+
+    return "Success"
 
