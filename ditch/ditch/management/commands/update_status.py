@@ -31,7 +31,20 @@ class Command(BaseCommand):
 
         dummy_opt = options.get('dummy',None)
 
-        chain = status.s() | onstatus.s()
-        chain()
+        s = status.apply_async()
 
-        print("Done..")
+        st = json.loads(s.get())
+
+        ll = LevelLog.objects.create(
+            ditchlvl    = st.get('Ditch'),
+            sumplvl     = st.get('Sump'),
+            ditch_inches= 0,
+            sump_inches = 0,
+            pump_on     = st.get('P') == '1',
+            north_on    = st.get('N') == '1',
+            south_on    = st.get('S') == '1'
+        )
+
+        ll.save()
+
+        print("Inserted new status entry.")
