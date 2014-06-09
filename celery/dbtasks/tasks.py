@@ -1,11 +1,17 @@
 from __future__ import absolute_import
 
-def onstatus(d,queue='db'):
+import json
+import time
+
+from dbapp.celery import app
+
+@app.task()
+def onstatus(d):
     """
-    Insert status results into the GardenBuzz database.
+    Handle the status results
     """
 
-    status = loads(d)
+    status = json.loads(d)
 
     for k,v in status.iteritems():
         print("Key:%s Value:%s\n" % (k,v))

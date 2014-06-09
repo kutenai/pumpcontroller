@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 import celery
-from json import loads
+import json
 import time
 
 @celery.task()
@@ -10,7 +10,7 @@ def onstatus(d):
     Handle the status results
     """
 
-    status = loads(d)
+    status = d
 
     for k,v in status.iteritems():
         print("Key:%s Value:%s\n" % (k,v))
