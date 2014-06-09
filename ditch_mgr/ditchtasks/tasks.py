@@ -12,22 +12,13 @@ print("BasePath:%s" % BASE_PATH)
 sys.path.append(SCRIPT_PATH)
 print("Appended script path:%s" % SCRIPT_PATH)
 
-from .celery import app
+from ditchmgr.celery import app
+
 from Ditch.IrrigationAPIAT import IrrigationAPI
 
 api = IrrigationAPI()
 
-@app.task
-def add(x,y):
-    return x + y
-
-
-@app.task
-def mul(x,y):
-    return x * y
-
-
-@app.task(queue='ditch')
+@app.task()
 def status():
     print("Getting system status..")
     stat = api.getSystemStatus()
@@ -38,23 +29,23 @@ def status():
     return json.dumps(stat)
 
 
-@app.task
+@app.task()
 def read_sensors():
     d = api.getSensorData()
     return json.dumps(d)
 
 
-@app.task
+@app.task()
 def pump_enable(bEnable):
     api.pumpEnable(bEnable)
 
 
-@app.task
+@app.task()
 def south_enable(bEnable):
     api.southEnable(bEnable)
 
 
-@app.task
+@app.task()
 def north_enable(bEnable):
     api.northEnable(bEnable)
 

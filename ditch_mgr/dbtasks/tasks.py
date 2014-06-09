@@ -1,10 +1,10 @@
 from __future__ import absolute_import
 
-from .celery import app
+import celery
 from json import loads
 import time
 
-@app.task(queue = 'gb')
+@celery.task()
 def onstatus(d):
     """
     Handle the status results
