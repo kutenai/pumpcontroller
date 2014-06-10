@@ -1,4 +1,5 @@
 {%  extends 'common/site_base.html' %}
+{% load staticfiles %}
 
 {% block title %}Boise Ditch Company{% endblock %}
 {% block body %}
@@ -26,6 +27,32 @@
 
 
 {% endblock body %}
+
+{% block angular_script %}
+    {{ block.super }}
+    <script src="{% static 'js/DitchClient.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/DitchClient.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/DitchLib/DitchMain.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block ditch_script %}
+    <script type="text/javascript">
+        BasePath = "/static/js/";
+        StaticPath = "/static";
+        AngularPartialsBase = '/static/partials';
+    </script>
+
+    <script type="text/javascript">
+        DitchClient.URLS = _.defaults(DitchClient.URLS,{
+            'home' : '{% url "home" %}',
+            'about' : '{% url "about" %}',
+            'contact' : '{% url "contact" %}'
+        });
+    </script>
+
+    <script src="{% static 'js/DitchLoad.js' %}" type="text/javascript"></script>
+{% endblock %}
+
 
 {% block footer %}
 <h3>Ya'll come back soon!</h3>

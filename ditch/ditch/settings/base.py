@@ -47,6 +47,7 @@ TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
+SITE_NAME = "Boise Ditch Company"
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -118,6 +119,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'pinax_theme_bootstrap.context_processors.theme',
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
+    'ditchlib.context_processors.gardenbuzz_ctx',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -160,6 +162,7 @@ INSTALLED_APPS = (
     'south',
 
     'ditch',
+    'ditchdb',
     'ditchmon',
     'ditchctrl',
 
@@ -200,8 +203,8 @@ LOGGING = {
     }
 }
 
-USE_LESS = True
-LESS_POLL = 3000
+USE_LESS = False
+LESS_POLL = 20000
 
 # Celery
 BROKER_URL = 'redis://gardenbuzz.com:6379/0'

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^ctrl/', include ('ditchctrl.urls'),name='ctrl'),
     url(r'^about/', AboutView.as_view(),name='about'),
     url(r'^contact/', AboutView.as_view(),name='contact'),
+    url(r"^admin/", include(site.urls)),
 )
 
 urlpatterns += patterns('',

@@ -22,50 +22,50 @@
 
 </head>
 <body class="{% block body_class %}{% endblock %}" id="{% block body_id %}{% endblock %}">
-<section class="body_wrapper {% block wrapper_class %}{% endblock %}">
-    {% block header_bar_base %}
-        <div id="topbar" class="topbar {% block navbar_class %}navbar-fixed-top{% endblock %}">
-            {% block header_bar_images %}
-            {% endblock header_bar_images %}
-            {% block header_bar_nav %}
-                <nav>
-                    <a href="{% url 'home' %}">HOME</a>
-                </nav>
-            {% endblock header_bar_nav %}
-        </div>
-    {% endblock header_bar_base %}
+    <section class="body_wrapper {% block wrapper_class %}{% endblock %}">
+        {% block header_bar_base %}
+            <div id="topbar" class="topbar {% block navbar_class %}navbar-fixed-top{% endblock %}">
+                {% block header_bar_images %}
+                {% endblock header_bar_images %}
+                {% block header_bar_nav %}
+                    <nav>
+                        <a href="{% url 'home' %}">HOME</a>
+                    </nav>
+                {% endblock header_bar_nav %}
+            </div>
+        {% endblock header_bar_base %}
 
-    {% block body_base %}
-        <div class="container">
-            {% include "_messages.html" %}
-            {% block body %}
-            {% endblock body %}
-        </div>
-    {% endblock body_base %}
+        {% block body_base %}
+            <div class="container">
+                {% include "_messages.html" %}
+                {% block body %}
+                {% endblock body %}
+            </div>
+        {% endblock body_base %}
 
-    {% block footer_base %}
-        <hr/>
-        <footer>
-        </footer>
-    {% endblock footer_base %}
-</section>
+        {% block footer_base %}
+            <hr/>
+            <footer>
+            </footer>
+        {% endblock footer_base %}
+    </section>
 
 
-{% block body_script %}
-    <!-- base.html: body_script -->
-{% endblock %}
+    {% block body_script %}
+        <!-- base.html: body_script -->
+    {% endblock %}
 
-{% block extra_script %}
-    <!-- base.html: body_extra_script -->
-{% endblock %}
+    {% block extra_script %}
+        <!-- base.html: body_extra_script -->
+    {% endblock %}
 
-{% block page_script %}
-    <!-- base.html: body_page_script -->
-{% endblock %}
+    {% block page_script %}
+        <!-- base.html: body_page_script -->
+    {% endblock %}
 
-{% block body_script_final %}
-    <!-- base.html: body_script_final -->
-{% endblock %}
+    {% block body_script_final %}
+        <!-- base.html: body_script_final -->
+    {% endblock %}
 
 </body>
 </html>
