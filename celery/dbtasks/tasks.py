@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import json
 import time
 
-from dbapp.celery import app
+from ditchapp.celery import app
 
 @app.task()
 def onstatus(d):

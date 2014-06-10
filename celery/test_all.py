@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     print("Result:%s" % result)
 
-    s = result.get(timeout=1)
+    s = result.get(timeout=10)
     print("Status:%s" % s)
 
     onstatus.delay(s)
