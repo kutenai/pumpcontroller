@@ -16,8 +16,8 @@ class DitchCal(models.Model):
 
 class DitchLog(models.Model):
     timestamp       = models.DateTimeField()
-    ditch           = models.IntegerField()
-    sump            = models.IntegerField()
+    ditchlvl        = models.IntegerField()
+    sumplvl         = models.IntegerField()
     pump_call       = models.BooleanField()
     pump_on         = models.BooleanField()
 

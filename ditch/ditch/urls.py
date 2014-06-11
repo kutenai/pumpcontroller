@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 
+from ditch.admin import site
 from django.contrib import admin
 admin.autodiscover()
 

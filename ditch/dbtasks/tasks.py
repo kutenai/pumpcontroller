@@ -6,17 +6,30 @@ import time
 from celery import shared_task
 
 @shared_task()
-def onstatus(d):
+def onstatus(st):
     """
     Handle the status results
     """
+    print("On Status Called..")
 
-    status = json.loads(d)
+    st = json.loads(st)
 
-    for k,v in status.iteritems():
-        print("Key:%s Value:%s\n" % (k,v))
+    from ditchdb.models import DitchLog
 
-    print("Status:%s" % status)
-    secs = time.mktime(time.localtime())
-    print "asctime(localtime(secs)): %s" % time.asctime(time.localtime(secs))
+    ll = DitchLog.objects.create(
+        ditchlvl    = st.get('Ditch'),
+        sumplvl     = st.get('Sump'),
+        pump_call   = st.get('PC') == '1',
+        pump_on     = st.get('P') == '1',
+        north_call  = st.get('NC') == '1',
+        north_on    = st.get('N') == '1',
+        south_call  = st.get('SC') == '1',
+        south_on    = st.get('S') == '1',
+    )
+
+    ll.save()
+
+    print("Inserted new status entry.")
+
+    return "Success"
 
