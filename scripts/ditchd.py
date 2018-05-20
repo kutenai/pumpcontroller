@@ -1,5 +1,14 @@
 #!/usr/bin/env Python
 
+"""@package Ditch Server
+
+Spice Daemon for the Ditch server
+
+Launch the Ditch server as a daemon.
+
+
+"""
+
 import argparse
 import sys
 import os
@@ -32,7 +41,7 @@ class DitchDaemon(Daemon):
     def setInstanceId(self,id):
         self.instanceid = id
 
-    def _logfile(self):
+   def _logfile(self):
         """
         Determine the log file to used, based on permissions
         """
@@ -57,6 +66,8 @@ class DitchDaemon(Daemon):
         # Manager will dump messages and status to the GUI, and then
         # the GUI can control the manager.
         # The gui will update the # of workers upon startup.
+
+        pid = os.getpid()
 
         app = DitchManager()
         app.setDaemon(True)
