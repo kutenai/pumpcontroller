@@ -17,21 +17,21 @@ def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--pump', help="Turn the pump on or off")
+    parser.add_argument('--pump', '-p', help="Turn the pump on or off")
 
     parser.add_argument('--runnorth', action="store_true", help="Run the north zone.")
 
     parser.add_argument('--runsouth', action="store_true", help="Run the south zone.")
 
-    parser.add_argument('--off', action="store_true", help="Turn all off.")
+    parser.add_argument('--off', '-o', action="store_true", help="Turn all off.")
 
-    parser.add_argument('--north', help="Turn the north valve on or off")
+    parser.add_argument('--north','-n', help="Turn the north valve on or off")
 
-    parser.add_argument('--south', help="Turn the south valve on or off")
+    parser.add_argument('--south', '-s',help="Turn the south valve on or off")
 
-    parser.add_argument('--status', action='store_true', help="Read the status")
+    parser.add_argument('--status', '-t', action='store_true', help="Read the status")
 
-    parser.add_argument('--levels', action='store_true', help="Read the status")
+    parser.add_argument('--levels', '-l', action='store_true', help="Read the status")
 
     parser.add_argument('--loop', action='store_true', help="Read Constantly")
 

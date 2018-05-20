@@ -2,8 +2,6 @@
 
 """@package Ditch Server
 
-Spice Daemon for the Ditch server
-
 Launch the Ditch server as a daemon.
 
 
