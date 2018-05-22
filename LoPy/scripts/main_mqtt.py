@@ -56,16 +56,12 @@ def onoff(x):
     return b"OFF"
 
 def button_press(arg):
-    print("Button Pressed")
-    ctl_pump.toggle()
-    ctl_south.toggle()
-    ctl_north.toggle()
+    print("Button Pressed, toggling all controls")
+    controller.toggle_pump()
+    controller.toggle_south()
+    controller.toggle_north()
 
     controller.publish_controls()
-
-    print("Digital pins are {},{} and {}".format(
-        ctl_pump(), ctl_south(), ctl_north()
-    ))
 
 button.callback(Pin.IRQ_FALLING, handler=button_press)
 

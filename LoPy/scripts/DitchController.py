@@ -74,6 +74,15 @@ class DitchController:
     def south_command_handler(self, on=False):
         self.ctl_south(0 if on else 1)
 
+    def toggle_pump(self):
+        self.ctl_pump.toggle()
+
+    def toggle_north(self):
+        self.ctl_north.toggle()
+
+    def toggle_south(self):
+        self.ctl_south.toggle()
+
     def subscribe(self):
         self.client.subscribe(topic="kutenai/feeds/pump")
         self.client.subscribe(topic="kutenai/feeds/north")
