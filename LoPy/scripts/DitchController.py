@@ -27,7 +27,7 @@ class DitchController:
         self.ctl_south = Pin(south_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
         self.ctl_north = Pin(north_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
 
-        self.ctrl_pump(1)
+        self.ctl_pump(1)
         self.ctl_south(1)
         self.ctl_north(1)
 
