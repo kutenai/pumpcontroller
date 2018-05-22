@@ -8,7 +8,8 @@ import time
 
 
 def onoff(x):
-    if x:
+    """ Translate pin value to message string """
+    if x == 0:
         return b"ON"
     return b"OFF"
 
@@ -22,9 +23,13 @@ class DitchController:
         adc = machine.ADC()
         self.adc_ditch = adc.channel(pin=ditch_pin)
         self.adc_sump = adc.channel(pin=sump_pin)
-        self.ctl_pump = Pin(pump_pin, mode=Pin.OUT)
-        self.ctl_south = Pin(south_pin, mode=Pin.OUT)
-        self.ctl_north = Pin(north_pin, mode=Pin.OUT)
+        self.ctl_pump = Pin(pump_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
+        self.ctl_south = Pin(south_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
+        self.ctl_north = Pin(north_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
+
+        self.ctrl_pump(1)
+        self.ctl_south(1)
+        self.ctl_north(1)
 
         self.enable_publish = True
 
@@ -61,13 +66,13 @@ class DitchController:
             self.topic_vector[topic](bOn)
 
     def pump_command_handler(self, on=False):
-        self.ctl_pump(1 if on else 0)
+        self.ctl_pump(0 if on else 1)
 
     def north_command_handler(self, on=False):
-        self.ctl_north(1 if on else 0)
+        self.ctl_north(0 if on else 1)
 
     def south_command_handler(self, on=False):
-        self.ctl_south(1 if on else 0)
+        self.ctl_south(0 if on else 1)
 
     def subscribe(self):
         self.client.subscribe(topic="kutenai/feeds/pump")
@@ -82,7 +87,7 @@ class DitchController:
     # Setup our publish Timer
     def publish_levels(self):
         print("Sending ditch and sump levels")
-        self.client.publis                                     h("kutenai/feeds/ditch", "{:5.2f}".format(self.ditch_level()))
+        self.client.publish("kutenai/feeds/ditch", "{:5.2f}".format(self.ditch_level()))
         self.client.publish("kutenai/feeds/sump", "{:5.2f}".format(self.sump_level()))
 
     def time_to_publish(self):
