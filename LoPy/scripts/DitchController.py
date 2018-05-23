@@ -23,9 +23,9 @@ class DitchController:
         adc = machine.ADC()
         self.adc_ditch = adc.channel(pin=ditch_pin)
         self.adc_sump = adc.channel(pin=sump_pin)
-        self.ctl_pump = Pin(pump_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
-        self.ctl_south = Pin(south_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
-        self.ctl_north = Pin(north_pin, mode=Pin.OPEN_DRAIN, pull=Pin.PULL_UP)
+        self.ctl_pump = Pin(pump_pin, mode=Pin.OUT)
+        self.ctl_south = Pin(south_pin, mode=Pin.OUT)
+        self.ctl_north = Pin(north_pin, mode=Pin.OUT)
 
         self.ctl_pump(1)
         self.ctl_south(1)
