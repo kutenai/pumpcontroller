@@ -1,6 +1,5 @@
 import machine
-from machine import Pin
-from machine import Timer
+from machine import Pin, Timer, SD
 from mqtt import MQTTClient
 from network import WLAN
 import pycom
@@ -18,26 +17,38 @@ import settings
 networks = settings.PREFERRED_NETWORKS
 
 # login to the local network
-print('Initialising WLAN in station mode...', end=' ')
+print('Initialising WLAN in station mode...')
 wlan = WLAN(mode=WLAN.STA)
 
-nets = wlan.scan()
-for net in nets:
-    if net.ssid in networks:
-        wifikey=networks.get(net.ssid)
-        print('Network {} found!'.format(net.ssid))
-        wlan.connect(net.ssid, auth=(net.sec, wifikey), timeout=5000)
-        while not wlan.isconnected():
-            machine.idle() # save power while waiting
-        print('WLAN connection succeeded!')
-        # I don't think we need this.. and it gives errors.
-        #wlan.ifconfig(id=0,config='dhcp')
+while True:
+    nets = wlan.scan()
+    print("Nets found:{}".format(",".join([n.ssid for n in nets])))
+    for net in nets:
+        if net.ssid in networks:
+            wifikey=networks.get(net.ssid)
+            print('Network {} found!'.format(net.ssid))
+            wlan.connect(net.ssid, auth=(net.sec, wifikey), timeout=5000)
+            while not wlan.isconnected():
+                machine.idle() # save power while waiting
+            print('WLAN connection succeeded!')
+            # I don't think we need this.. and it gives errors.
+            #wlan.ifconfig(id=0,config='dhcp')
+            break
+
+    # print
+    ip, mask, gateway, dns = wlan.ifconfig()
+    print('IP address: {ip}\nNetwork:{mask}\nGateway:{gateway}\nDNS:{dns}\n'.format(
+        ip=ip, mask=mask, gateway=gateway, dns=dns))
+
+    if ip == '0.0.0.0':
+        print("Did not get a valid IP. Will re-try")
+        time.sleep(1)
+    else:
         break
 
-# print
-ip, mask, gateway, dns = wlan.ifconfig()
-print('IP address: {ip}\nNetwork:{mask}\nGateway:{gateway}\nDNS:{dns}\n'.format(
-    ip=ip, mask=mask, gateway=gateway, dns=dns))
+# Setup the SD Card, if found
+sd = SD()
+os.mount(sd, '/sd')
 
 controller = DitchController(
     ditch_pin="P13",
@@ -65,14 +76,11 @@ def button_press(arg):
 
 button.callback(Pin.IRQ_FALLING, handler=button_press)
 
-def publish_timer_handler(arg):
-    controller.time_to_publish()
-publish_timer = Timer.Alarm(publish_timer_handler, 5, periodic=True)
-
 pycom.heartbeat(False)
 start = 0x080000
 val=start
 counter=12
+
 while True:
     try:
         controller.loop()
@@ -82,4 +90,4 @@ while True:
 
         val = val >> 8 or start
     except Exception as e:
-        print("Bah.. got an execption:{}".format(e))
+        print("Received an Exception:{}".format(e))
