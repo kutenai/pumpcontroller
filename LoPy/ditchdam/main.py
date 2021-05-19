@@ -6,7 +6,7 @@ import pycom
 import time
 import uos
 
-from DitchController import DitchController
+from DitchMonitor import DitchMonitor
 
 # enable the UART on the USB-to-serial port
 uart = UART(0, baudrate=115200)
@@ -53,10 +53,7 @@ os.mount(sd, '/sd')
 
 controller = DitchController(
     ditch_pin="P13",
-    sump_pin="P16",
-    pump_pin="P19",
-    south_pin="P20",
-    north_pin="P21"
+    intake_pin="P16",
 )
 controller.connect()
 
