@@ -6,6 +6,8 @@ import pycom
 import time
 import uos
 
+from machine import WDT
+
 from DitchController import DitchController
 
 # enable the UART on the USB-to-serial port
@@ -19,7 +21,28 @@ networks = settings.PREFERRED_NETWORKS
 
 # login to the local network
 print('Initialising WLAN in station mode...')
+
+# indicator_status = False
+#
+# def indicator(phase="", done=False):
+#
+#     if done:
+#         indicator_status = False
+#
+#     if indicator_status:
+#         indicator_status = False
+#         pycom.rgbled(0x000000)
+#     else:
+#         indicator_status = True
+#         if phase == 'wifi':
+#             pycom.rgbled(0x7f0000)
+#         elif phase == 'read':
+#             pycom.rgbled(0x007f00)
+
+wdt = WDT(timeout=10000)
+
 wlan = WLAN(mode=WLAN.STA)
+# indicator('wifi')
 
 while True:
     nets = wlan.scan()
@@ -84,6 +107,7 @@ counter=12
 
 while True:
     try:
+        wdt.feed() # Keep the watchdog from reseting
         controller.loop()
 
         pycom.rgbled(val)
