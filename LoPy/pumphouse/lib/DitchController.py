@@ -59,7 +59,7 @@ class DitchController:
         self.client.connect()
         print("Connected to mqtt server")
         self.subscribe()
-        self.publish_controls()
+        self.publish_controls(get=True)
 
         if self.publish_timer:
             self.publish_timer.cancel()
@@ -101,9 +101,10 @@ class DitchController:
         val = 12.0 * val / 4095
         return val
 
-    def sump_level(self):
+    def sump_level(self, show=True):
         val = self.adc_sump()
-        print("ADC Sump {:4.2}".format(val))
+        if show:
+            print("ADC Sump {:4.2}".format(val))
         val = 26 * val / 4095
         return val
 
@@ -136,10 +137,15 @@ class DitchController:
         self.client.subscribe(topic="kutenai/feeds/north")
         self.client.subscribe(topic="kutenai/feeds/south")
 
-    def publish_controls(self):
-        self.client.publish("kutenai/feeds/pump", onoff(self.ctl_pump()))
-        self.client.publish("kutenai/feeds/north", onoff(self.ctl_north()))
-        self.client.publish("kutenai/feeds/south", onoff(self.ctl_south()))
+    def publish_controls(self, get=True):
+        if get:
+            self.client.publish(topic="kutenai/feeds/pump/get", msg='\0')
+            self.client.publish(topic="kutenai/feeds/north/get", msg='\0')
+            self.client.publish(topic="kutenai/feeds/south/get", msg='\0')
+        else:
+            self.client.publish(topic="kutenai/feeds/pump", msg=onoff(self.ctl_pump()))
+            self.client.publish(topic="kutenai/feeds/north", msg=onoff(self.ctl_north()))
+            self.client.publish(topic="kutenai/feeds/south", msg=onoff(self.ctl_south()))
 
     # Setup our publish Timer
     def update_levels(self):

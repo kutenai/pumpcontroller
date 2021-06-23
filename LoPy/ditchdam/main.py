@@ -5,8 +5,12 @@ from network import WLAN
 import pycom
 import time
 import uos
+from machine import WDT
 
 from DitchMonitor import DitchMonitor
+
+# Set a 10 second watch dog timer
+wdt = WDT(timeout=10000)
 
 # enable the UART on the USB-to-serial port
 uart = UART(0, baudrate=115200)
@@ -51,9 +55,9 @@ while True:
 sd = SD()
 os.mount(sd, '/sd')
 
-controller = DitchController(
-    ditch_pin="P13",
-    intake_pin="P16",
+controller = DitchMonitor(
+    ditch_pin="P13", # Green Wire, 1st pin bottom right
+    ditch_tower="P16", # Yellow Wire, 4th pin from bottom right
 )
 controller.connect()
 
@@ -66,9 +70,6 @@ def onoff(x):
 
 def button_press(arg):
     print("Button Pressed, toggling all controls")
-    controller.toggle_pump()
-    controller.toggle_south()
-    controller.toggle_north()
 
     controller.publish_controls()
 
@@ -81,6 +82,7 @@ counter=12
 
 while True:
     try:
+        wdt.feed() # Keep the timer from reseting the system
         controller.loop()
 
         pycom.rgbled(val)

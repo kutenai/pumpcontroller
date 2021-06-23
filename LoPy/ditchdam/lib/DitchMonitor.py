@@ -19,15 +19,15 @@ def onoff(x):
 class DitchMonitor:
     """ Control the Ditch at my house """
 
-    def __init__(self, ditch_pin="P13", intake_pin="P16",
+    def __init__(self, ditch_pin="P13", ditch_tower="P16",
                   cals='/sd/calibration/cal.json'):
 
         adc = machine.ADC()
         self.adc_ditch = adc.channel(pin=ditch_pin)
-        self.adc_sump = adc.channel(pin=sump_pin)
+        self.adc_tower = adc.channel(pin=ditch_tower)
 
         self._ditch_level = self.ditch_level()
-        self._tower_level = self.sump_level()
+        self._tower_level = self.tower_level()
         self._diff_trigger = 0.05
         self._last_published = time.time()
 
@@ -44,7 +44,6 @@ class DitchMonitor:
         self.client.set_callback(self.ditch_command_handler)
         self.client.connect()
         print("Connected to mqtt server")
-        self.publish_controls()
 
         if self.publish_timer:
             self.publish_timer.cancel()
@@ -86,10 +85,10 @@ class DitchMonitor:
         val = 12.0 * val / 4095
         return val
 
-    def sump_level(self):
-        val = self.adc_sump()
-        print("ADC Sump {:4.2}".format(val))
-        val = 26 * val / 4095
+    def tower_level(self):
+        val = self.adc_tower()
+        print("ADC Tower {:4.2}".format(val))
+        val = 12.0 * val / 4095
         return val
 
     def ditch_command_handler(self, topic, msg):
@@ -102,13 +101,13 @@ class DitchMonitor:
     def update_levels(self):
         """ Query current levels. Publish them if they have changed, or our publish timeout occurs """
         ditch = self.ditch_level()
-        sump = self.sump_level()
+        tower = self.tower_level()
         publish = abs(self._ditch_level-ditch) > self._diff_trigger
-        publish = publish or abs(self._tower_level-sump) > self._diff_trigger
+        publish = publish or abs(self._tower_level-tower) > self._diff_trigger
         if publish:
             print("Publish flag set, so ditch levels must be different")
             print("Ditch Levels: {} {}".format(self._ditch_level, ditch))
-            print("Sump Levels: {} {}".format(self._tower_level, sump))
+            print("Tower Levels: {} {}".format(self._tower_level, tower))
         if (time.time() - self._last_published) > self._publish_maxtime:
             print("It's been a while since we publisehd, so publishing again")
 
@@ -116,9 +115,9 @@ class DitchMonitor:
             self.publish_levels()
 
     def publish_levels(self):
-        print("Sending ditch and sump levels")
+        print("Sending ditch and tower levels")
         self._ditch_level = self.ditch_level()
-        self._tower_level = self.sump_level()
+        self._tower_level = self.tower_level()
         self.client.publish("kutenai/feeds/ditch", "{:5.2f}".format(self._ditch_level))
         self.client.publish("kutenai/feeds/ditch_tower", "{:5.2f}".format(self._tower_level))
         self._last_published = time.time()
